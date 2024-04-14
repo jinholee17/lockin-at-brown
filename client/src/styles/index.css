@@ -1,7 +1,14 @@
+@font-face {
+  font-family: 'Recursive Casual Regular';
+  src: url('/src/styles/fonts/Recursive_Casual-Regular.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -26,14 +33,25 @@ code {
 }
 
 #bearLogo{
-  margin-top: -2.9vh;
+  margin-top: -1.2vh;
   position: absolute;
-  width: 14vh;
-  height: 14vh;
-  left: 3vh;
-  top: 3vh;
+  width: 13vh;
+  height: 13vh;
+  left: 6vh;
+  top: 2vh;
 }
-/* Screenshot 2024-04-13 at 10.58.34-Photoroom 1 */
+
+.title{
+  font-family: "Recursive Casual Regular";
+  color: #FFE8C7;
+  size: 32px;
+  position: absolute;
+  top: 2vh;
+  left: 23vh;
+   
+}
+
+
 
 
 

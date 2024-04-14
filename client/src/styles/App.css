@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Noto Sans';
+  src: url('/src/styles/fonts/NotoSansJP-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
 .App {
   text-align: center;
 }
@@ -12,4 +18,50 @@
   font-size: calc(1px + 2vmin);
   color: white;
 }
+
+
+#peerBear{
+  margin-top: 10vh;
+  position: absolute;
+  width: 60vh;
+  height: 120vh;
+  left: 117vh;
+  top: -15vh;
+}
+
+.welcomeText{
+  font-family: "Noto Sans";
+  color: #502A13;
+  font-size: 80px;
+  position: absolute;
+  top: 23vh;
+  left: 39vh;
+  right: 39vh;
+}
+
+#loginButton{
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 12px 46px;
+  gap: 20px;
+
+  position: absolute;
+  width: 212px;
+  height: 64px;
+  left: 534px;
+  top: 566px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
