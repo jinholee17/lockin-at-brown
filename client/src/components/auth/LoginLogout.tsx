@@ -40,23 +40,24 @@ const Login: React.FunctionComponent<ILoginPageProps> = (props) => {
   };
 
   return (
-    <div>
+    <div className="home-page">
       <header>
         <img src="/src/images/bearLogo.png" id="bearLogo" />
+        <h1 className="title"> LockIn@Brown</h1>
       </header>
-      <h1 className="title"> LockIn@Brown</h1>
       <div className="login-box">
-        <h1 className="welcomeText">Searching for a Place to Study?</h1>
-        <img
-          src="/src/images/login.png" 
-          id = "loginButton"
-          className="google-login-button"
-          onClick={() => signInWithGoogle()}
-          style={{ cursor: "pointer" }}
-          // disabled={props.loggedIn} doesnt work?
-        />
+        <div>
+          <h1 className="welcomeText">Searching for a Place to Study?</h1>
+          <button
+            className="Login-button"
+            id="loginButton"
+            onClick={() => signInWithGoogle()}
+          >
+            Sign in
+          </button>
+        </div>
+        <img src="/src/images/peerBear.png" className="peer-bear" />
       </div>
-      <img src="/src/images/peerBear.png" id="peerBear" />
     </div>
   );
 };
