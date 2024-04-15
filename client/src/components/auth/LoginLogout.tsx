@@ -74,11 +74,15 @@ const Logout: React.FunctionComponent<ILoginPageProps> = (props) => {
   };
 
   return (
-    <div className="logout-box">
-      <button className="SignOut" onClick={() => signOut()}>
-        Sign Out
-      </button>
-    </div>
+    <header>
+      <img src="/src/images/bearLogo.png" id="bearLogo" />
+      <h1 className="title"> LockIn@Brown</h1>
+      <div className="logout-box">
+        <button className="SignOut" onClick={() => signOut()}>
+          Sign Out
+        </button>
+      </div>
+    </header>
   );
 };
 

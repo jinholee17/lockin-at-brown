@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Noto Sans";
+  src: url("/src/styles/fonts/NotoSansJP-Bold.ttf") format("truetype");
+  font-style: normal;
+}
+
+.input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  padding: 20vh;
+}
+
+.filter-input > input {
+  width: 30vw;
+  height: 7vh;
+  font-size: 24px;
+  border-radius: 30px;
+  border-width: 5px;
+  border-color: #ffe8c7;
+  padding-left: 30px;
+}
+
+.filter-input > button {
+  margin-left: 15px;
+  height: 7vh;
+  width: 7vh;
+  font-size: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #502a13;
+  color: #ffe8c7;
+}
+
+.added-filters {
+  display: inline-block;
+  flex-direction: row;
+  overflow-wrap: normal;
+  margin-top: -15vh;
+  width: 60vw;
+  text-align: center;
+}
+
+.added-filters > button {
+  height: 6vh;
+  width: auto;
+  padding: 10px 40px;
+  font-size: 20px;
+  background-color: #ffe8c7;
+  border-color: #ffe8c7;
+  color: #502a13;
+  cursor: pointer;
+  border-radius: 15px;
+  margin: 10px 15px;
+}
+
+.Not-Found {
+  font-size: 32px;
+  position: absolute;
+  top: 25vh;
+  font-weight: bold;
+  color: #502a13;
+}
+
+.lock-btn {
+  margin-top: 45px;
+  margin-left: 15px;
+  height: 7vh;
+  width: 20vh;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #502a13;
+  color: #ffe8c7;
+  font-weight: bold;
+}

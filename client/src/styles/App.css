@@ -44,3 +44,21 @@
   margin-left: 43vw;
   margin-bottom: 3vh;
 }
+
+.SignOut {
+  justify-self: right;
+  font-size: 50px;
+  width: 20vw;
+  margin-left: 63vw;
+  width: 14vw;
+  height: 8vh;
+  border-radius: 15px;
+  background-color: #502a13;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: #ffe8c7;
+  cursor: pointer;
+  border-color: #502a13;
+  border-radius: none;
+  outline: #502a13;
+}
