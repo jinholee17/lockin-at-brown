@@ -1,0 +1,15 @@
+.map {
+  width: 70vw;
+  height: 50vh;
+  position: fixed;
+  bottom: 25vh;
+  left: 25vh
+}
+
+.result {
+  font-family: "Noto Sans";
+  color: #502a13;
+  font-size: 2em;
+  margin-left: 3vw;
+  text-align: center;
+}
