@@ -68,6 +68,7 @@ export default function Filter(props: searchProps) {
       <button className="lock-btn" onClick={setToLoadPage}>
         Lock In! 🔓
       </button>
+      <img src="/src/images/peerBear.png" className="corner-bear" />
     </div>
   );
 }
