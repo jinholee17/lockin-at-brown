@@ -1,67 +1,64 @@
 @font-face {
-  font-family: 'Noto Sans';
-  src: url('/src/styles/fonts/NotoSansJP-Bold.ttf') format('truetype');
+  font-family: "Noto Sans";
+  src: url("/src/styles/fonts/NotoSansJP-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
-.App {
+
+.home-page {
+  position: block;
+  overflow-x: hidden;
+}
+
+.login-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.peer-bear {
+  width: 40vh;
+  margin-left: auto;
+}
+
+.welcomeText {
+  font-family: "Noto Sans";
+  color: #502a13;
+  font-size: 6em;
+  margin-left: 20vw;
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 20vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(1px + 2vmin);
-  color: white;
+.Login-button {
+  width: 14vw;
+  height: 8vh;
+  border-radius: 15px;
+  background-color: #ffe8c7;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: #bb7817;
+  cursor: pointer;
+  border-color: #ffe8c7;
+  border-radius: none;
+  outline: #ffe8c7;
+  margin-left: 43vw;
+  margin-bottom: 3vh;
 }
 
-
-#peerBear{
-  margin-top: 10vh;
-  position: absolute;
-  width: 60vh;
-  height: 120vh;
-  left: 117vh;
-  top: -15vh;
+.SignOut {
+  justify-self: right;
+  font-size: 50px;
+  width: 20vw;
+  margin-left: 63vw;
+  width: 14vw;
+  height: 8vh;
+  border-radius: 15px;
+  background-color: #502a13;
+  font-size: 3.5vh;
+  font-weight: bold;
+  color: #ffe8c7;
+  cursor: pointer;
+  border-color: #502a13;
+  border-radius: none;
+  outline: #502a13;
 }
-
-.welcomeText{
-  font-family: "Noto Sans";
-  color: #502A13;
-  font-size: 80px;
-  position: absolute;
-  top: 27vh;
-  left: 39vh;
-  right: 39vh;
-}
-
-#loginButton{
-  /* Auto layout */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 12px 46px;
-  gap: 20px;
-
-  position: absolute;
-  width: 212px;
-  height: 64px;
-  left: 534px;
-  top: 580px;
-}
-
-
-
-
-
-
-
-
-
-
-
-

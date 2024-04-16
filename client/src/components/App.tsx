@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import "../styles/App.css";
-import MapsGearup from "./MapsGearup";
+import Search from "./Search/Search";
 import AuthRoute from "./auth/AuthRoute";
 
 // REMEMBER TO PUT YOUR API KEY IN A FOLDER THAT IS GITIGNORED!!
@@ -34,9 +34,18 @@ initializeApp(firebaseConfig);
  * @returns The entire Map app and its relative components
  */
 function App() {
+  let options: string[] = [
+    "Total Silence",
+    "Quiet",
+    "Conversational",
+    "Loud",
+    "Low Traffic",
+    "High Traffic",
+  ];
+
   return (
     <div className="App">
-      <AuthRoute gatedContent={<MapsGearup />} />
+      <AuthRoute gatedContent={<Search options={options} />} />
     </div>
   );
 }

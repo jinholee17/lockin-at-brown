@@ -16,15 +16,24 @@ export default function MapsGearup() {
 
   return (
     <div>
-      <h1 aria-label="Gearup Title">Maps Gearup</h1>
-      <button onClick={() => setSection(Section.FIRESTORE_DEMO)}>
+      <div className="filter-input">
+        <input type="text" list="filter-list" placeholder="Quiet" />
+        <datalist id="filter-list">
+          <option>Total Silence</option>
+          <option>Quiet</option>
+          <option>Conversational</option>
+          <option>Loud</option>
+        </datalist>
+        <button>+</button>
+      </div>
+      {/* <button onClick={() => setSection(Section.FIRESTORE_DEMO)}>
         Section 1: Firestore Demo
       </button>
       <button onClick={() => setSection(Section.MAP_DEMO)}>
         Section 2: Mapbox Demo
       </button>
       {section === Section.FIRESTORE_DEMO ? <FirestoreDemo /> : null}
-      {section === Section.MAP_DEMO ? <Mapbox /> : null}
+      {section === Section.MAP_DEMO ? <Mapbox /> : null} */}
     </div>
   );
 }

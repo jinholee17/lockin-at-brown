@@ -1,6 +1,6 @@
 @font-face {
-  font-family: 'Recursive Casual Regular';
-  src: url('/src/styles/fonts/Recursive_Casual-Regular.ttf') format('truetype');
+  font-family: "Recursive Casual Regular";
+  src: url("/src/styles/fonts/Recursive_Casual-Regular.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
@@ -8,18 +8,11 @@
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #D2B181; /* Brown background color */
-}
-
-/* Set darker brown background color for the header */
-header {
-  background-color: #502A13; 
-  height: 15vh; 
-  width: 100%; 
+  background-color: #d2b181; /* Brown background color */
 }
 
 /* Add margin-top to main content to ensure it starts below the header */
@@ -32,32 +25,24 @@ code {
     monospace;
 }
 
-#bearLogo{
-  margin-top: -1.2vh;
-  position: absolute;
+header {
+  background-color: #502a13;
+  height: 15vh;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#bearLogo {
   width: 13vh;
   height: 13vh;
-  left: 6vh;
-  top: 2vh;
 }
 
-.title{
+.title {
   font-family: "Recursive Casual Regular";
-  color: #FFE8C7;
+  color: #ffe8c7;
   size: 32px;
-  position: absolute;
-  top: 2vh;
-  left: 23vh;
-   
+  margin-left: 15px;
 }
-
-
-
-
-
-
-
-
-
-
-
