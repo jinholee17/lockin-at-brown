@@ -9,7 +9,6 @@ interface searchProps {
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  // const [filterInput, setFilterInput] = useState<string>("");
   const [filters, setFilters] = useState<Set<String>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 

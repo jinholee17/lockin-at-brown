@@ -46,8 +46,8 @@ const Login: React.FunctionComponent<ILoginPageProps> = (props) => {
         <h1 className="title"> LockIn@Brown</h1>
       </header>
       <div className="login-box">
-        <div>
-          <h1 className="welcomeText">Searching for a Place to Study?</h1>
+        <div className="text-btn">
+          <h1 className="welcomeText">Where can I study at?</h1>
           <button
             className="Login-button"
             id="loginButton"

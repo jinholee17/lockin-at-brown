@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "../../styles/result.css";
-import Page from "../Search/Search";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
@@ -28,7 +27,6 @@ interface pageProps {
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
 }
 
-
 const ProvidenceLatLong: LatLong = {
   lat: 41.8268,
   long: -71.4025,
@@ -42,7 +40,6 @@ const initialZoom = 15;
  * @returns the mapbox render
  */
 export default function Result(props: pageProps) {
-
   // zoom and move around for map
   const [viewState, setViewState] = useState({
     latitude: ProvidenceLatLong.lat,
@@ -50,7 +47,9 @@ export default function Result(props: pageProps) {
     zoom: initialZoom,
   });
 
-
+  function setToFilterPage() {
+    props.setCurrPage("filter");
+  }
 
   return (
     <div className="map">
@@ -62,23 +61,25 @@ export default function Result(props: pageProps) {
         mapStyle={"mapbox://styles/mapbox/streets-v12"}
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
       ></Map>
+
+      <button className="new-search-btn" onClick={setToFilterPage}>
+        New Search 🔍
+      </button>
     </div>
   );
 }
 
-
-
-    // {
-    //   pins.map((pin, index) => {
-    //     // Split the pin string into latitude and longitude
-    //     const [lat, long] = pin.split(" ");
-    //     const latitude = parseFloat(lat.split(":")[1]);
-    //     const longitude = parseFloat(long.split(":")[1]);
-    //     return (
-    //       <Marker key={index} latitude={latitude} longitude={longitude}>
-    //         {/* Marker content */}
-    //         <div style={{ fontSize: 20 }}>📍</div>
-    //       </Marker>
-    //     );
-    //   });
-    // }
+// {
+//   pins.map((pin, index) => {
+//     // Split the pin string into latitude and longitude
+//     const [lat, long] = pin.split(" ");
+//     const latitude = parseFloat(lat.split(":")[1]);
+//     const longitude = parseFloat(long.split(":")[1]);
+//     return (
+//       <Marker key={index} latitude={latitude} longitude={longitude}>
+//         {/* Marker content */}
+//         <div style={{ fontSize: 20 }}>📍</div>
+//       </Marker>
+//     );
+//   });
+// }

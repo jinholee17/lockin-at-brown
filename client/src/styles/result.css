@@ -1,9 +1,12 @@
 .map {
-  width: 70vw;
-  height: 50vh;
-  position: fixed;
-  bottom: 25vh;
-  left: 25vh
+  width: 90vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-left: 5%;
 }
 
 .result {
@@ -12,4 +15,18 @@
   font-size: 2em;
   margin-left: 3vw;
   text-align: center;
+}
+
+.new-search-btn {
+  margin-top: 45px;
+  margin-left: 15px;
+  height: 10vh;
+  width: 24vh;
+  font-size: 24px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #502a13;
+  color: #ffe8c7;
+  font-weight: bold;
+  justify-self: center;
 }
