@@ -4,5 +4,5 @@ interface ImportMetaEnv {
 }
 
 interface ImportMeta {
-  env: ImportMetaEnv;
+  enx: ImportMetaEnv;
 }
