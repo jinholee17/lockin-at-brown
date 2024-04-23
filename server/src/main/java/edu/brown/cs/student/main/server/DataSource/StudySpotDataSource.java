@@ -10,10 +10,8 @@ import edu.brown.cs.student.main.server.enums.Traffic;
 import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.sql.SQLOutput;
-import java.util.Calendar;
 import java.nio.file.Paths;
+import java.util.Calendar;
 import java.util.List;
 
 public class StudySpotDataSource {
@@ -22,8 +20,7 @@ public class StudySpotDataSource {
 
   public StudySpotDataSource() throws IOException {
     String workingDirectory = System.getProperty("user.dir");
-    String path =
-        Paths.get(workingDirectory, "data", "data.csv").toString();
+    String path = Paths.get(workingDirectory, "data", "data.csv").toString();
     this.parse(path);
   }
 
@@ -42,8 +39,14 @@ public class StudySpotDataSource {
    * @param capacity
    * @return
    */
-  public StudySpot match(Volume volume, Traffic traffic, Capacity capacity, Double lon, Double lat,
-      String accessible,String whiteboard) {
+  public StudySpot match(
+      Volume volume,
+      Traffic traffic,
+      Capacity capacity,
+      Double lon,
+      Double lat,
+      String accessible,
+      String whiteboard) {
     int maxIndex = 0;
     double maxScore = 0;
 
@@ -61,11 +64,10 @@ public class StudySpotDataSource {
       if (capacity != null && capacity.equals(s.capacity)) {
         score += 1;
       }
-      if (accessible != null)
-      {
-          if (accessible.equals("yes") || accessible.equals("true")) {
-            score += s.accessibility;
-          }
+      if (accessible != null) {
+        if (accessible.equals("yes") || accessible.equals("true")) {
+          score += s.accessibility;
+        }
       }
       if (whiteboard != null) {
         if (whiteboard.equals("yes") || whiteboard.equals("true")) {
@@ -76,9 +78,9 @@ public class StudySpotDataSource {
       }
       // subtracts by 'how close' a study spot is by weight of 3*difference
       if (lon != null && lat != null) {
-        score -= getClose(lon,lat,s.longitude,s.latitude);
+        score -= getClose(lon, lat, s.longitude, s.latitude);
       }
-      if (s.time.equals(this.getTime())){
+      if (s.time.equals(this.getTime())) {
         score += 1;
       }
       if (score > maxScore) {
@@ -90,7 +92,7 @@ public class StudySpotDataSource {
     return this.parsed.get(maxIndex);
   }
 
-  public Time getTime(){
+  public Time getTime() {
     Calendar calendar = Calendar.getInstance();
     int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
     Time timePeriod;
@@ -107,20 +109,20 @@ public class StudySpotDataSource {
   }
 
   /**
-   * Subtracts the difference of coordinates- can be adjusted
-   * based on how much you want location to be a weight in the
-   * algorithm. If a place is close by, it will return < 0.01.
-   * If a place is far, it will return > 0.4
+   * Subtracts the difference of coordinates- can be adjusted based on how much you want location to
+   * be a weight in the algorithm. If a place is close by, it will return < 0.01. If a place is far,
+   * it will return > 0.4
+   *
    * @param mylon
    * @param mylat
    * @param lon
    * @param lat
    * @return
    */
-  public double getClose(Double mylon,Double mylat, Double lon, Double lat){
-    return Math.abs(3*(mylon - lon + (mylat - lat)));
-
+  public double getClose(Double mylon, Double mylat, Double lon, Double lat) {
+    return Math.abs(3 * (mylon - lon + (mylat - lat)));
   }
+
   public List<StudySpot> getParsed() {
     return this.parsed;
   }

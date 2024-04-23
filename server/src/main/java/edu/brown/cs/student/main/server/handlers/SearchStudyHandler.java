@@ -33,7 +33,7 @@ public class SearchStudyHandler implements Route {
       String vol = request.queryParams("volume");
       String tra = request.queryParams("traffic");
       String cap = request.queryParams("capacity");
-      //accessible and whiteboard can be 'yes' or 'true', doesn't matter elsewise
+      // accessible and whiteboard can be 'yes' or 'true', doesn't matter elsewise
       String acc = request.queryParams("accessible");
       String whi = request.queryParams("whiteboard");
       Double lon = Double.parseDouble(request.queryParams("lon"));
@@ -55,7 +55,8 @@ public class SearchStudyHandler implements Route {
         capacity = Capacity.convertCapacity(cap);
       }
 
-      StudySpot studySpot = this.studySpotDataSource.match(volume, traffic, capacity,lon,lat,acc,whi);
+      StudySpot studySpot =
+          this.studySpotDataSource.match(volume, traffic, capacity, lon, lat, acc, whi);
       responseMap.put("Result", studySpot);
 
     } catch (Exception e) {

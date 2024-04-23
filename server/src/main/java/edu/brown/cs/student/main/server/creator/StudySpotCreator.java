@@ -36,7 +36,8 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(9),this.getCoords(row.get(0)).getLongitude(),
+                row.get(9),
+                this.getCoords(row.get(0)).getLongitude(),
                 this.getCoords(row.get(0)).getLatitude());
         return studySpot;
       case 9:
@@ -52,7 +53,8 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(8),this.getCoords(row.get(0)).getLongitude(),
+                row.get(8),
+                this.getCoords(row.get(0)).getLongitude(),
                 this.getCoords(row.get(0)).getLatitude());
         return studySpot;
       case 8:
@@ -67,7 +69,8 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(7),this.getCoords(row.get(0)).getLongitude(),
+                row.get(7),
+                this.getCoords(row.get(0)).getLongitude(),
                 this.getCoords(row.get(0)).getLatitude());
         return studySpot;
       default:
@@ -81,16 +84,16 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(6),this.getCoords(row.get(0)).getLongitude(),
+                row.get(6),
+                this.getCoords(row.get(0)).getLongitude(),
                 this.getCoords(row.get(0)).getLatitude());
         return studySpot;
     }
   }
 
-  public Location getCoords(String locationName){
+  public Location getCoords(String locationName) {
     String workingDirectory = System.getProperty("user.dir");
-    String path =
-        Paths.get(workingDirectory, "data", "locationcoords.json").toString();
+    String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
     try (FileReader reader = new FileReader(path)) {
       // Parse JSON data into a custom class or map
       Gson gson = new Gson();

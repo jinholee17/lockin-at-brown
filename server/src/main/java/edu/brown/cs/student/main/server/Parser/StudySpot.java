@@ -24,7 +24,9 @@ public class StudySpot {
       String traffic,
       String capacity,
       List<String> accessibility,
-      String whiteboard, double longitude, double latitude) {
+      String whiteboard,
+      double longitude,
+      double latitude) {
     this.name = name;
     this.time = Time.convertTime(time);
     this.volume = Volume.convertVolume(volume);

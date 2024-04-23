@@ -1,9 +1,6 @@
 import { useState } from "react";
 import "../../styles/result.css";
-import {
-  locationTopDescriptions,
-  locationCoords,
-} from "../data/mock";
+import { locationTopDescriptions, locationCoords } from "../data/mock";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
@@ -86,7 +83,7 @@ export default function Result(props: pageProps) {
             <div
               onMouseEnter={() => handleMouseEnter(key)}
               onMouseLeave={handleMouseLeave}
-              style={{ fontSize: 20 }}
+              style={{ fontSize: 24 }}
             >
               📍
             </div>
@@ -100,7 +97,7 @@ export default function Result(props: pageProps) {
             closeButton={false}
             anchor="bottom"
           >
-            <div>
+            <div className="Popup">
               <h3>{hoveredLocation}</h3>
               <ul>
                 {locationTopDescriptions
