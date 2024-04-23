@@ -1,7 +1,7 @@
 package edu.brown.cs.student.main.server.handlers;
 
-import edu.brown.cs.student.main.server.geoJSONDataSource.GeoJSONData;
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonObject;
+import edu.brown.cs.student.main.server.DataSource.GeoJSONData;
+import edu.brown.cs.student.main.server.Parser.GeoJsonObject;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;

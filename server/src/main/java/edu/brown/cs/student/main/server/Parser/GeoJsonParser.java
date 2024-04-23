@@ -1,4 +1,4 @@
-package edu.brown.cs.student.main.server.geoJsonParser;
+package edu.brown.cs.student.main.server.Parser;
 
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;

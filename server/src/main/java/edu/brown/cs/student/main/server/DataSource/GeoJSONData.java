@@ -1,6 +1,6 @@
-package edu.brown.cs.student.main.server.geoJSONDataSource;
+package edu.brown.cs.student.main.server.DataSource;
 
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonObject;
+import edu.brown.cs.student.main.server.Parser.GeoJsonObject;
 
 /** Flexible interface provided to red-line data related handlers */
 public interface GeoJSONData {
