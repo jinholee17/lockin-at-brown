@@ -5,11 +5,13 @@ import edu.brown.cs.student.main.server.Parser.StudySpotParser;
 import edu.brown.cs.student.main.server.creator.CreatorFromRow;
 import edu.brown.cs.student.main.server.creator.StudySpotCreator;
 import edu.brown.cs.student.main.server.enums.Capacity;
+import edu.brown.cs.student.main.server.enums.Time;
 import edu.brown.cs.student.main.server.enums.Traffic;
 import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.util.Calendar;
 import java.nio.file.Paths;
 import java.util.List;
 
@@ -21,8 +23,6 @@ public class StudySpotDataSource {
     String workingDirectory = System.getProperty("user.dir");
     String path =
         Paths.get(workingDirectory, "data", "data.csv").toString();
-//    String path =
-//        "C:\\cs32\\term-project-jlee812-asun59-mzheng37-hchung33\\server\\data\\data.csv";
     this.parse(path);
   }
 
@@ -63,6 +63,9 @@ public class StudySpotDataSource {
       if (s.whiteboard) {
         score += 1;
       }
+      if (s.time.equals(this.getTime())){
+        score += 1;
+      }
       if (score > maxScore) {
         maxScore = score;
         maxIndex = i;
@@ -72,6 +75,21 @@ public class StudySpotDataSource {
     return this.parsed.get(maxIndex);
   }
 
+  public Time getTime(){
+    Calendar calendar = Calendar.getInstance();
+    int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
+    Time timePeriod;
+    if (currentHour >= 7 && currentHour < 12) {
+      timePeriod = Time.MORNING;
+    } else if (currentHour >= 12 && currentHour < 16) {
+      timePeriod = Time.EARLY_AFTERNOON;
+    } else if (currentHour >= 16 && currentHour < 20) {
+      timePeriod = Time.LATE_AFTERNOON;
+    } else {
+      timePeriod = Time.EVENING;
+    }
+    return timePeriod;
+  }
   public List<StudySpot> getParsed() {
     return this.parsed;
   }
