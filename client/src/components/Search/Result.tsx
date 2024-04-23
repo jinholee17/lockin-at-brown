@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "../../styles/result.css";
+import {
+  locationTopDescriptions,
+  locationCoords,
+} from "../data/mock";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
@@ -60,7 +64,18 @@ export default function Result(props: pageProps) {
         {...viewState}
         mapStyle={"mapbox://styles/mapbox/streets-v12"}
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
-      ></Map>
+      >
+        {Array.from(locationCoords.entries()).map(([key, coord], index) => (
+          <Marker
+            key={index}
+            latitude={coord[0]}
+            longitude={coord[1]}
+            anchor="bottom"
+          >
+            <div style={{ fontSize: 20 }}>📍</div>
+          </Marker>
+        ))}
+      </Map>
 
       <button className="new-search-btn" onClick={setToFilterPage}>
         New Search 🔍
