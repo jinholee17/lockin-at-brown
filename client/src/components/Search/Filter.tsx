@@ -57,6 +57,10 @@ export default function Filter(props: searchProps) {
   return (
     <div className="input">
       <p className="Not-Found">{filtersNA}</p>
+      <h1>
+        Enter filters in the input space below and use the add button to add the
+        filter:
+      </h1>
       <div className="filter-input">
         <input
           type="text"
