@@ -1,0 +1,104 @@
+{
+  "locations": [
+    {
+      "name": "new watson",
+      "latitude": 41.82423800342244,
+      "longitude": -71.39898933126929
+    },
+    {
+      "name": "the hay",
+      "latitude": 41.826646345658396,
+      "longitude": -71.40494714161748
+    },
+    {
+      "name": "rockefeller",
+      "latitude": 41.82574588988792,
+      "longitude": -71.40505025952011
+    },
+    {
+      "name": "rockefeller first floor cafe",
+      "latitude": 41.82574588988792,
+      "longitude": -71.40505025952011
+    },{
+      "name": "rockefeller stacks",
+      "latitude": 41.82574588988792,
+      "longitude": -71.40505025952011
+    },
+    {
+      "name": "sunlab cit",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565
+    },{
+      "name": "cit",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565
+    },{
+      "name": "cit library",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565
+    },{
+      "name": "cit atrium",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565
+    },
+    {
+      "name": "sci li",
+      "latitude": 41.82700508660657,
+      "longitude": -71.40022582814139
+    },{
+      "name": "sci li basement",
+      "latitude": 41.82700508660657,
+      "longitude": -71.40022582814139
+    },{
+      "name": "sci li stacks",
+      "latitude": 41.82700508660657,
+      "longitude": -71.40022582814139
+    },
+    {
+      "name": "barus and holley",
+      "latitude": 41.82619397565186,
+      "longitude": -71.39784352976415
+    },
+    {
+      "name": "barus and holley 5th floor library",
+      "latitude": 41.82619397565186,
+      "longitude": -71.39784352976415
+    },
+    {
+      "name": "erc",
+      "latitude": 41.826633629712795,
+      "longitude": -71.39810534483652
+    },
+    {
+      "name": "erc cafe",
+      "latitude": 41.826633629712795,
+      "longitude": -71.39810534483652
+    },{
+      "name": "friedman 1st floor standing desks",
+      "latitude": 41.82627428479401,
+      "longitude": -71.40234142512371
+    },
+    {
+      "name": "friedman",
+      "latitude": 41.82627428479401,
+      "longitude": -71.40234142512371
+    },{
+      "name": "orwig music library",
+      "latitude": 41.82464875822009,
+      "longitude": -71.3965891283718
+    },
+    {
+      "name": "biomed basement",
+      "latitude": 41.82871514708727,
+      "longitude": -71.40268357993682
+    },{
+      "name": "biomed",
+      "latitude": 41.82871514708727,
+      "longitude": -71.40268357993682
+    },{
+      "name": "underground",
+      "latitude": 41.82683577607628,
+      "longitude": -71.40329860896881
+    }
+  ]
+}

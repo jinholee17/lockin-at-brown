@@ -38,6 +38,22 @@ export default function Filter(props: searchProps) {
     props.setCurrPage("load");
   }
 
+  if ("geolocation" in navigator) {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        console.log("Latitude:", latitude);
+        console.log("Longitude:", longitude);
+      },
+      (error) => {
+        console.error("Error getting current position:", error);
+      }
+    );
+  } else {
+    console.error("Geolocation is not supported by this browser.");
+  }
+
   return (
     <div className="input">
       <p className="Not-Found">{filtersNA}</p>
