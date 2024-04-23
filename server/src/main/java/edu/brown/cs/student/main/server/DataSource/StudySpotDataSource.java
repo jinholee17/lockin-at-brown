@@ -9,6 +9,8 @@ import edu.brown.cs.student.main.server.enums.Traffic;
 import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 public class StudySpotDataSource {
@@ -16,8 +18,11 @@ public class StudySpotDataSource {
   public CreatorFromRow<StudySpot> studySpotCreator;
 
   public StudySpotDataSource() throws IOException {
+    String workingDirectory = System.getProperty("user.dir");
     String path =
-        "/Users/julie_chung/Desktop/cs32/term-project-jlee812-asun59-mzheng37-hchung33/server/data/data.csv";
+        Paths.get(workingDirectory, "data", "data.csv").toString();
+//    String path =
+//        "C:\\cs32\\term-project-jlee812-asun59-mzheng37-hchung33\\server\\data\\data.csv";
     this.parse(path);
   }
 
