@@ -12,6 +12,7 @@ import Map, {
   Source,
   ViewStateChangeEvent,
   Marker,
+  Popup,
 } from "react-map-gl";
 
 /**
@@ -55,6 +56,16 @@ export default function Result(props: pageProps) {
     props.setCurrPage("filter");
   }
 
+  const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
+
+  const handleMouseEnter = (location: string) => {
+    setHoveredLocation(location);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredLocation(null);
+  };
+
   return (
     <div className="map">
       <h1 className="result">Here are study spots based on your filters:</h1>
@@ -72,9 +83,35 @@ export default function Result(props: pageProps) {
             longitude={coord[1]}
             anchor="bottom"
           >
-            <div style={{ fontSize: 20 }}>📍</div>
+            <div
+              onMouseEnter={() => handleMouseEnter(key)}
+              onMouseLeave={handleMouseLeave}
+              style={{ fontSize: 20 }}
+            >
+              📍
+            </div>
           </Marker>
         ))}
+
+        {hoveredLocation && (
+          <Popup
+            latitude={locationCoords.get(hoveredLocation)![0]}
+            longitude={locationCoords.get(hoveredLocation)![1]}
+            closeButton={false}
+            anchor="bottom"
+          >
+            <div>
+              <h3>{hoveredLocation}</h3>
+              <ul>
+                {locationTopDescriptions
+                  .get(hoveredLocation)
+                  ?.map((desc, index) => (
+                    <li key={index}>{desc}</li>
+                  ))}
+              </ul>
+            </div>
+          </Popup>
+        )}
       </Map>
 
       <button className="new-search-btn" onClick={setToFilterPage}>
