@@ -1,7 +1,7 @@
-package edu.brown.cs.student.main.server.geoJSONDataSource;
+package edu.brown.cs.student.main.server.DataSource;
 
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonObject;
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonParser;
+import edu.brown.cs.student.main.server.Parser.GeoJsonObject;
+import edu.brown.cs.student.main.server.Parser.GeoJsonParser;
 
 /** Class to create geoJsonmock data */
 public class GeoJSONMock implements GeoJSONData {

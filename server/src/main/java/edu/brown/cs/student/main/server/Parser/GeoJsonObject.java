@@ -1,10 +1,9 @@
-package edu.brown.cs.student.main.server.geoJsonParser;
+package edu.brown.cs.student.main.server.Parser;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Properties;
 
 /**
  * This class represents the GeoJSON data - it contains a list of features, and each feature

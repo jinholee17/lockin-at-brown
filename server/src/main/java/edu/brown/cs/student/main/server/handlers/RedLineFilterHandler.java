@@ -1,8 +1,8 @@
 package edu.brown.cs.student.main.server.handlers;
 
-import edu.brown.cs.student.main.server.geoJSONDataSource.GeoJSONData;
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonObject;
-import edu.brown.cs.student.main.server.geoJsonParser.GeoJsonObject.Feature;
+import edu.brown.cs.student.main.server.DataSource.GeoJSONData;
+import edu.brown.cs.student.main.server.Parser.GeoJsonObject;
+import edu.brown.cs.student.main.server.Parser.GeoJsonObject.Feature;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
