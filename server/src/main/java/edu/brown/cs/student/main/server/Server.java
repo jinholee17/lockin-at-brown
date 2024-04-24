@@ -34,14 +34,7 @@ public class Server {
       geoJsonDataSource = new GeoJSONDataSource();
       StudySpotDataSource studySpotDataSource = new StudySpotDataSource();
       // various end points
-      Spark.get("add-word", new AddWordHandler(firebaseUtils));
-      Spark.get("list-words", new ListWordsHandler(firebaseUtils));
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
-      Spark.get("add-pin", new AddPinHandler(firebaseUtils));
-      Spark.get("list-pins", new ListOfPinsHandler(firebaseUtils));
-      Spark.get("clear-pins", new ClearMarkersHandler(firebaseUtils));
-      Spark.get("red-line", new RedLineFilterHandler(geoJsonDataSource));
-      Spark.get("red-line/*", new RedLineAllHandler(geoJsonDataSource));
       Spark.get("search-area", new SearchAreaHandler(geoJsonDataSource));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
 
