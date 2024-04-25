@@ -9,7 +9,9 @@ import edu.brown.cs.student.main.server.enums.Capacity;
 import edu.brown.cs.student.main.server.enums.Traffic;
 import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
@@ -26,8 +28,9 @@ public class SearchStudyHandler implements Route {
   public Object handle(Request request, Response response) throws IOException {
     Map<String, Object> responseMap = new HashMap<>();
     Moshi moshiReturn = new Moshi.Builder().build();
-    JsonAdapter<Map<String, StudySpot>> adapterReturn =
-        moshiReturn.adapter(Types.newParameterizedType(Map.class, String.class, StudySpot.class));
+    JsonAdapter<Map<String, List<StudySpot>>> adapterReturn =
+        moshiReturn.adapter(
+            Types.newParameterizedType(Map.class, String.class, List.class, StudySpot.class));
     try {
       // collect parameters from the request
       String vol = request.queryParams("volume");
@@ -36,6 +39,7 @@ public class SearchStudyHandler implements Route {
       // accessible and whiteboard can be 'yes' or 'true', doesn't matter elsewise
       String acc = request.queryParams("accessible");
       String whi = request.queryParams("whiteboard");
+      String aes = request.queryParams("aesthetics");
       Double lon = Double.parseDouble(request.queryParams("lon"));
       Double lat = Double.parseDouble(request.queryParams("lat"));
 
@@ -55,10 +59,34 @@ public class SearchStudyHandler implements Route {
         capacity = Capacity.convertCapacity(cap);
       }
 
-      StudySpot studySpot =
-          this.studySpotDataSource.match(volume, traffic, capacity, lon, lat, acc, whi);
-      responseMap.put("Result", studySpot);
+      List<StudySpot> studySpots =
+          this.studySpotDataSource.match(volume, traffic, capacity, lon, lat, acc, whi, aes);
 
+      Map<String, List<String>> allSpots = new HashMap<>();
+
+      for (int i = 0; i < studySpots.size(); i++) {
+
+        List<String> descriptions = new ArrayList<>();
+        descriptions.add(studySpots.get(i).volume.toString().toLowerCase());
+        descriptions.add(studySpots.get(i).capacity.toString().toLowerCase());
+        descriptions.add(studySpots.get(i).traffic.toString().toLowerCase());
+        String descriptString = descriptions.toString();
+
+        List<Double> coordinates = new ArrayList<>();
+        coordinates.add(studySpots.get(i).longitude);
+        coordinates.add(studySpots.get(i).latitude);
+        String coordsString = coordinates.toString();
+
+        List<String> result = new ArrayList<>();
+
+        result.add(descriptString);
+        result.add(coordsString);
+
+        allSpots.put(studySpots.get(i).name, result);
+      }
+      System.out.println(allSpots);
+
+      responseMap.put("Result", allSpots);
     } catch (Exception e) {
       // error likely occurred in the storage handler
       e.printStackTrace();
@@ -66,7 +94,7 @@ public class SearchStudyHandler implements Route {
       responseMap.put("error", e.getMessage());
     }
     // Returns filtered data
-    responseMap.put("Response Type", "Success");
+    //    responseMap.put("Response Type", "Success");
     return Utils.toMoshiJson(responseMap);
   }
 }

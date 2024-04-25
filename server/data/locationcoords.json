@@ -99,6 +99,10 @@
       "name": "underground",
       "latitude": 41.82683577607628,
       "longitude": -71.40329860896881
+    },{
+      "name": "erc lobby",
+      "latitude": 41.826633629712795,
+      "longitude": -71.39810534483652
     }
   ]
 }

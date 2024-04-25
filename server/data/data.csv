@@ -1,19 +1,19 @@
-new watson,8 pm - 12 am,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes
-the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No
-the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No
-new watson,8 pm - 12 am,Quiet,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes
-new watson,8 pm - 12 am,Quiet,Moderate traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes
-rockefeller first floor cafe,7 am - 12 pm,Quiet,Light traffic,4-8 people,"First floor, Has an elevator, Has an automatic door opener",Yes
-sunlab cit,8 pm - 12 am,Conversational,Barely any traffic,4-8 people,First floor,Yes
-barus and holley 5th floor library,12 am - 7 am,Quiet,Barely any traffic,8+ people,"First floor, Has an elevator",Yes
-friedman 1st floor standing desks,7 am - 12 pm,Conversational,Light traffic,2-4 people,"First floor, Handicapped bathroom nearby",No
-erc,12 pm - 4 pm,Conversational,Heavy Traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes
-sci li,8 pm - 12 am,Conversational,Moderate traffic,8+ people,"First floor, Has an elevator, Has an automatic door opener",Yes
-sci li basement,8 pm - 12 am,Quiet,Heavy Traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",No
-orwig music library,8 pm - 12 am,Quiet,Barely any traffic,4-8 people,"First floor, Handicapped bathroom nearby",No
-sci li stacks,8 pm - 12 am,Quiet,Light traffic,8+ people,Has an elevator,No
-biomed basement,12 am - 7 am,Total Silence,Barely any traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",Yes
-rockefeller stacks,8 pm - 12 am,Total Silence,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No
-rockefeller stacks,4 pm - 8 pm,Quiet,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No
-underground,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"Has an elevator, Has an automatic door opener",No
-erc,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",No
+new watson,8 pm - 12 am,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
+the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,Good
+the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,Good
+new watson,8 pm - 12 am,Quiet,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
+new watson,8 pm - 12 am,Quiet,Moderate traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
+rockefeller first floor cafe,7 am - 12 pm,Quiet,Light traffic,4-8 people,"First floor, Has an elevator, Has an automatic door opener",Yes,Medium
+sunlab cit,8 pm - 12 am,Conversational,Barely any traffic,4-8 people,First floor,Yes,Bad
+barus and holley 5th floor library,12 am - 7 am,Quiet,Barely any traffic,8+ people,"First floor, Has an elevator",Yes,Medium
+friedman 1st floor standing desks,7 am - 12 pm,Conversational,Light traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,Medium
+erc,12 pm - 4 pm,Conversational,Heavy Traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Medium
+sci li,8 pm - 12 am,Conversational,Moderate traffic,8+ people,"First floor, Has an elevator, Has an automatic door opener",Yes,Bad
+sci li basement,8 pm - 12 am,Quiet,Heavy Traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",No,Bad
+orwig music library,8 pm - 12 am,Quiet,Barely any traffic,4-8 people,"First floor, Handicapped bathroom nearby",No,Medium
+sci li stacks,8 pm - 12 am,Quiet,Light traffic,8+ people,Has an elevator,No,Bad
+biomed basement,12 am - 7 am,Total Silence,Barely any traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",Yes,Bad
+rockefeller stacks,8 pm - 12 am,Total Silence,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,Bad
+rockefeller stacks,4 pm - 8 pm,Quiet,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,Bad
+underground,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,Medium
+erc lobby,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",No,Good
