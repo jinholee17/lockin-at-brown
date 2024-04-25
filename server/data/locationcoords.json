@@ -9,9 +9,18 @@
       "name": "the hay",
       "latitude": 41.826646345658396,
       "longitude": -71.40494714161748
+    },{
+      "name": "john hay library",
+      "latitude": 41.826646345658396,
+      "longitude": -71.40494714161748
     },
     {
       "name": "rockefeller",
+      "latitude": 41.82574588988792,
+      "longitude": -71.40505025952011
+    },
+    {
+      "name": "rockefeller library",
       "latitude": 41.82574588988792,
       "longitude": -71.40505025952011
     },
@@ -46,6 +55,10 @@
       "latitude": 41.82700508660657,
       "longitude": -71.40022582814139
     },{
+      "name": "sciences library",
+      "latitude": 41.82700508660657,
+      "longitude": -71.40022582814139
+    },{
       "name": "sci li basement",
       "latitude": 41.82700508660657,
       "longitude": -71.40022582814139
@@ -66,6 +79,10 @@
     },
     {
       "name": "erc",
+      "latitude": 41.826633629712795,
+      "longitude": -71.39810534483652
+    },{
+      "name": "engineering research center",
       "latitude": 41.826633629712795,
       "longitude": -71.39810534483652
     },
@@ -96,9 +113,71 @@
       "latitude": 41.82871514708727,
       "longitude": -71.40268357993682
     },{
-      "name": "underground",
+      "name": "underground cafe",
       "latitude": 41.82683577607628,
       "longitude": -71.40329860896881
+    },{
+      "name": "leung gallery",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396
+    },{
+      "name": "faunce arch",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396
+    },{
+      "name": "blue room",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396
+    },{
+      "name": "nelson fitness center",
+      "latitude": 41.83043822623972,
+      "longitude": -71.39792174509647
+    },{
+      "name": "nelson",
+      "latitude": 41.83043822623972,
+      "longitude": -71.39792174509647
+    },
+    {
+      "name": "vartan gregorian quad A first floor conference rooms",
+      "latitude": 41.82363915733767,
+      "longitude": -71.39984392617066
+    },{
+      "name": "vartan gregorian quad A",
+      "latitude": 41.82363915733767,
+      "longitude": -71.39984392617066
+    },
+    {
+      "name": "page rob",
+      "latitude": 41.82764609093241,
+      "longitude": -71.4026893446329
+    },
+    {
+      "name": "page robinson first floor",
+      "latitude": 41.82764609093241,
+      "longitude": -71.4026893446329
+    },
+    {
+      "name": "smitty b",
+      "latitude": 41.829974685921265,
+      "longitude": -71.40130430528163
+    },{
+      "name": "smith buonanno",
+      "latitude": 41.829974685921265,
+      "longitude": -71.40130430528163
+    },
+    {
+      "name": "granoff",
+      "latitude": 41.8281879796243,
+      "longitude": -71.4014322911594
+    },{
+      "name": "center for computational molecular biology",
+      "latitude": 41.82825416983573,
+      "longitude": -71.40110500123555
+    },
+    {
+      "name": "churchill house",
+      "latitude": 41.82777971605748,
+      "longitude": -71.40142259075502
     }
   ]
 }
