@@ -21,8 +21,10 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
     int rowLength = row.size();
     StudySpot studySpot;
     ArrayList<String> accessibility;
+    System.out.println(row);
+    System.out.println(row.size());
     switch (rowLength) {
-      case 10:
+      case 11:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
         accessibility.add(row.get(6));
@@ -36,10 +38,12 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(9),this.getCoords(row.get(0)).getLongitude(),
-                this.getCoords(row.get(0)).getLatitude());
+                row.get(9),
+                this.getCoords(row.get(0)).getLongitude(),
+                this.getCoords(row.get(0)).getLatitude(),
+                row.get(10));
         return studySpot;
-      case 9:
+      case 10:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
         accessibility.add(row.get(6));
@@ -52,10 +56,12 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(8),this.getCoords(row.get(0)).getLongitude(),
-                this.getCoords(row.get(0)).getLatitude());
+                row.get(8),
+                this.getCoords(row.get(0)).getLongitude(),
+                this.getCoords(row.get(0)).getLatitude(),
+                row.get(9));
         return studySpot;
-      case 8:
+      case 9:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
         accessibility.add(row.get(6));
@@ -67,12 +73,15 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(7),this.getCoords(row.get(0)).getLongitude(),
-                this.getCoords(row.get(0)).getLatitude());
+                row.get(7),
+                this.getCoords(row.get(0)).getLongitude(),
+                this.getCoords(row.get(0)).getLatitude(),
+                row.get(8));
         return studySpot;
       default:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
+        System.out.println(row);
         studySpot =
             new StudySpot(
                 row.get(0),
@@ -81,16 +90,17 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
                 row.get(3),
                 row.get(4),
                 accessibility,
-                row.get(6),this.getCoords(row.get(0)).getLongitude(),
-                this.getCoords(row.get(0)).getLatitude());
+                row.get(6),
+                this.getCoords(row.get(0)).getLongitude(),
+                this.getCoords(row.get(0)).getLatitude(),
+                row.get(7));
         return studySpot;
     }
   }
 
-  public Location getCoords(String locationName){
+  public Location getCoords(String locationName) {
     String workingDirectory = System.getProperty("user.dir");
-    String path =
-        Paths.get(workingDirectory, "data", "locationcoords.json").toString();
+    String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
     try (FileReader reader = new FileReader(path)) {
       // Parse JSON data into a custom class or map
       Gson gson = new Gson();

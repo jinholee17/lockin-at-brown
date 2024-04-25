@@ -32,17 +32,19 @@
 
 .welcomeText {
   position: absolute;
-  top: 30%;
-  left: 25%;
-  width: auto;
+  top: 35vh;
+  left: 25vw;
+  padding: 0;
+  margin: auto;
+  width: 54vw;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 0.15em solid #502a13; /* The typwriter cursor */
   letter-spacing: 0.3em; /* Adjust as needed */
   white-space: nowrap;
   font-family: "Noto Sans";
   color: #502a13;
-  font-size: 3.5em;
-  animation: typing 3s steps(50, end), blink-caret 1s step-end infinite;
+  font-size: 3.2vw;
+  animation: typing 3s steps(55, end), blink-caret 1s step-end infinite;
 }
 
 /* The typing effect */
@@ -51,7 +53,7 @@
     width: 0;
   }
   to {
-    width: 50%;
+    width: 54vw;
   }
 }
 

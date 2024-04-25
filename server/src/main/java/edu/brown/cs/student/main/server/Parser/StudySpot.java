@@ -16,6 +16,7 @@ public class StudySpot {
   public int accessibility;
   public double longitude;
   public double latitude;
+  public String aesthetic;
 
   public StudySpot(
       String name,
@@ -24,7 +25,10 @@ public class StudySpot {
       String traffic,
       String capacity,
       List<String> accessibility,
-      String whiteboard, double longitude, double latitude) {
+      String whiteboard,
+      double longitude,
+      double latitude,
+      String aesthetic) {
     this.name = name;
     this.time = Time.convertTime(time);
     this.volume = Volume.convertVolume(volume);
@@ -34,5 +38,6 @@ public class StudySpot {
     this.accessibility = accessibility.size();
     this.longitude = longitude;
     this.latitude = latitude;
+    this.aesthetic = aesthetic;
   }
 }

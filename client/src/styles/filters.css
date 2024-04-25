@@ -8,6 +8,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  height: 70vh;
+  width: 100vw;
+}
+
+.input > h1 {
+  margin-top: 20vh;
+  margin-bottom: 0;
 }
 
 .filter-input {
@@ -15,7 +25,7 @@
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding: 20vh;
+  padding: 5vh 10vh 15vh;
 }
 
 .filter-input > input {
@@ -43,7 +53,7 @@
   display: inline-block;
   flex-direction: row;
   overflow-wrap: normal;
-  margin-top: -15vh;
+  margin-top: -10vh;
   width: 60vw;
   text-align: center;
 }
@@ -70,9 +80,10 @@
 }
 
 .lock-btn {
-  margin-top: 45px;
+  margin-top: 40px;
+  padding: 20px;
   margin-left: 15px;
-  height: 7vh;
+  height: 10vh;
   width: 20vh;
   font-size: 24px;
   border-radius: 10px;
@@ -82,9 +93,16 @@
   font-weight: bold;
 }
 
+.input-text{
+  color: #502a13;
+  font-size: 35px;
+  margin-top: 75px;
+  font-weight: bold;
+}
+
 .corner-bear {
   width: 40vh;
   margin-left: auto;
   position: relative;
-  top: -45vh;
+  top: -55vh;
 }
