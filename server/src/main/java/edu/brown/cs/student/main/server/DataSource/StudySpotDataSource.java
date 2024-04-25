@@ -11,7 +11,9 @@ import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Comparator;
 import java.util.List;
 
 public class StudySpotDataSource {
@@ -31,6 +33,10 @@ public class StudySpotDataSource {
     this.parsed = parser.parse();
   }
 
+  private static void addToBestThree(List<StudySpot> bestThree, StudySpot s, int score) {
+    bestThree.add(s);
+  }
+
   /**
    * Point Algorithm (Rough Draft)
    *
@@ -39,16 +45,21 @@ public class StudySpotDataSource {
    * @param capacity
    * @return
    */
-  public StudySpot match(
+  public List<StudySpot> match(
       Volume volume,
       Traffic traffic,
       Capacity capacity,
       Double lon,
       Double lat,
       String accessible,
-      String whiteboard) {
+      String whiteboard,
+      String aes) {
+
     int maxIndex = 0;
     double maxScore = 0;
+    List<Double> scores = new ArrayList<>();
+    List<Integer> indices = new ArrayList<>();
+    List<StudySpot> topThreeSpots = new ArrayList<>();
 
     // TODO: Account for current date and time
 
@@ -63,6 +74,13 @@ public class StudySpotDataSource {
       }
       if (capacity != null && capacity.equals(s.capacity)) {
         score += 1;
+      }
+      if (aes != null) {
+        switch (aes) {
+          case "Good" -> score += 1;
+          case "Bad" -> score -= 1;
+          default -> {}
+        }
       }
       if (accessible != null) {
         if (accessible.equals("yes") || accessible.equals("true")) {
@@ -83,13 +101,20 @@ public class StudySpotDataSource {
       if (s.time.equals(this.getTime())) {
         score += 1;
       }
-      if (score > maxScore) {
-        maxScore = score;
-        maxIndex = i;
-      }
+      //      if (score > maxScore) {
+      //        maxScore = score;
+      //        maxIndex = i;
+      //      }
+      scores.add(score);
+      indices.add(i);
     }
-    System.out.println(maxScore);
-    return this.parsed.get(maxIndex);
+    indices.sort(Comparator.comparingDouble(scores::get));
+    List<Integer> topThreeIndices = indices.subList(0, 3);
+    for (Integer index : topThreeIndices) {
+      topThreeSpots.add(this.parsed.get(index));
+    }
+    //    System.out.println(maxScore);
+    return topThreeSpots;
   }
 
   public Time getTime() {

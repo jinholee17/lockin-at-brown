@@ -2,8 +2,6 @@ package edu.brown.cs.student.main.server;
 
 import static spark.Spark.after;
 
-import edu.brown.cs.student.main.server.DataSource.GeoJSONData;
-import edu.brown.cs.student.main.server.DataSource.GeoJSONDataSource;
 import edu.brown.cs.student.main.server.DataSource.StudySpotDataSource;
 import edu.brown.cs.student.main.server.handlers.*;
 import edu.brown.cs.student.main.server.storage.FirebaseUtilities;
@@ -14,7 +12,6 @@ import spark.Spark;
 
 /** Top Level class for our project, utilizes spark to create and maintain our server. */
 public class Server {
-
   public static void setUpServer() {
     int port = 3232;
     Spark.port(port);
@@ -27,15 +24,12 @@ public class Server {
             });
 
     StorageInterface firebaseUtils;
-    GeoJSONData geoJsonDataSource;
 
     try {
       firebaseUtils = new FirebaseUtilities();
-      geoJsonDataSource = new GeoJSONDataSource();
       StudySpotDataSource studySpotDataSource = new StudySpotDataSource();
       // various end points
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
-      Spark.get("search-area", new SearchAreaHandler(geoJsonDataSource));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
 
       Spark.notFound(
