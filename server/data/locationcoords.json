@@ -46,7 +46,11 @@
       "latitude": 41.827106560284115,
       "longitude": -71.39959449066565
     },{
-      "name": "cit atrium",
+      "name": "cit third floor atrium",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565
+    },{
+      "name": "cit lobby",
       "latitude": 41.827106560284115,
       "longitude": -71.39959449066565
     },
@@ -178,6 +182,52 @@
       "name": "churchill house",
       "latitude": 41.82777971605748,
       "longitude": -71.40142259075502
+    },{
+      "name": "metcalf research",
+      "latitude": 41.82685171760826,
+      "longitude": -71.40068757650417
+    },{
+      "name": "metcalf research basement",
+      "latitude": 41.82685171760826,
+      "longitude": -71.40068757650417
+    },
+    {
+      "name": "metcalf research conference rooms",
+      "latitude": 41.82685171760826,
+      "longitude": -71.40068757650417
+    },
+    {
+      "name": "fleet library",
+      "latitude": 41.826049849566374,
+      "longitude": -71.40907936190239
+    },{
+      "name": "risd library",
+      "latitude": 41.826049849566374,
+      "longitude": -71.40907936190239
+    },{
+      "name": "providence athenaeum",
+      "latitude": 41.8259751820961,
+      "longitude": -71.40608502475249
+    },{
+      "name": "american studies department",
+      "latitude": 41.82525813078385,
+      "longitude": -71.40338719031101
+    },{
+      "name": "kim koo library in watson institute",
+      "latitude": 41.8243769901603,
+      "longitude": -71.39990648391101
+    },{
+      "name": "watson institute first floor classrooms",
+      "latitude": 41.8243769901603,
+      "longitude": -71.39990648391101
+    },{
+      "name": "coffee exchange",
+      "latitude": 41.819502854297276,
+      "longitude": -71.39910616183002
+    },{
+      "name": "sydney cafe",
+      "latitude": 41.83022097017604,
+      "longitude": -71.40103099940549
     }
   ]
 }
