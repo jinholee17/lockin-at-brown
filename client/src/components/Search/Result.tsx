@@ -26,6 +26,7 @@ export interface LatLong {
 }
 
 interface pageProps {
+  filters: Set<String>;
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
 }
 
@@ -42,6 +43,7 @@ const initialZoom = 15;
  * @returns the mapbox render
  */
 export default function Result(props: pageProps) {
+  console.log(props.filters);
   // zoom and move around for map
   const [viewState, setViewState] = useState({
     latitude: ProvidenceLatLong.lat,

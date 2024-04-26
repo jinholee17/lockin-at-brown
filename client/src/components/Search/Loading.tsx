@@ -5,6 +5,7 @@ import img from "../../images/loading_bear.gif";
 
 interface pageProps {
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
+  filters: Set<String>;
 }
 
 export default function Loading(props: pageProps) {

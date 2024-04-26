@@ -4,12 +4,14 @@ import Page from "../Search/Search";
 
 interface searchProps {
   options: string[];
+  filters: Set<String>;
+  setFilters: React.Dispatch<React.SetStateAction<Set<String>>>;
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
 }
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  const [filters, setFilters] = useState<Set<String>>(new Set());
+  // const [filters, setFilters] = useState<Set<String>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 
   function addFilter() {
@@ -17,9 +19,9 @@ export default function Filter(props: searchProps) {
     let input = document.getElementById("input-filter") as HTMLInputElement;
     let text = input.value;
     if (options.includes(text)) {
-      const newFilters = new Set(filters);
+      const newFilters = new Set(props.filters);
       newFilters.add(text);
-      setFilters(newFilters);
+      props.setFilters(newFilters);
     } else {
       setFiltersNA("Filter " + text + " Not Found!");
     }
@@ -27,10 +29,10 @@ export default function Filter(props: searchProps) {
   }
 
   function deleteFilter(filter: String) {
-    if (filters.has(filter)) {
-      const newFilters = new Set(filters);
+    if (props.filters.has(filter)) {
+      const newFilters = new Set(props.filters);
       newFilters.delete(filter);
-      setFilters(newFilters);
+      props.setFilters(newFilters);
     }
   }
 
@@ -57,7 +59,7 @@ export default function Filter(props: searchProps) {
   return (
     <div className="input">
       <p className="Not-Found">{filtersNA}</p>
-      <p className = "input-text">
+      <p className="input-text">
         Enter filters in the input space below and use the add button to add the
         filter:
       </p>
@@ -77,7 +79,7 @@ export default function Filter(props: searchProps) {
       </div>
 
       <div className="added-filters">
-        {Array.from(filters).map((filter, index) => (
+        {Array.from(props.filters).map((filter, index) => (
           <button onClick={() => deleteFilter(filter)} key={index}>
             {filter} ❌
           </button>

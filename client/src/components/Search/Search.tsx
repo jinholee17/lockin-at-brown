@@ -16,14 +16,25 @@ interface searchProps {
 
 export default function Search(props: searchProps) {
   const [currPage, setCurrPage] = useState<String>(Page.FILTER);
+  // const [query, setQuery] = useState<string>("");
+  const [filters, setFilters] = useState<Set<String>>(new Set());
 
   return (
     <div>
       {currPage == Page.FILTER && (
-        <Filter options={props.options} setCurrPage={setCurrPage} />
+        <Filter
+          options={props.options}
+          filters={filters}
+          setFilters={setFilters}
+          setCurrPage={setCurrPage}
+        />
       )}
-      {currPage == Page.LOAD && <Loading setCurrPage={setCurrPage} />}
-      {currPage == Page.RESULT && <Result setCurrPage={setCurrPage} />}
+      {currPage == Page.LOAD && (
+        <Loading filters={filters} setCurrPage={setCurrPage} />
+      )}
+      {currPage == Page.RESULT && (
+        <Result filters={filters} setCurrPage={setCurrPage} />
+      )}
     </div>
   );
 }
