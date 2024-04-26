@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/filters.css";
+import { addWord, deleteWord } from "../../utils/api";
 import Page from "../Search/Search";
 
 interface searchProps {
@@ -9,7 +10,7 @@ interface searchProps {
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  const [filters, setFilters] = useState<Set<String>>(new Set());
+  const [filters, setFilters] = useState<Set<string>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 
   function addFilter() {
@@ -20,16 +21,18 @@ export default function Filter(props: searchProps) {
       const newFilters = new Set(filters);
       newFilters.add(text);
       setFilters(newFilters);
+      addWord(text);
     } else {
       setFiltersNA("Filter " + text + " Not Found!");
     }
     input.value = "";
   }
 
-  function deleteFilter(filter: String) {
+  function deleteFilter(filter: string) {
     if (filters.has(filter)) {
       const newFilters = new Set(filters);
       newFilters.delete(filter);
+      deleteWord(filter);
       setFilters(newFilters);
     }
   }
@@ -57,7 +60,7 @@ export default function Filter(props: searchProps) {
   return (
     <div className="input">
       <p className="Not-Found">{filtersNA}</p>
-      <p className = "input-text">
+      <p className="input-text">
         Enter filters in the input space below and use the add button to add the
         filter:
       </p>
