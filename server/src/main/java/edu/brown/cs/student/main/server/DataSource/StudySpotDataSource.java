@@ -61,8 +61,6 @@ public class StudySpotDataSource {
     List<Integer> indices = new ArrayList<>();
     List<StudySpot> topThreeSpots = new ArrayList<>();
 
-    // TODO: Account for current date and time
-
     for (int i = 0; i < this.parsed.size(); i++) {
       StudySpot s = this.parsed.get(i);
       double score = 0;

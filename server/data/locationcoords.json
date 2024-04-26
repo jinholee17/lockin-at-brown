@@ -82,6 +82,10 @@
       "latitude": 41.826633629712795,
       "longitude": -71.39810534483652
     },{
+      "name": "erc lobby",
+      "latitude": 41.826633629712795,
+      "longitude": -71.39810534483652
+    },{
       "name": "engineering research center",
       "latitude": 41.826633629712795,
       "longitude": -71.39810534483652
@@ -114,6 +118,10 @@
       "longitude": -71.40268357993682
     },{
       "name": "underground cafe",
+      "latitude": 41.82683577607628,
+      "longitude": -71.40329860896881
+    },{
+      "name": "underground",
       "latitude": 41.82683577607628,
       "longitude": -71.40329860896881
     },{
