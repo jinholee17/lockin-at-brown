@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/loading.css";
 import Page from "../Search/Search";
 import img from "../../images/loading_bear.gif";
@@ -22,47 +22,53 @@ export default function Loading(props: pageProps) {
     props.setCurrPage("result");
   }, 2500);
 
-  let data_response;
-  const coords = new Map<string, number[]>();
-  const descriptions = new Map<string, string[]>();
+  useEffect(() => {
+    const coords = new Map<string, number[]>();
+    const descriptions = new Map<string, string[]>();
 
-  const url = new URL("http://localhost:3232/search-study");
+    const url = new URL("http://localhost:3232/search-study");
 
-  props.filters.forEach((filter) => {
-    if (
-      filter == "Total Silence" ||
-      filter == "Quiet" ||
-      filter == "Conversational" ||
-      filter == "Loud"
-    ) {
-      url.searchParams.append("volume", filter);
-    }
-  });
-
-  const data_json = async () => {
-    const response = await fetch(url);
-    return response.json();
-  };
-
-  const parsedResponse = data_json;
-
-  // Extract the lists for each name
-  data_json()
-    .then((parsedResponse) => {
-      for (const name in parsedResponse.Result) {
-        if (Object.prototype.hasOwnProperty.call(parsedResponse.Result, name)) {
-          const [desc_list, coord_list] = parsedResponse.Result[name];
-          coords.set(name, coord_list);
-          descriptions.set(name, desc_list);
-        }
+    props.filters.forEach((filter) => {
+      if (
+        filter == "Total Silence" ||
+        filter == "Quiet" ||
+        filter == "Conversational" ||
+        filter == "Loud"
+      ) {
+        url.searchParams.append("volume", filter);
       }
-    })
-    .catch((error) => {
-      console.error("Error fetching or processing data:", error);
     });
 
-  props.setLocationCoords(coords);
-  props.setDescriptions(descriptions);
+    const data_json = async () => {
+      const response = await fetch(url);
+      return response.json();
+    };
+
+    const parsedResponse = data_json;
+
+    // Extract the lists for each name
+    data_json()
+      .then((parsedResponse) => {
+        for (const name in parsedResponse.Result) {
+          if (
+            Object.prototype.hasOwnProperty.call(parsedResponse.Result, name)
+          ) {
+            const [desc_list, coord_list] = parsedResponse.Result[name];
+            coords.set(name, JSON.parse(coord_list));
+            descriptions.set(
+              name,
+              desc_list.substring(1, desc_list.length - 1).split(", ")
+            );
+          }
+        }
+      })
+      .catch((error) => {
+        console.error("Error fetching or processing data:", error);
+      });
+
+    props.setLocationCoords(coords);
+    props.setDescriptions(descriptions);
+  }, []);
 
   return (
     <div className="load">

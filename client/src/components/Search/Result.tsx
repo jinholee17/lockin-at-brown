@@ -51,6 +51,9 @@ export default function Result(props: pageProps) {
     zoom: initialZoom,
   });
 
+  console.log("hi");
+  console.log(props.locationCoords);
+  console.log(props.locationTopDescriptions);
   function setToFilterPage() {
     props.setCurrPage("filter");
   }
@@ -76,28 +79,33 @@ export default function Result(props: pageProps) {
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
       >
         {Array.from(props.locationCoords.entries()).map(
-          ([key, coord], index) => (
-            <Marker
-              key={index}
-              latitude={coord[0]}
-              longitude={coord[1]}
-              anchor="bottom"
-            >
-              <div
-                onMouseEnter={() => handleMouseEnter(key)}
-                onMouseLeave={handleMouseLeave}
-                style={{ fontSize: 24 }}
+          ([key, coord], index) => {
+            console.log(props.locationTopDescriptions);
+            console.log(props.locationCoords);
+            console.log("omg");
+            return (
+              <Marker
+                key={index}
+                latitude={coord[1]}
+                longitude={coord[0]}
+                anchor="bottom"
               >
-                📍
-              </div>
-            </Marker>
-          )
+                <div
+                  onMouseEnter={() => handleMouseEnter(key)}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ fontSize: 24 }}
+                >
+                  📍
+                </div>
+              </Marker>
+            );
+          }
         )}
 
         {hoveredLocation && (
           <Popup
-            latitude={props.locationCoords.get(hoveredLocation)![0]}
-            longitude={props.locationCoords.get(hoveredLocation)![1]}
+            latitude={props.locationCoords.get(hoveredLocation)![1]}
+            longitude={props.locationCoords.get(hoveredLocation)![0]}
             closeButton={false}
             anchor="bottom"
           >
