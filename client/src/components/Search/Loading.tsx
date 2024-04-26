@@ -10,6 +10,7 @@ interface pageProps {
     React.SetStateAction<Map<string, number[]>>
   >;
   setDescriptions: React.Dispatch<React.SetStateAction<Map<string, string[]>>>;
+  userLoc: Number[];
 }
 
 // function fetchLocData(){
@@ -38,9 +39,10 @@ export default function Loading(props: pageProps) {
         url.searchParams.append("volume", filter);
       }
       if (
-        filter == "Low Traffic" ||
-        filter == "Moderate Traffic" ||
-        filter == "High Traffic"
+        filter == "Barely any traffic" ||
+        filter == "Light traffic" ||
+        filter == "Moderate traffic" ||
+        filter == "Heavy traffic"
       ) {
         url.searchParams.append("traffic", filter);
       }
@@ -58,7 +60,13 @@ export default function Loading(props: pageProps) {
       if (filter == "Has Whiteboard/TV") {
         url.searchParams.append("whiteboard", "yes");
       }
-      // add aesthetics and lon and lat
+      if (filter == "Aesthetic" || filter == "Not Aesthetic") {
+        url.searchParams.append("aesthetics", "yes");
+      }
+      if (props.userLoc[0] != null && props.userLoc[1] != null) {
+        url.searchParams.append("lat", props.userLoc[0].toString());
+        url.searchParams.append("lon", props.userLoc[1].toString());
+      }
     });
 
     const data_json = async () => {

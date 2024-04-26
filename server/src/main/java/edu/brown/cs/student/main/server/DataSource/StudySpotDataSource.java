@@ -75,8 +75,8 @@ public class StudySpotDataSource {
       }
       if (aes != null) {
         switch (aes) {
-          case "Good" -> score += 1;
-          case "Bad" -> score -= 1;
+          case "Aesthetic" -> score += 1;
+          case "Not Aesthetic" -> score -= 1;
           default -> {}
         }
       }

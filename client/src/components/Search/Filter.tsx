@@ -7,6 +7,8 @@ interface searchProps {
   filters: Set<string>;
   setFilters: React.Dispatch<React.SetStateAction<Set<string>>>;
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
+  userLoc: Number[];
+  setUserLocation: React.Dispatch<React.SetStateAction<Number[]>>;
 }
 
 export default function Filter(props: searchProps) {
@@ -47,6 +49,7 @@ export default function Filter(props: searchProps) {
         const longitude = position.coords.longitude;
         console.log("Latitude:", latitude);
         console.log("Longitude:", longitude);
+        props.setUserLocation([latitude, longitude]);
       },
       (error) => {
         console.error("Error getting current position:", error);

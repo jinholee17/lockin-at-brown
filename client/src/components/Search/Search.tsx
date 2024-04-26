@@ -18,6 +18,7 @@ export default function Search(props: searchProps) {
   const [currPage, setCurrPage] = useState<String>(Page.FILTER);
   // const [query, setQuery] = useState<string>("");
   const [filters, setFilters] = useState<Set<string>>(new Set());
+  const [userLoc, setUserLocation] = useState<Number[]>([]);
 
   const initialCoords = new Map<string, number[]>();
   const initialDesc = new Map<string, string[]>();
@@ -34,6 +35,8 @@ export default function Search(props: searchProps) {
           filters={filters}
           setFilters={setFilters}
           setCurrPage={setCurrPage}
+          userLoc={userLoc}
+          setUserLocation={setUserLocation}
         />
       )}
       {currPage == Page.LOAD && (
@@ -42,6 +45,7 @@ export default function Search(props: searchProps) {
           setCurrPage={setCurrPage}
           setDescriptions={setDescriptions}
           setLocationCoords={setLocationCoords}
+          userLoc={userLoc}
         />
       )}
       {currPage == Page.RESULT && (
