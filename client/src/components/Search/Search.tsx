@@ -17,7 +17,14 @@ interface searchProps {
 export default function Search(props: searchProps) {
   const [currPage, setCurrPage] = useState<String>(Page.FILTER);
   // const [query, setQuery] = useState<string>("");
-  const [filters, setFilters] = useState<Set<String>>(new Set());
+  const [filters, setFilters] = useState<Set<string>>(new Set());
+
+  const initialCoords = new Map<string, number[]>();
+  const initialDesc = new Map<string, string[]>();
+  const [locationCoords, setLocationCoords] =
+    useState<Map<string, number[]>>(initialCoords);
+  const [locationTopDescriptions, setDescriptions] =
+    useState<Map<string, string[]>>(initialDesc);
 
   return (
     <div>
@@ -30,7 +37,12 @@ export default function Search(props: searchProps) {
         />
       )}
       {currPage == Page.LOAD && (
-        <Loading filters={filters} setCurrPage={setCurrPage} />
+        <Loading
+          filters={filters}
+          setCurrPage={setCurrPage}
+          setDescriptions={setDescriptions}
+          setLocationCoords={setLocationCoords}
+        />
       )}
       {currPage == Page.RESULT && (
         <Result filters={filters} setCurrPage={setCurrPage} />

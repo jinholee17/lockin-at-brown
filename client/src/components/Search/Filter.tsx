@@ -4,8 +4,8 @@ import Page from "../Search/Search";
 
 interface searchProps {
   options: string[];
-  filters: Set<String>;
-  setFilters: React.Dispatch<React.SetStateAction<Set<String>>>;
+  filters: Set<string>;
+  setFilters: React.Dispatch<React.SetStateAction<Set<string>>>;
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
 }
 
@@ -28,7 +28,7 @@ export default function Filter(props: searchProps) {
     input.value = "";
   }
 
-  function deleteFilter(filter: String) {
+  function deleteFilter(filter: string) {
     if (props.filters.has(filter)) {
       const newFilters = new Set(props.filters);
       newFilters.delete(filter);
