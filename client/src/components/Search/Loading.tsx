@@ -37,6 +37,28 @@ export default function Loading(props: pageProps) {
       ) {
         url.searchParams.append("volume", filter);
       }
+      if (
+        filter == "Low Traffic" ||
+        filter == "Moderate Traffic" ||
+        filter == "High Traffic"
+      ) {
+        url.searchParams.append("traffic", filter);
+      }
+      if (
+        filter == "1 person (Studying alone)" ||
+        filter == "2-4 people" ||
+        filter == "4-8 people" ||
+        filter == "8+ people"
+      ) {
+        url.searchParams.append("capacity", filter);
+      }
+      if (filter == "Accessible") {
+        url.searchParams.append("accessible", "yes");
+      }
+      if (filter == "Has Whiteboard/TV") {
+        url.searchParams.append("whiteboard", "yes");
+      }
+      // add aesthetics and lon and lat
     });
 
     const data_json = async () => {
