@@ -109,7 +109,6 @@ public class FirebaseUtilities implements StorageInterface {
     }
   }
 
-
   @Override
   public void deleteWord(String uid, String word) throws IllegalArgumentException {
     if (uid == null) {
@@ -120,8 +119,7 @@ public class FirebaseUtilities implements StorageInterface {
       Firestore db = FirestoreClient.getFirestore();
       // 1: Get the words collection
       // List<Map<String, Object>> words = getCollection(uid, "words");
-      CollectionReference words =
-          db.collection("users").document(uid).collection("words");
+      CollectionReference words = db.collection("users").document(uid).collection("words");
 
       // get all documents in the collection words
       ApiFuture<QuerySnapshot> future = words.get();
