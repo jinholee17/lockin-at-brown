@@ -61,8 +61,6 @@ public class StudySpotDataSource {
     List<Integer> indices = new ArrayList<>();
     List<StudySpot> topThreeSpots = new ArrayList<>();
 
-    // TODO: Account for current date and time
-
     for (int i = 0; i < this.parsed.size(); i++) {
       StudySpot s = this.parsed.get(i);
       double score = 0;
@@ -77,8 +75,8 @@ public class StudySpotDataSource {
       }
       if (aes != null) {
         switch (aes) {
-          case "Good" -> score += 1;
-          case "Bad" -> score -= 1;
+          case "Aesthetic" -> score += 1;
+          case "Not Aesthetic" -> score -= 1;
           default -> {}
         }
       }

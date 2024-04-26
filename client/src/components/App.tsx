@@ -39,8 +39,18 @@ function App() {
     "Quiet",
     "Conversational",
     "Loud",
-    "Low Traffic",
-    "High Traffic",
+    "Barely any traffic",
+    "Light traffic",
+    "Moderate traffic",
+    "Heavy traffic",
+    "Aesthetic",
+    "Not Aesthetic",
+    "Accessible",
+    "Has Whiteboard/TV",
+    "1 person (Studying alone)",
+    "2-4 people",
+    "4-8 people",
+    "8+ people",
   ];
 
   return (
