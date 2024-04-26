@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../styles/result.css";
-import { locationTopDescriptions, locationCoords } from "../data/mock";
+// import { locationTopDescriptions, locationCoords } from "../data/mock";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
@@ -26,8 +26,9 @@ export interface LatLong {
 }
 
 interface pageProps {
-  filters: Set<String>;
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
+  locationTopDescriptions: Map<string, string[]>;
+  locationCoords: Map<string, number[]>;
 }
 
 const ProvidenceLatLong: LatLong = {
@@ -43,7 +44,6 @@ const initialZoom = 15;
  * @returns the mapbox render
  */
 export default function Result(props: pageProps) {
-  console.log(props.filters);
   // zoom and move around for map
   const [viewState, setViewState] = useState({
     latitude: ProvidenceLatLong.lat,
@@ -75,34 +75,36 @@ export default function Result(props: pageProps) {
         mapStyle={"mapbox://styles/mapbox/streets-v12"}
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
       >
-        {Array.from(locationCoords.entries()).map(([key, coord], index) => (
-          <Marker
-            key={index}
-            latitude={coord[0]}
-            longitude={coord[1]}
-            anchor="bottom"
-          >
-            <div
-              onMouseEnter={() => handleMouseEnter(key)}
-              onMouseLeave={handleMouseLeave}
-              style={{ fontSize: 24 }}
+        {Array.from(props.locationCoords.entries()).map(
+          ([key, coord], index) => (
+            <Marker
+              key={index}
+              latitude={coord[0]}
+              longitude={coord[1]}
+              anchor="bottom"
             >
-              📍
-            </div>
-          </Marker>
-        ))}
+              <div
+                onMouseEnter={() => handleMouseEnter(key)}
+                onMouseLeave={handleMouseLeave}
+                style={{ fontSize: 24 }}
+              >
+                📍
+              </div>
+            </Marker>
+          )
+        )}
 
         {hoveredLocation && (
           <Popup
-            latitude={locationCoords.get(hoveredLocation)![0]}
-            longitude={locationCoords.get(hoveredLocation)![1]}
+            latitude={props.locationCoords.get(hoveredLocation)![0]}
+            longitude={props.locationCoords.get(hoveredLocation)![1]}
             closeButton={false}
             anchor="bottom"
           >
             <div className="Popup">
               <h3>{hoveredLocation}</h3>
               <ul>
-                {locationTopDescriptions
+                {props.locationTopDescriptions
                   .get(hoveredLocation)
                   ?.map((desc, index) => (
                     <li key={index}>{desc}</li>

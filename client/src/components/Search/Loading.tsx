@@ -12,12 +12,20 @@ interface pageProps {
   setDescriptions: React.Dispatch<React.SetStateAction<Map<string, string[]>>>;
 }
 
-export default async function Loading(props: pageProps) {
+// function fetchLocData(){
+//   const fetchData
+
+// }
+
+export default function Loading(props: pageProps) {
   setTimeout(function () {
     props.setCurrPage("result");
   }, 2500);
 
   let data_response;
+  const coords = new Map<string, number[]>();
+  const descriptions = new Map<string, string[]>();
+
   const url = new URL("http://localhost:3232/search-study");
 
   props.filters.forEach((filter) => {
@@ -31,9 +39,30 @@ export default async function Loading(props: pageProps) {
     }
   });
 
-  data_response = await fetch(url);
-  const data_json = await data_response?.json();
-  props.setLocationCoords(data_json);
+  const data_json = async () => {
+    const response = await fetch(url);
+    return response.json();
+  };
+
+  const parsedResponse = data_json;
+
+  // Extract the lists for each name
+  data_json()
+    .then((parsedResponse) => {
+      for (const name in parsedResponse.Result) {
+        if (Object.prototype.hasOwnProperty.call(parsedResponse.Result, name)) {
+          const [desc_list, coord_list] = parsedResponse.Result[name];
+          coords.set(name, coord_list);
+          descriptions.set(name, desc_list);
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching or processing data:", error);
+    });
+
+  props.setLocationCoords(coords);
+  props.setDescriptions(descriptions);
 
   return (
     <div className="load">

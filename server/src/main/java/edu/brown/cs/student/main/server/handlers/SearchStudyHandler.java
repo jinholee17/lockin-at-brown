@@ -40,12 +40,15 @@ public class SearchStudyHandler implements Route {
       String acc = request.queryParams("accessible");
       String whi = request.queryParams("whiteboard");
       String aes = request.queryParams("aesthetics");
-      Double lon = Double.parseDouble(request.queryParams("lon"));
-      Double lat = Double.parseDouble(request.queryParams("lat"));
+
+      String checklon = request.queryParams("lon");
+      String checkLat = request.queryParams("lat");
 
       Volume volume = null;
       Traffic traffic = null;
       Capacity capacity = null;
+      Double lon = null;
+      Double lat = null;
 
       if (vol != null) {
         volume = Volume.convertVolume(vol);
@@ -57,6 +60,13 @@ public class SearchStudyHandler implements Route {
 
       if (cap != null) {
         capacity = Capacity.convertCapacity(cap);
+      }
+
+      if (checklon != null) {
+        lon = Double.parseDouble(request.queryParams("lon"));
+      }
+      if (checkLat != null) {
+        lat = Double.parseDouble(request.queryParams("lat"));
       }
 
       List<StudySpot> studySpots =

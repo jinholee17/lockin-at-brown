@@ -45,7 +45,11 @@ export default function Search(props: searchProps) {
         />
       )}
       {currPage == Page.RESULT && (
-        <Result filters={filters} setCurrPage={setCurrPage} />
+        <Result
+          locationTopDescriptions={locationTopDescriptions}
+          locationCoords={locationCoords}
+          setCurrPage={setCurrPage}
+        />
       )}
     </div>
   );
