@@ -51,7 +51,6 @@ export default function Result(props: pageProps) {
     zoom: initialZoom,
   });
 
-  console.log("hi");
   console.log(props.locationCoords);
   console.log(props.locationTopDescriptions);
   function setToFilterPage() {

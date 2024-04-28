@@ -31,6 +31,7 @@ public class Server {
       // various end points
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
+      Spark.get("study-review", new ReviewHandler());
 
       Spark.notFound(
           (request, response) -> {
