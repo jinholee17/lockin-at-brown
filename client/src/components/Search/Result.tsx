@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../../styles/result.css";
-import { locationTopDescriptions, locationCoords } from "../data/mock";
+// import { locationTopDescriptions, locationCoords } from "../data/mock";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 import Map, {
@@ -27,6 +27,8 @@ export interface LatLong {
 
 interface pageProps {
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
+  locationTopDescriptions: Map<string, string[]>;
+  locationCoords: Map<string, number[]>;
 }
 
 const ProvidenceLatLong: LatLong = {
@@ -49,6 +51,9 @@ export default function Result(props: pageProps) {
     zoom: initialZoom,
   });
 
+  console.log("hi");
+  console.log(props.locationCoords);
+  console.log(props.locationTopDescriptions);
   function setToFilterPage() {
     props.setCurrPage("filter");
   }
@@ -65,45 +70,61 @@ export default function Result(props: pageProps) {
 
   return (
     <div className="map">
-      <h1 className="result">Here are study spots based on your filters:</h1>
+      <h1 className="result" tabIndex={0}>
+        Here are study spots based on your filters:
+      </h1>
 
       <Map
         mapboxAccessToken={MAPBOX_API_KEY}
         {...viewState}
         mapStyle={"mapbox://styles/mapbox/streets-v12"}
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+        aria-lable="map with search results"
+        aria-description="a map with search results as pins"
       >
-        {Array.from(locationCoords.entries()).map(([key, coord], index) => (
-          <Marker
-            key={index}
-            latitude={coord[0]}
-            longitude={coord[1]}
-            anchor="bottom"
-          >
-            <div
-              onMouseEnter={() => handleMouseEnter(key)}
-              onMouseLeave={handleMouseLeave}
-              style={{ fontSize: 24 }}
-            >
-              📍
-            </div>
-          </Marker>
-        ))}
+        {Array.from(props.locationCoords.entries()).map(
+          ([key, coord], index) => {
+            console.log(props.locationTopDescriptions);
+            console.log(props.locationCoords);
+            console.log("omg");
+            return (
+              <Marker
+                key={index}
+                latitude={coord[1]}
+                longitude={coord[0]}
+                anchor="bottom"
+              >
+                <div
+                  tabIndex={0}
+                  onMouseEnter={() => handleMouseEnter(key)}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ fontSize: 24 }}
+                  aria-lable="a pin"
+                  aria-description="hover over the pin for the pop up on the description of this location"
+                >
+                  📍
+                </div>
+              </Marker>
+            );
+          }
+        )}
 
         {hoveredLocation && (
           <Popup
-            latitude={locationCoords.get(hoveredLocation)![0]}
-            longitude={locationCoords.get(hoveredLocation)![1]}
+            latitude={props.locationCoords.get(hoveredLocation)![1]}
+            longitude={props.locationCoords.get(hoveredLocation)![0]}
             closeButton={false}
             anchor="bottom"
           >
             <div className="Popup">
               <h3>{hoveredLocation}</h3>
               <ul>
-                {locationTopDescriptions
+                {props.locationTopDescriptions
                   .get(hoveredLocation)
                   ?.map((desc, index) => (
-                    <li key={index}>{desc}</li>
+                    <li aria-label={desc} tabIndex={0} key={index}>
+                      {desc}
+                    </li>
                   ))}
               </ul>
             </div>
@@ -111,7 +132,12 @@ export default function Result(props: pageProps) {
         )}
       </Map>
 
-      <button className="new-search-btn" onClick={setToFilterPage}>
+      <button
+        aria-label="new search button"
+        aria-description="click or use enter to begin a new search"
+        className="new-search-btn"
+        onClick={setToFilterPage}
+      >
         New Search 🔍
       </button>
     </div>

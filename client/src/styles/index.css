@@ -28,16 +28,23 @@ code {
 header {
   background-color: #502a13;
   height: 15vh;
-  width: 100%;
-  padding: 20px;
+  width: auto;
+  padding: 20px 40px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+}
+
+header > div {
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 #bearLogo {
-  width: 13vh;
-  height: 13vh;
+  width: auto;
+  max-width: 13vh;
+  max-height: 13vh;
 }
 
 .title {
