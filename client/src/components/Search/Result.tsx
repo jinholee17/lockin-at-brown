@@ -70,13 +70,17 @@ export default function Result(props: pageProps) {
 
   return (
     <div className="map">
-      <h1 className="result">Here are study spots based on your filters:</h1>
+      <h1 className="result" tabIndex={0}>
+        Here are study spots based on your filters:
+      </h1>
 
       <Map
         mapboxAccessToken={MAPBOX_API_KEY}
         {...viewState}
         mapStyle={"mapbox://styles/mapbox/streets-v12"}
         onMove={(ev: ViewStateChangeEvent) => setViewState(ev.viewState)}
+        aria-lable="map with search results"
+        aria-description="a map with search results as pins"
       >
         {Array.from(props.locationCoords.entries()).map(
           ([key, coord], index) => {
@@ -91,9 +95,12 @@ export default function Result(props: pageProps) {
                 anchor="bottom"
               >
                 <div
+                  tabIndex={0}
                   onMouseEnter={() => handleMouseEnter(key)}
                   onMouseLeave={handleMouseLeave}
                   style={{ fontSize: 24 }}
+                  aria-lable="a pin"
+                  aria-description="hover over the pin for the pop up on the description of this location"
                 >
                   📍
                 </div>
@@ -115,7 +122,9 @@ export default function Result(props: pageProps) {
                 {props.locationTopDescriptions
                   .get(hoveredLocation)
                   ?.map((desc, index) => (
-                    <li key={index}>{desc}</li>
+                    <li aria-label={desc} tabIndex={0} key={index}>
+                      {desc}
+                    </li>
                   ))}
               </ul>
             </div>
@@ -123,7 +132,12 @@ export default function Result(props: pageProps) {
         )}
       </Map>
 
-      <button className="new-search-btn" onClick={setToFilterPage}>
+      <button
+        aria-label="new search button"
+        aria-description="click or use enter to begin a new search"
+        className="new-search-btn"
+        onClick={setToFilterPage}
+      >
         New Search 🔍
       </button>
     </div>

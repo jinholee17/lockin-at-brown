@@ -21,14 +21,18 @@ interface pageProps {
 export default function Loading(props: pageProps) {
   setTimeout(function () {
     props.setCurrPage("result");
-  }, 2500);
+  }, 1800);
 
   useEffect(() => {
     const coords = new Map<string, number[]>();
     const descriptions = new Map<string, string[]>();
 
     const url = new URL("http://localhost:3232/search-study");
-
+    if (props.filters.size == 0) {
+      props.filters.add("Conversational");
+      props.filters.add("Moderate traffic");
+      props.filters.add("4-8 people");
+    }
     props.filters.forEach((filter) => {
       if (
         filter == "Total Silence" ||
@@ -74,8 +78,6 @@ export default function Loading(props: pageProps) {
       return response.json();
     };
 
-    const parsedResponse = data_json;
-
     // Extract the lists for each name
     data_json()
       .then((parsedResponse) => {
@@ -102,8 +104,8 @@ export default function Loading(props: pageProps) {
 
   return (
     <div className="load">
-      <h1> Searching ... </h1>
-      <img src={img} />
+      <h1 tabIndex={0}> Searching ... </h1>
+      <img src={img} alt="bear loading moving image" />
     </div>
   );
 }
