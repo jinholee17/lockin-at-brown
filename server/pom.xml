@@ -43,6 +43,13 @@
       <version>1.13.0</version>
     </dependency>
 
+    <dependency>
+      <groupId>com.sparkjava</groupId>
+      <artifactId>spark-core</artifactId>
+      <version>2.9.3</version>
+      <!-- Adjust version as per your requirement -->
+    </dependency>
+
     <!--
            Spark is a lightweight framework for creating web applications.
            Spark is most commonly used to create APIs and websites.
