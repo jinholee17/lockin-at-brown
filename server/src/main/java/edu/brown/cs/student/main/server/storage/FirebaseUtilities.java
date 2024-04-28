@@ -109,6 +109,34 @@ public class FirebaseUtilities implements StorageInterface {
     }
   }
 
+  @Override
+  public void deleteWord(String uid, String word) throws IllegalArgumentException {
+    if (uid == null) {
+      throw new IllegalArgumentException("removeUser: uid cannot be null");
+    }
+    try {
+      // removes all data for user 'uid'
+      Firestore db = FirestoreClient.getFirestore();
+      // 1: Get the words collection
+      // List<Map<String, Object>> words = getCollection(uid, "words");
+      CollectionReference words = db.collection("users").document(uid).collection("words");
+
+      // get all documents in the collection words
+      ApiFuture<QuerySnapshot> future = words.get();
+      List<QueryDocumentSnapshot> documents = future.get().getDocuments();
+
+      // delete document if document content is words
+      for (QueryDocumentSnapshot doc : documents) {
+        if (doc.getReference().toString().contains("words")) {
+          doc.getReference().delete();
+        }
+      }
+    } catch (Exception e) {
+      System.err.println("Error removing pins : " + uid);
+      System.err.println(e.getMessage());
+    }
+  }
+
   // clears the collections inside of a specific user.
   @Override
   public void clearPins(String uid) throws IllegalArgumentException {

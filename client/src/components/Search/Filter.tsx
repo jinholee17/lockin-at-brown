@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../styles/filters.css";
+import { addWord, deleteWord } from "../../utils/api";
 import Page from "../Search/Search";
 
 interface searchProps {
@@ -13,7 +14,7 @@ interface searchProps {
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  // const [filters, setFilters] = useState<Set<String>>(new Set());
+  const [filters, setFilters] = useState<Set<string>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 
   function addFilter() {
@@ -23,7 +24,8 @@ export default function Filter(props: searchProps) {
     if (options.includes(text)) {
       const newFilters = new Set(props.filters);
       newFilters.add(text);
-      props.setFilters(newFilters);
+      setFilters(newFilters);
+      addWord(text);
     } else {
       setFiltersNA("Filter " + text + " Not Found!");
     }
@@ -31,10 +33,11 @@ export default function Filter(props: searchProps) {
   }
 
   function deleteFilter(filter: string) {
-    if (props.filters.has(filter)) {
-      const newFilters = new Set(props.filters);
+    if (filters.has(filter)) {
+      const newFilters = new Set(filters);
       newFilters.delete(filter);
-      props.setFilters(newFilters);
+      deleteWord(filter);
+      setFilters(newFilters);
     }
   }
 

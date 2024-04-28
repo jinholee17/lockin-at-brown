@@ -32,6 +32,19 @@ export async function addWord(word: string) {
     word: word,
   });
 }
+
+/**
+ * Adds a word to the favorite word database
+ * @param word
+ * @returns Promise for result
+ */
+export async function deleteWord(word: string) {
+  return await queryAPI("delete-word", {
+    uid: getLoginCookie() || "",
+    word: word,
+  });
+}
+
 /**
  * retrieves the list of favorite words in the database
  * @returns Promise for result of words
