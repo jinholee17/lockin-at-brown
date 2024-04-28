@@ -93,15 +93,8 @@ export default function Filter(props: searchProps) {
       </div>
 
       <div className="added-filters">
-        {Array.from(props.filters).map((filter, index) => (
-          <button
-            aria-label="delete filter"
-            aria-description={
-              "click or use enter to delete this filter" + filter
-            }
-            onClick={() => deleteFilter(filter)}
-            key={index}
-          >
+        {Array.from(filters).map((filter, index) => (
+          <button onClick={() => deleteFilter(filter)} key={index}>
             {filter} ❌
           </button>
         ))}
