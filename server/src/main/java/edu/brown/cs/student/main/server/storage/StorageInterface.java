@@ -9,6 +9,8 @@ public interface StorageInterface {
 
   void addDocument(String uid, String collection_id, String doc_id, Map<String, Object> data);
 
+  void deleteWord(String uid, String word);
+
   List<Map<String, Object>> getCollection(String uid, String collection_id)
       throws InterruptedException, ExecutionException;
 
