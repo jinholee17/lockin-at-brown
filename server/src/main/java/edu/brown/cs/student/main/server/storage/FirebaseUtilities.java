@@ -115,6 +115,8 @@ public class FirebaseUtilities implements StorageInterface {
       throw new IllegalArgumentException("removeUser: uid cannot be null");
     }
     try {
+
+      System.out.println("word: " + word);
       // removes all data for user 'uid'
       Firestore db = FirestoreClient.getFirestore();
       // 1: Get the words collection
@@ -127,8 +129,7 @@ public class FirebaseUtilities implements StorageInterface {
 
       // delete document if document content is words
       for (QueryDocumentSnapshot doc : documents) {
-        System.out.println(doc);
-        if (doc.getReference().toString().contains("words")) {
+        if (doc.getReference().toString().contains(word)) {
           doc.getReference().delete();
         }
       }

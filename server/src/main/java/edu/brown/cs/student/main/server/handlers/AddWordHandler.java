@@ -39,7 +39,7 @@ public class AddWordHandler implements Route {
       String wordId = "word-" + wordCount;
 
       // use the storage handler to add the document to the database
-      this.storageHandler.addDocument(uid, "words", wordId, data);
+      this.storageHandler.addDocument(uid, "words", word, data);
 
       responseMap.put("response_type", "success");
       responseMap.put("word", word);
