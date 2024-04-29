@@ -61,7 +61,9 @@ public class FirebaseUtilities implements StorageInterface {
 
     // 3: Get data from document queries
     List<Map<String, Object>> data = new ArrayList<>();
+
     for (QueryDocumentSnapshot doc : dataQuery.getDocuments()) {
+
       data.add(doc.getData());
     }
 

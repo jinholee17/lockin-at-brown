@@ -13,7 +13,7 @@ import spark.Spark;
 /** Top Level class for our project, utilizes spark to create and maintain our server. */
 public class Server {
   public static void setUpServer() {
-    int port = 3232;
+    int port = 3236;
     Spark.port(port);
 
     after(
@@ -30,6 +30,7 @@ public class Server {
       StudySpotDataSource studySpotDataSource = new StudySpotDataSource();
       // various end points
       Spark.get("delete-word", new DeleteWordHandler(firebaseUtils));
+      Spark.get("list-words", new ListWordsHandler(firebaseUtils));
       Spark.get("add-word", new AddWordHandler(firebaseUtils));
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));

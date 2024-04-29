@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/filters.css";
-import { addWord, deleteWord } from "../../utils/api";
+import { addWord, deleteWord, getWords } from "../../utils/api";
 import Page from "../Search/Search";
 
 interface searchProps {
@@ -41,6 +41,23 @@ export default function Filter(props: searchProps) {
       setFilters(newFilters);
     }
   }
+
+  useEffect(() => {
+    getWords().then((data) => {
+      const newFilters = new Set<string>();
+      const dataArr = data.words;
+
+      let i = 0;
+      while (i < dataArr.length) {
+        if (dataArr[i] != "") {
+          newFilters.add(data.words[i]);
+        }
+        i++;
+      }
+
+      setFilters(newFilters);
+    });
+  }, []);
 
   function setToLoadPage() {
     props.setCurrPage("load");
@@ -100,7 +117,7 @@ export default function Filter(props: searchProps) {
           </button>
         ))}
       </div>
-      
+
       <button
         className="lock-btn"
         onClick={setToLoadPage}

@@ -1,6 +1,6 @@
 import { getLoginCookie } from "./cookie";
 
-const HOST = "http://localhost:3232";
+const HOST = "http://localhost:3236";
 /**
  * Function to query the API endpoint.
  * @param endpoint The API endpoint.
