@@ -22,7 +22,7 @@ export default function Filter(props: searchProps) {
     let input = document.getElementById("input-filter") as HTMLInputElement;
     let text = input.value;
     if (options.includes(text)) {
-      const newFilters = new Set(props.filters);
+      const newFilters = new Set(filters);
       newFilters.add(text);
       setFilters(newFilters);
       addWord(text);
@@ -34,8 +34,9 @@ export default function Filter(props: searchProps) {
 
   function deleteFilter(filter: string) {
     if (filters.has(filter)) {
+      filters.delete(filter);
+
       const newFilters = new Set(filters);
-      newFilters.delete(filter);
       deleteWord(filter);
       setFilters(newFilters);
     }
@@ -99,7 +100,6 @@ export default function Filter(props: searchProps) {
           </button>
         ))}
       </div>
-
       <button
         className="lock-btn"
         onClick={setToLoadPage}
