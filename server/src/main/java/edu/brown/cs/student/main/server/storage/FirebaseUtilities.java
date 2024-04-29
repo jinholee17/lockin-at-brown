@@ -127,6 +127,7 @@ public class FirebaseUtilities implements StorageInterface {
 
       // delete document if document content is words
       for (QueryDocumentSnapshot doc : documents) {
+        System.out.println(doc);
         if (doc.getReference().toString().contains("words")) {
           doc.getReference().delete();
         }

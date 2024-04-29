@@ -100,6 +100,7 @@ export default function Filter(props: searchProps) {
           </button>
         ))}
       </div>
+      
       <button
         className="lock-btn"
         onClick={setToLoadPage}
