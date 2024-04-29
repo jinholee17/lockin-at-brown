@@ -50,12 +50,6 @@
            Spark is most commonly used to create APIs and websites.
     -->
 
-    <dependency>
-      <groupId>com.sparkjava</groupId>
-      <artifactId>spark-core</artifactId>
-      <version>2.9.3</version>
-    </dependency>
-
     <!--
            TestNG builds useful functionality on top of JUnit, such as method annotations.
     -->

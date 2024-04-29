@@ -33,6 +33,7 @@ public class Server {
       Spark.get("add-word", new AddWordHandler(firebaseUtils));
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
+      // Spark.get("study-review", new ReviewHandler());
 
       Spark.notFound(
           (request, response) -> {
