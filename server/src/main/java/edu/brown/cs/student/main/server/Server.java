@@ -30,6 +30,7 @@ public class Server {
       StudySpotDataSource studySpotDataSource = new StudySpotDataSource();
       // various end points
       Spark.get("delete-word", new DeleteWordHandler(firebaseUtils));
+      Spark.get("list-words", new ListWordsHandler(firebaseUtils));
       Spark.get("add-word", new AddWordHandler(firebaseUtils));
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
