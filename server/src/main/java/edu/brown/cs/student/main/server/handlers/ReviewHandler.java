@@ -12,7 +12,7 @@ import com.squareup.moshi.Types;
 public class ReviewHandler implements Route {
     @Override
     public Object handle(Request request, Response response) {
-        // Map<String, Object> responseMap = new HashMap<>();
+        Map<String, Object> responseMap = new HashMap<>();
         // try {
         // String uid = request.queryParams("uid");
 
@@ -28,6 +28,6 @@ public class ReviewHandler implements Route {
         // responseMap.put("error", e.getMessage());
         // }
 
-        // return Utils.toMoshiJson(responseMap);
+        return Utils.toMoshiJson(responseMap);
   }
 }
