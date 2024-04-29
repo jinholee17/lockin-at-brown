@@ -13,7 +13,7 @@ import spark.Spark;
 /** Top Level class for our project, utilizes spark to create and maintain our server. */
 public class Server {
   public static void setUpServer() {
-    int port = 3236;
+    int port = 3232;
     Spark.port(port);
 
     after(
