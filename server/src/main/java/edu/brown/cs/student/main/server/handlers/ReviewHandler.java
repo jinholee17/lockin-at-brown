@@ -34,6 +34,9 @@ public class ReviewHandler implements Route {
 
     Map<String, Object> responseMap = new HashMap<>();
 
+    return false;
+    // return Utils.toMoshiJson(responseMap);
+
     try {
       if (request.queryParams("businessID") != null) {
         // System.out.print(request.queryParams("locationId"));

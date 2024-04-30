@@ -11,6 +11,7 @@ import Map, {
   Marker,
   Popup,
 } from "react-map-gl";
+import mapboxgl, { FillExtrusionLayer } from "mapbox-gl";
 
 /**
  * Ensure that Mapbox API key is there
@@ -35,7 +36,7 @@ const ProvidenceLatLong: LatLong = {
   lat: 41.8268,
   long: -71.4025,
 };
-const initialZoom = 15;
+const initialZoom = 16;
 
 /**
  * Main function that handles all the map box logic
@@ -48,6 +49,8 @@ export default function Result(props: pageProps) {
   const [viewState, setViewState] = useState({
     latitude: ProvidenceLatLong.lat,
     longitude: ProvidenceLatLong.long,
+    pitch: 50,
+    bearing: 0,
     zoom: initialZoom,
   });
 
@@ -67,6 +70,20 @@ export default function Result(props: pageProps) {
     setHoveredLocation(null);
   };
 
+ const buildingLayer: FillExtrusionLayer = {
+   id: "3d-buildings",
+   source: "composite",
+   "source-layer": "building",
+   filter: ["==", "extrude", "true"],
+   paint: {
+     "fill-extrusion-color": "#FFDB47",
+     "fill-extrusion-opacity": 0.4,
+     "fill-extrusion-height": ["get", "height"],
+     "fill-extrusion-base": ["get", "min_height"],
+   },
+   type: "fill-extrusion",
+ };
+
   return (
     <div className="map">
       <h1 className="result" tabIndex={0}>
@@ -81,6 +98,7 @@ export default function Result(props: pageProps) {
         aria-lable="map with search results"
         aria-description="a map with search results as pins"
       >
+        <Layer {...buildingLayer} />
         {Array.from(props.locationCoords.entries()).map(
           ([key, coord], index) => {
             console.log(props.locationTopDescriptions);
