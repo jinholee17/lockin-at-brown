@@ -38,11 +38,11 @@ public class ReviewHandler implements Route {
         // System.out.print(request.queryParams("locationId"));
         // System.out.print(request.queryParams("accoundId"));
         // TODO: call API
-        reviewDatasource.getReviews(request.queryParams("businessID"));
+        double starRating = reviewDatasource.getReviews(request.queryParams("businessID"));
 
         // Serialize the output
         // Fetch reviews based on query parameters
-        responseMap.put("Success", "Found reviews");
+        responseMap.put("Success", starRating);
         return adapterResponse.toJson(responseMap);
 
       } else {
