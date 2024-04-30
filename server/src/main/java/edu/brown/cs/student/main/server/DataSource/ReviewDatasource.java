@@ -17,10 +17,19 @@ public class ReviewDatasource {
         new URL(
             "https://api.yelp.com/v3/private/businesses/" + locationID + "/reviews"); // Entery URL
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+
     connection.setRequestMethod("GET");
     // Set the authorization header with the Bearer scheme
     connection.setRequestProperty("Authorization", "Bearer " + API_KEY);
     connection.setRequestProperty("Accept", "application/json");
+
+    if (connection.getResponseCode() != HttpURLConnection.HTTP_OK) {
+      System.err.println(
+          "Failed with status: "
+              + connection.getResponseCode()
+              + " - "
+              + connection.getResponseMessage());
+    }
 
     // Check for a successful response (HTTP status 200)
     if (connection.getResponseCode() == HttpURLConnection.HTTP_OK) {
