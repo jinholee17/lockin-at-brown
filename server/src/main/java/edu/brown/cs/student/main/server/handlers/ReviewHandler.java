@@ -1,8 +1,10 @@
-// package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.handlers;
 
-// import spark.Request;
-// import spark.Response;
-// import spark.Route;
+import java.util.HashMap;
+import java.util.Map;
+import spark.Request;
+import spark.Response;
+import spark.Route;
 
 public class ReviewHandler implements Route {
   @Override
@@ -23,6 +25,8 @@ public class ReviewHandler implements Route {
     //     // responseMap.put("error", e.getMessage());
     //     // }
 
-    return Utils.toMoshiJson(responseMap);
+    return false;
+    // return Utils.toMoshiJson(responseMap);
+
   }
 }
