@@ -2,7 +2,7 @@ package edu.brown.cs.student.main.server;
 
 import static spark.Spark.after;
 
-import edu.brown.cs.student.main.server.DataSource.StudySpotDataSource;
+import edu.brown.cs.student.main.server.DataSource.*;
 import edu.brown.cs.student.main.server.handlers.*;
 import edu.brown.cs.student.main.server.storage.FirebaseUtilities;
 import edu.brown.cs.student.main.server.storage.StorageInterface;
@@ -28,10 +28,12 @@ public class Server {
     try {
       firebaseUtils = new FirebaseUtilities();
       StudySpotDataSource studySpotDataSource = new StudySpotDataSource();
+      ReviewDatasource reviewDatasource = new ReviewDatasource();
+
       // various end points
       Spark.get("clear-user", new ClearUserHandler(firebaseUtils));
       Spark.get("search-study", new SearchStudyHandler(studySpotDataSource));
-      Spark.get("study-review", new ReviewHandler());
+      Spark.get("study-review", new ReviewHandler(reviewDatasource));
 
       Spark.notFound(
           (request, response) -> {
