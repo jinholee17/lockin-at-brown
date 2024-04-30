@@ -34,12 +34,11 @@ public class ReviewHandler implements Route {
     Map<String, Object> responseMap = new HashMap<>();
 
     try {
-      if (request.queryParams("locationId") != null && request.queryParams("accoundId") != null) {
+      if (request.queryParams("businessID") != null) {
         // System.out.print(request.queryParams("locationId"));
         // System.out.print(request.queryParams("accoundId"));
         // TODO: call API
-        reviewDatasource.getReviews(
-            request.queryParams("locationId"), request.queryParams("accoundId"));
+        reviewDatasource.getReviews(request.queryParams("businessID"));
 
         // Serialize the output
         // Fetch reviews based on query parameters

@@ -10,12 +10,13 @@ public class ReviewDatasource {
   private static final String API_KEY =
       "Gh5GhOIvNTND-kLWc3QsFMJXLcTBdbaJwZ2mofgThV7Rufb_T5ygzW9lywLzlxtDLrUXggOmYXF1C9wrUYurDrfUw3eZ2dgC0-LLLL01_mNBDVvHbZtADHFrtQQxZnYx";
 
-  public String getReviews(String accountID, String locationID) throws Exception {
-    System.out.print(accountID);
-    System.out.print(locationID);
+  public String getReviews(String businessID) throws Exception {
+    System.out.print(businessID);
     URL url =
         new URL(
-            "https://api.yelp.com/v3/private/businesses/" + locationID + "/reviews"); // Entery URL
+            "https",
+            "api.yelp.com",
+            "/v3/private/businesses/" + businessID + "/reviews"); // Entery URL
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
     connection.setRequestMethod("GET");
