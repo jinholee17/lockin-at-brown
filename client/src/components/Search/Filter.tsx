@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../../styles/filters.css";
+import { addWord, deleteWord, getWords } from "../../utils/api";
 import Page from "../Search/Search";
 
 interface searchProps {
@@ -13,7 +14,7 @@ interface searchProps {
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  // const [filters, setFilters] = useState<Set<String>>(new Set());
+  const [filters, setFilters] = useState<Set<string>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 
   function addFilter() {
@@ -21,9 +22,10 @@ export default function Filter(props: searchProps) {
     let input = document.getElementById("input-filter") as HTMLInputElement;
     let text = input.value;
     if (options.includes(text)) {
-      const newFilters = new Set(props.filters);
+      const newFilters = new Set(filters);
       newFilters.add(text);
-      props.setFilters(newFilters);
+      setFilters(newFilters);
+      addWord(text);
     } else {
       setFiltersNA("Filter " + text + " Not Found!");
     }
@@ -31,12 +33,31 @@ export default function Filter(props: searchProps) {
   }
 
   function deleteFilter(filter: string) {
-    if (props.filters.has(filter)) {
-      const newFilters = new Set(props.filters);
-      newFilters.delete(filter);
-      props.setFilters(newFilters);
+    if (filters.has(filter)) {
+      filters.delete(filter);
+
+      const newFilters = new Set(filters);
+      deleteWord(filter);
+      setFilters(newFilters);
     }
   }
+
+  useEffect(() => {
+    getWords().then((data) => {
+      const newFilters = new Set<string>();
+      const dataArr = data.words;
+
+      let i = 0;
+      while (i < dataArr.length) {
+        if (dataArr[i] != "") {
+          newFilters.add(data.words[i]);
+        }
+        i++;
+      }
+
+      setFilters(newFilters);
+    });
+  }, []);
 
   function setToLoadPage() {
     props.setCurrPage("load");
@@ -90,15 +111,8 @@ export default function Filter(props: searchProps) {
       </div>
 
       <div className="added-filters">
-        {Array.from(props.filters).map((filter, index) => (
-          <button
-            aria-label="delete filter"
-            aria-description={
-              "click or use enter to delete this filter" + filter
-            }
-            onClick={() => deleteFilter(filter)}
-            key={index}
-          >
+        {Array.from(filters).map((filter, index) => (
+          <button onClick={() => deleteFilter(filter)} key={index}>
             {filter} ❌
           </button>
         ))}

@@ -11,6 +11,7 @@ import spark.Response;
 import spark.Route;
 
 public class ReviewHandler implements Route {
+
   private final ReviewDatasource reviewDatasource;
 
   public ReviewHandler(ReviewDatasource reviewDatasource) {
@@ -52,5 +53,5 @@ public class ReviewHandler implements Route {
       errorJson.put("error", e.getMessage());
       return adapterError.toJson(errorJson);
     }
-  }
+
 }
