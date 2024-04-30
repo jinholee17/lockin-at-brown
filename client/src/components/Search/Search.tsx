@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FirestoreDemo from "../FirestoreDemo";
+// import FirestoreDemo from "../FirestoreDemo";
 import Filter from "../Search/Filter";
 import Loading from "../Search/Loading";
 import Result from "./Result";
