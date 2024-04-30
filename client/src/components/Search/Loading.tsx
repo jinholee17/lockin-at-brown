@@ -13,10 +13,6 @@ interface pageProps {
   userLoc: Number[];
 }
 
-// function fetchLocData(){
-//   const fetchData
-
-// }
 
 export default function Loading(props: pageProps) {
   setTimeout(function () {
