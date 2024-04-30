@@ -1,5 +1,8 @@
 package edu.brown.cs.student.main.server.handlers;
 
+import com.squareup.moshi.JsonAdapter;
+import com.squareup.moshi.Moshi;
+import com.squareup.moshi.Types;
 import edu.brown.cs.student.main.server.DataSource.*;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,46 +19,39 @@ public class ReviewHandler implements Route {
 
   @Override
   public Object handle(Request request, Response response) {
+
+    // Serialize the error message to a JSON string
+    Moshi moshi = new Moshi.Builder().build();
+    Map<String, String> errorJson = new HashMap<>();
+    Moshi moshiError = new Moshi.Builder().build();
+    JsonAdapter<Map<String, String>> adapterError =
+        moshiError.adapter(Types.newParameterizedType(Map.class, String.class, String.class));
+
+    // Serialize successfull output
+    JsonAdapter<Map<String, Object>> adapterResponse =
+        moshi.adapter(Types.newParameterizedType(Map.class, String.class, Object.class));
+
     Map<String, Object> responseMap = new HashMap<>();
-    // try {
-    //   URL requestURL = new URL(
-    //     "https",
-    //     "mybusiness.googleapis.com",
-    //     "/v4/accounts/"
-    //     + accound Id + "/locations/" + locationId + "/reviews");
-
-    // HttpURLConnection clientConnection = connect(requestURL);
-    // Moshi moshi = new Moshi.Builder().build();
-    // // Serialize output
-    // Type listType = Types.newParameterizedType(List.class, List.class);
-    // JsonAdapter<List<List<String>>> adapter = moshi.adapter(listType);
-
-    // List<List<String>> body =
-    //       adapter.fromJson(new Buffer().readFrom(clientConnection.getInputStream()));
-    // clientConnection.disconnect();
-    // System.out.print(body)
-
-    // responseMap.put("response_type", "success");
-    // } catch (Exception e) {
-    // // error likely occurred in the storage handler
-    // e.printStackTrace();
-    // responseMap.put("response_type", "failure");
-    // responseMap.put("error", e.getMessage());
-    // }
 
     try {
       if (request.queryParams("locationId") != null && request.queryParams("accoundId") != null) {
-        System.out.print(request.queryParams("locationId"));
-        System.out.print(request.queryParams("accoundId"));
+        // System.out.print(request.queryParams("locationId"));
+        // System.out.print(request.queryParams("accoundId"));
         // TODO: call API
+        reviewDatasource.getReviews(
+            request.queryParams("locationId"), request.queryParams("accoundId"));
+
+        // Serialize the output
+        // Fetch reviews based on query parameters
+        responseMap.put("Success", "Found reviews");
+        return adapterResponse.toJson(responseMap);
+
       } else {
-       throw new Exception("Invalid Query");
+        throw new Exception("Invalid Query");
       }
     } catch (Exception e) {
       errorJson.put("error", e.getMessage());
       return adapterError.toJson(errorJson);
     }
-
-    return Utils.toMoshiJson(responseMap);
   }
 }

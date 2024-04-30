@@ -67,25 +67,6 @@ export default function Result(props: pageProps) {
     setHoveredLocation(null);
   };
 
-  export const getReview = async (): Promise<string> => {
- 
-  // Normal fetch implementation
-  const res = await fetch(
-  
-    // http://localhost:3232/search-study
-    
-  );
-  //Turn result into json
-  const json = await res.json();
-  console.log(json);
-  //Returns the error message
-  if (json["error"]) {
-    return json["error"];
-  }
-  //returns 'File loaded: <filename>'
-  return json["Success"] + ": " + fileName;
-};
-
   return (
     <div className="map">
       <h1 className="result" tabIndex={0}>
