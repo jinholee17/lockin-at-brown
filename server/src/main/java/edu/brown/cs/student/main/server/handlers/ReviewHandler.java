@@ -53,5 +53,5 @@ public class ReviewHandler implements Route {
       errorJson.put("error", e.getMessage());
       return adapterError.toJson(errorJson);
     }
-
+  }
 }

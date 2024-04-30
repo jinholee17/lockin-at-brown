@@ -39,7 +39,6 @@ public class Server {
 
       Spark.get("study-review", new ReviewHandler(reviewDatasource));
 
-
       Spark.notFound(
           (request, response) -> {
             response.status(404); // Not Found
