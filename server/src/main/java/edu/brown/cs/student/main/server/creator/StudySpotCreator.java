@@ -98,6 +98,11 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
     }
   }
 
+  /**
+   * Returns a Location object with coordinates of that location stored
+   * @param locationName
+   * @return
+   */
   public Location getCoords(String locationName) {
     String workingDirectory = System.getProperty("user.dir");
     String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();

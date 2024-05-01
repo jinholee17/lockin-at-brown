@@ -47,3 +47,8 @@
 .Popup > ul {
   font-size: 14px;
 }
+
+.star {
+  height: 30px;
+  width: 30px;
+}
