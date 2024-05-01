@@ -76,8 +76,6 @@ export default function Result(props: pageProps) {
           const successValue: number = data.Success;
           setLocationRating(successValue);
           console.log("hi " + successValue);
-        } else if ("error" in data) {
-          console.error("Error:", data.error);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -113,6 +111,9 @@ export default function Result(props: pageProps) {
     const maxRating = 5;
     const roundedRating = Math.round(hoveredLocationRating * 2) / 2; // Round rating to nearest 0.5
 
+    if (roundedRating != 0) {
+      starComponents.push(<text className="rating-text">Yelp Rating:</text>);
+    }
     for (let i = 1; i <= maxRating; i++) {
       if (i <= roundedRating) {
         // Display a full star
