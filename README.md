@@ -6,59 +6,43 @@
 - **Project Description:** This project is for the final project of CS32. LockIn@Brown is a web-app that suggests study spaces on Brown's campus to students with Brown login. The web-app has the following main features:  
   - Google login for @brown.edu email addresses to store user login information 
   - User may include they're prefered features
-    - These features are stored in the firestore database
-    - Used to calculate 
+    - These features are stored in the firestore database (save on reload) when they are added or deleted 
+    - Features calculate which locations to return as pins on a map, along with star rating from Yelp 
+    - User can enter new searches
+    - Defualt search result will be used if user do not enter anything 
+  - Accessibility feature including screen-reader adaptibility and navigation without trackback / adaptibility to changing screen size
+- **Planning:** As a team, we discussed comprehensively stakeholders / end-user needs. After dividing work between the four of us, we drafted in Figma our UI meanwhile collecting study space data. We added new features such as API call to Yelp and accessibilty as we had more time and considered which features may be beneficial to our end-users. 
 - **[Repo Link](https://github.com/cs0320-s24/term-project-jlee812-asun59-mzheng37-hchung33)**
 
 # 💡 Design Choices
 
-- **The Front-End Client** :
-  - Displays map that is scrollable and zoomable using Mapbox
-  - When user clicks somewhere on the map, the lat. and long. information are obtained to create a pin and stored in the database through sending this API request and interaction with a backend handler that actually manages this action 
-  - When user clicks the clear pin, all previously store pin information should be removed from database through sending this API request and interaction with a backend handler that actually manages this action  
-  - Fetch data from red-lining API calls then display these data using overlay feature in Mapbox to render an overlay with color
-  - When user puts in an area-description keyword, another fetch request to backend API to obtain filtered dataset based on that keyword is initiated; this data is then taken and generated another overlay with dark purple highlight displaying those regions matching the keyword
-  - When user clicks clear search button, all highlight should be removed
-- **Red-Lining Dataset API (Backend)**:
-  - A Server class initiates end-point with different handler classes that takes care of various functions
-  - Pin handler classes each takes care of storing one pin, clearing pins, and getting a list of pins (when the user re-logins) interacting with the database user-specifically
-  - Red-lining handler classes take care of obtaining entire set of red-lining data, filtering red-lining data based on bounding box parameter queries, and filtering red-lining data based on
-  - Red-lining dataset is parsed through a provided parser that takes the GeoJson and parse it into a specific formatted object with according fields that is compatible with Moshi to return to frontend (See the parsed object in `server/src/main/java/edu/brown/cs/student/main/server/geoJsonParser/GeoJsonObject.java`)
-  - Moshi adapters are used to deliver formatted results to JSON usable by frontend
-  - We used a shared interface where normal datasource and mocked datasource can be passsed into the handler to alter the data source 
+- **Front-End** :
+ 
+- **Backend**:
+  - After starting the server, accessing the folowing API endpoints will trigger different functionaility as described below. _Developers may also use integrate the following APIs for their use _ :
+    - _Returning Prefered Location + Yelp Rating:_
+      - `/search-study?volume=[value]&traffic=[value]&capacity=[value]&accessible=[value]&whiteboard=[value]&aesthetics=[value]`: **[TODO!!]**
+      - `/study-review?businessID=[YelpID for location]`: Obtain and process rating of target location from Yelp using the YelpID of that location 
+    - _Interacting with firestore:_
+      - _uid are obtained by unqiue identifier using the user's cookie information_
+      - `/delete-word?uid=[user]&word=[filter]`: access firestore and delete the target `filter` stored in user's firestore database
+      - `/add-word?uid=[user]&word=[filter]`: access firestore and add the target `filter` stored into user's firestore database
+      - `/list-words?uid=[user]`: access firestore and lists all filters stored in user's firestore databse
+        
+  - ***Data***:
+    - `data.csv`: Data regarding study space and their features are collected from students at Brown through a Google form survey. This data is then transferred into a CSV file to be used for returning preference-based locations using our algorithm described below.
+    - `locationcoords.json`: Hard-coded json object with all the existing study locations coordinate information and their YelpIDs for obtaining rating 
+  - ***Algorithm***: **[TODO!!]**
+ 
 - **Firebase Authentication / Firestore (Database)**:
-  - Login / Logout with Goolge accounts
-  - Stores pin data based on user
+  - Login / Logout with Goolge accounts (Brown address only) 
+  - Stores filter data based on user searches 
 
 # 🐛 Errors/Bugs
 
 No known bugs in program 
-Front-end total integration tests with overlay are sample tests for if we can grab the overlay; however, they do not work as they are since overlay are outside components (some tests are commented out because of this)
 
 # 🧪 Tests
-
-## e2e Tests: Front-end / Front-end + Back-end Interction
-
-### Integrated Real Query to Server: To test everything is expected as how users would actually interact with the web-app
-- e2e/RedLine.spec.ts: redline search (sample) 
-- e2e/Pins.spec.ts: pins + onload pins 
-- e2e/Integration.spec.ts: pins + redline search (sample) 
-- e2e/App.spec.ts: general login and logout
-
-- unit/RedLine.spec.ts: redline search actual data, test if the correct data returns
-
-## Backend Tests: Handler Test / Unit Test
-
-### Handler Test:
-
-- `server/src/test/java/edu/brown/cs/student/backendIntegrationTesting/TestAPIHandlers.java` : includes all tests on the relative APIHandlers used (pin + red-lining data interaction), error cases, and interaction between the two handlers
-
-### Unit Tests: Backend Functions
-
-- `server/src/test/java/edu/brown/cs/student/backendUnitTesting/unitTests.java` : includes testing for red-lining data parsing unit functions
-
-### Backend Mocked: 
-- `server/src/test/java/edu/brown/cs/student/MockTest/MockRedlineData.java`: mocks geojson and tests various filtering with this mocked data using a mocked datasource being passed into the handlers 
 
 # 💻 How to
 
@@ -88,20 +72,9 @@ Front-end total integration tests with overlay are sample tests for if we can gr
 
 - For Developers working with Firebase / Firestore:
   - Ensure you have your API key from Firebase and Mapbox API key inside a `.env` file inside the top-level of the `client` directory
+  - Ensure you have a Yelp API key if you decide to use ratings 
   - Ensure you have a `firebase_config.json` from Firebase inside `server/src/main` directory inside a `resources` directory
 
-## Developers:
+# 🤝 Collaboration / Citations 
+- Home page text typing effect starter code from article: https://www.sitepoint.com/css-typewriter-effect/
 
-- If you would like to use the red-lining dataset APIs and pin setting APIs, access them through the below urls after starting the server:
-  - `/redline/*`: access all red-lining data
-  - `/redline?max-lat=[value]&max-long=[value]&min-lat=[value]&min-long=[value]`: provided a bounding box of minimum and maximum latitude and longitude, filter the red-lining data
-  - `/search-area?area-desc=[key_words]`: provided keywords, filter the red-lining data based on area description
-  - `/add-pin?uid=[user]&pin=[coordinate]` : to add a pin data to the database for user
-  - `/list-pins?uid=[user]`: list all current pins for user
-  - `clear-pins?uid=[user]`: clear all pins for user
-
-# 🤝 Collaboration
-
-No other resources or collaboration in this project other than provided code through Maps GearUp and Parser from given Parser code.
-
-Red-lining data set from: https://dsl.richmond.edu/panorama/redlining/data
