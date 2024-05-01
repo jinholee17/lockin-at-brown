@@ -37,7 +37,7 @@ public class ReviewHandler implements Route {
 
     Map<String, Object> responseMap = new HashMap<>();
 
-    //return false;
+    // return false;
     // return Utils.toMoshiJson(responseMap);
 
     try {
@@ -63,7 +63,7 @@ public class ReviewHandler implements Route {
     }
   }
 
-  public String getID(String locationName){
+  public String getID(String locationName) {
     String workingDirectory = System.getProperty("user.dir");
     String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
     try (FileReader reader = new FileReader(path)) {
@@ -83,5 +83,4 @@ public class ReviewHandler implements Route {
     System.err.println("Location name " + locationName + " not found in ID data");
     return null;
   }
-
 }

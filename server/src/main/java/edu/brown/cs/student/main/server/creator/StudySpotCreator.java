@@ -100,6 +100,7 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
 
   /**
    * Returns a Location object with coordinates of that location stored
+   *
    * @param locationName
    * @return
    */

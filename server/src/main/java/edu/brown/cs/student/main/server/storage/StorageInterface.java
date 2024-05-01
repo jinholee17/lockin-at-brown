@@ -17,12 +17,4 @@ public interface StorageInterface {
   void clearUser(String uid) throws InterruptedException, ExecutionException;
 
   void clearPins(String uid) throws InterruptedException, ExecutionException;
-
-  // SPRINT 5 - ADDITIONAL FUNCTIONALITY
-  // Add methods to your StorageInterface to handle updating and deleting
-  // documents.
-  // For more info, see:
-  // - 'Update a Document' in
-  // https://firebase.google.com/docs/firestore/manage-data/add-data#java_19
-
 }
