@@ -13,7 +13,6 @@ interface pageProps {
   userLoc: Number[];
 }
 
-
 export default function Loading(props: pageProps) {
   setTimeout(function () {
     props.setCurrPage("result");
