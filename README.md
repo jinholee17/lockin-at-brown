@@ -16,9 +16,21 @@
 
 # 💡 Design Choices
 
-- **Front-End** :
+- **Front-End (React + TypeScript)** :
+  - `Main.tsx` > `App.tsx` : Entry point to the frontend program, add new avaiable filters here by appending new filters to the `options` array
+  ***Authentication***
+    - `AuthRoute.tsx`: Maintain state of logged-in or not 
+    - `LoginLogout.tsx`: Return appropriate JSX depending on if the user is logged-in or logged-out 
+  ***Main Web-App***
+    - `Search.tsx`:
+    - `Filter.tsx`: Maintain interactive filter lists, adding and deleting filters; change current page status to `load` when user press `lock-in` button 
+    - `Loading.tsx`: Loading page 
+    - `Result.tsx`: 
+  ***Utils***:
+    - `api.ts`: Establish endpoints to interact with server and firestroe 
+    - `cookie.ts`: Get information on user's cookie 
  
-- **Backend**:
+- **Backend (Java)**:
   - After starting the server, accessing the folowing API endpoints will trigger different functionaility as described below. _Developers may also use integrate the following APIs for their use _ :
     - _Returning Prefered Location + Yelp Rating:_
       - `/search-study?volume=[value]&traffic=[value]&capacity=[value]&accessible=[value]&whiteboard=[value]&aesthetics=[value]`: **[TODO!!]**
