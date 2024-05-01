@@ -1,15 +1,14 @@
-# 🗺️ Project Details
+# 🔓 Project Details
 
-- **Project Name:** Maps
-- **Contributors:** Alyssa Sun (asun59) & Megan Zheng (mzheng37)
-- **Estimated time:** 18 hours
-- **Project Description:** This project is for the 5th sprint for CS32 at Brown. In this project, we incorporated a zoomable and movable map that supports:
-  - Google login for user specific information storage with firestore database management
-  - Pin with click on any location / clear pin function (gets stored in database for consistent access according to user)
-  - Overlay on map displaying red-lining data in the US
-  - Putting another overlay highlight to filter according to area description keywords / clearing those searches
-  - API for developers to access red-lining dataset, filtering red-lining dataset according to bounding-box coordinates, and filtering dataset based on provided keyword for area-description
-- **[Repo Link](https://github.com/cs0320-s24/maps-mzheng37-asun59)**
+- **Project Name:** LockIn@Brown 
+- **Contributors:** Alyssa Sun (asun59), Jinho Lee (jlee812), Julie Chung (hchung33), Megan Zheng (mzheng37)
+- **Estimated time:** 35 hours
+- **Project Description:** This project is for the final project of CS32. LockIn@Brown is a web-app that suggests study spaces on Brown's campus to students with Brown login. The web-app has the following main features:  
+  - Google login for @brown.edu email addresses to store user login information 
+  - User may include they're prefered features
+    - These features are stored in the firestore database
+    - Used to calculate 
+- **[Repo Link](https://github.com/cs0320-s24/term-project-jlee812-asun59-mzheng37-hchung33)**
 
 # 💡 Design Choices
 
