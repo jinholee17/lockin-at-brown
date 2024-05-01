@@ -24,9 +24,10 @@ export default function Loading(props: pageProps) {
 
     const url = new URL("http://localhost:3232/search-study");
     if (props.filters.size == 0) {
-      props.filters.add("Conversational");
-      props.filters.add("Moderate traffic");
-      props.filters.add("4-8 people");
+      // console.log("over here");
+      // url.searchParams.append("volume", "Conversational");
+      // url.searchParams.append("traffic", "Moderate traffic");
+      // url.searchParams.append("capacity", "4-8 people");
     }
     props.filters.forEach((filter) => {
       if (
@@ -67,6 +68,7 @@ export default function Loading(props: pageProps) {
         url.searchParams.append("lon", props.userLoc[1].toString());
       }
     });
+    console.log(url);
 
     const data_json = async () => {
       const response = await fetch(url);
@@ -92,7 +94,7 @@ export default function Loading(props: pageProps) {
       .catch((error) => {
         console.error("Error fetching or processing data:", error);
       });
-
+    console.log(coords);
     props.setLocationCoords(coords);
     props.setDescriptions(descriptions);
   }, []);
