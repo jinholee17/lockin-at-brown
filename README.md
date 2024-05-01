@@ -18,15 +18,17 @@
 
 - **Front-End (React/TypeScript/CSS Styling/MapBox API)** :
   - `Main.tsx` > `App.tsx` : Entry point to the frontend program, add new avaiable filters here by appending new filters to the `options` array
-  ***Authentication***
+  - ***Authentication***
     - `AuthRoute.tsx`: Maintain state of logged-in or not 
     - `LoginLogout.tsx`: Return appropriate JSX depending on if the user is logged-in or logged-out 
-  ***Main Web-App***
+
+  - ***Main Web-App***
     - `Search.tsx`: Maintain state about which of the following component should be rendered 
       - `Filter.tsx`: Maintain interactive filter lists, adding and deleting filters; change current page status to `load` when user press `lock-in` button 
       - `Loading.tsx`: Return the loading page, wait for a couple of seconds for filters to be send to and used by the server and return prefered locations as a promise before setting the page to the result page
       - `Result.tsx`: Use MapBox to display locations as pins where user can hover over to see exact filters and Yelp ratings based on the server's response to filters inputted by user through tht frontend. Also contains button to query change filters for a new search
-  ***Utils***:
+  
+  - ***Utils***
     - `api.ts`: Establish endpoints to interact with server and firestroe 
     - `cookie.ts`: Get information on user's cookie 
  
