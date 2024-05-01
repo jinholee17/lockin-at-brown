@@ -16,7 +16,7 @@
 
 # 💡 Design Choices
 
-- **Front-End (React + TypeScript)** :
+- **Front-End (React + TypeScript + MapBox)** :
   - `Main.tsx` > `App.tsx` : Entry point to the frontend program, add new avaiable filters here by appending new filters to the `options` array
   ***Authentication***
     - `AuthRoute.tsx`: Maintain state of logged-in or not 
@@ -24,8 +24,8 @@
   ***Main Web-App***
     - `Search.tsx`:
     - `Filter.tsx`: Maintain interactive filter lists, adding and deleting filters; change current page status to `load` when user press `lock-in` button 
-    - `Loading.tsx`: Loading page 
-    - `Result.tsx`: 
+    - `Loading.tsx`: Return the loading page, wait for a couple of seconds for filters to be used by the server and return prefered locations before setting the page to the result page
+    - `Result.tsx`: Use MapBox to display locations as 
   ***Utils***:
     - `api.ts`: Establish endpoints to interact with server and firestroe 
     - `cookie.ts`: Get information on user's cookie 
