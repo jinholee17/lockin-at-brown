@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import "../../styles/filters.css";
 import { addWord, deleteWord, getWords } from "../../utils/api";
 import Page from "../Search/Search";
-
+/**
+ * This focuses on the search page where users can add and delete 
+ * filters when searching for a study space
+ */
 interface searchProps {
   options: string[];
   filters: Set<string>;
@@ -11,12 +14,16 @@ interface searchProps {
   userLoc: Number[];
   setUserLocation: React.Dispatch<React.SetStateAction<Number[]>>;
 }
-
+/**
+ * Function that adds and deletes filters in the front end
+ * @param props 
+ * @returns 
+ */
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
   const [filters, setFilters] = useState<Set<string>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
-
+  // Adds filters
   function addFilter() {
     setFiltersNA("");
     let input = document.getElementById("input-filter") as HTMLInputElement;
@@ -31,7 +38,7 @@ export default function Filter(props: searchProps) {
     }
     input.value = "";
   }
-
+  // Deletes filters
   function deleteFilter(filter: string) {
     if (filters.has(filter)) {
       filters.delete(filter);
@@ -41,7 +48,7 @@ export default function Filter(props: searchProps) {
       setFilters(newFilters);
     }
   }
-
+  // gets the possible filters
   useEffect(() => {
     getWords().then((data) => {
       const newFilters = new Set<string>();
@@ -58,7 +65,7 @@ export default function Filter(props: searchProps) {
       setFilters(newFilters);
     });
   }, []);
-
+  // Sends to load page once entered fitlers are complete
   function setToLoadPage() {
     props.setCurrPage("load");
   }
@@ -79,7 +86,7 @@ export default function Filter(props: searchProps) {
   } else {
     console.error("Geolocation is not supported by this browser.");
   }
-
+  // Return the JSX representing the filter UI and its interactions
   return (
     <div className="input">
       <p className="Not-Found">{filtersNA}</p>

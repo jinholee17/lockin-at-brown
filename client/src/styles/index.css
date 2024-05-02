@@ -12,10 +12,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #d2b181; /* Brown background color */
+  background-color: #d2b181; 
 }
 
-/* Add margin-top to main content to ensure it starts below the header */
+
 main {
   margin-top: 60px;
 }
