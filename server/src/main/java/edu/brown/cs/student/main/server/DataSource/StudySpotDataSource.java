@@ -74,10 +74,17 @@ public class StudySpotDataSource {
         score += 1;
       }
       if (aes != null) {
-        switch (aes) {
-          case "Aesthetic" -> score += 1;
-          case "Not Aesthetic" -> score -= 1;
-          default -> {}
+        if(aes.equals("yes"))
+        {
+          if(s.aesthetic.equals("good")){
+            score += 1;
+          }
+          if(s.aesthetic.equals("medium")){
+            score += 0.5;
+          }
+          if(s.aesthetic.equals("bad")){
+            score -= 1;
+          }
         }
       }
       if (accessible != null) {

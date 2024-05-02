@@ -51,17 +51,27 @@
       "longitude": -71.39959449066565,
       "yelpID": ""
     },{
-      "name": "cit library",
+      "name": "cit library (4th floor)",
       "latitude": 41.827106560284115,
       "longitude": -71.39959449066565,
       "yelpID": ""
     },{
-      "name": "cit third floor atrium",
+      "name": "cit 3rd floor atrium",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565,
+      "yelpID": ""
+    },{
+      "name": "cit 4th floor atrium",
       "latitude": 41.827106560284115,
       "longitude": -71.39959449066565,
       "yelpID": ""
     },{
       "name": "cit lobby",
+      "latitude": 41.827106560284115,
+      "longitude": -71.39959449066565,
+      "yelpID": ""
+    },{
+      "name": "cit conference rooms (4th and 5th floor)",
       "latitude": 41.827106560284115,
       "longitude": -71.39959449066565,
       "yelpID": ""
@@ -205,6 +215,11 @@
       "latitude": 41.82764609093241,
       "longitude": -71.4026893446329,
       "yelpID": ""
+    },{
+      "name": "page robinson classrooms",
+      "latitude": 41.82764609093241,
+      "longitude": -71.4026893446329,
+      "yelpID": ""
     },
     {
       "name": "smitty b",
@@ -271,6 +286,17 @@
       "longitude": -71.40338719031101,
       "yelpID": ""
     },{
+      "name": "nicholson house",
+      "latitude": 41.82525813078385,
+      "longitude": -71.40338719031101,
+      "yelpID": ""
+    },
+    {
+      "name": "stonewall house",
+      "latitude": 41.82526933790581,
+      "longitude": -71.40298195396744,
+      "yelpID": ""
+    },{
       "name": "kim koo library in watson institute",
       "latitude": 41.8243769901603,
       "longitude": -71.39990648391101,
@@ -289,6 +315,12 @@
       "name": "sydney cafe",
       "latitude": 41.83022097017604,
       "longitude": -71.40103099940549,
+      "yelpID": "sydney-providence-providence"
+    },
+    {
+      "name": "sarah doyle center",
+      "latitude": 41.82483370119673,
+      "longitude": -71.40249962373206,
       "yelpID": "sydney-providence-providence"
     }
   ]
