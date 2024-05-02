@@ -7,7 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/*
+/**
  * clear words for user
  */
 public class ClearUserHandler implements Route {
@@ -32,7 +32,6 @@ public class ClearUserHandler implements Route {
       String uid = request.queryParams("uid");
 
       // Remove the user from the database
-      System.out.println("clearing words for user: " + uid);
       this.storageHandler.clearUser(uid);
 
       responseMap.put("response_type", "success");

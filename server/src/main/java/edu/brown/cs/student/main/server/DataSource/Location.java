@@ -6,6 +6,13 @@ public class Location {
   private double latitude;
   private String yelpID;
 
+  /**
+   * Type class for a location, to store data parsed from the json
+   * @param name
+   * @param longitude
+   * @param latitude
+   * @param yelpID
+   */
   public Location(String name, double longitude, double latitude, String yelpID) {
     this.name = name;
     this.longitude = longitude;
@@ -13,6 +20,10 @@ public class Location {
     this.yelpID = yelpID;
   }
 
+  /**
+   * getter methods for all the location fields
+   * @return
+   */
   public String getName() {
     return this.name;
   }

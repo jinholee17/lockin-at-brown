@@ -20,12 +20,21 @@ public class StudySpotDataSource {
   public List<StudySpot> parsed;
   public CreatorFromRow<StudySpot> studySpotCreator;
 
+  /**
+   * Class which creates the top 3 study spots based off of desired fields
+   * @throws IOException
+   */
   public StudySpotDataSource() throws IOException {
     String workingDirectory = System.getProperty("user.dir");
     String path = Paths.get(workingDirectory, "data", "data.csv").toString();
     this.parse(path);
   }
 
+  /**
+   * Parses a csv file into a list of study spots
+   * @param path
+   * @throws IOException
+   */
   public void parse(String path) throws IOException {
     this.studySpotCreator = new StudySpotCreator();
     FileReader reader = new FileReader(path);
@@ -130,6 +139,10 @@ public class StudySpotDataSource {
     return topThreeSpots;
   }
 
+  /**
+   * Returns the current time, in the form of a time enum
+   * @return
+   */
   public Time getTime() {
     Calendar calendar = Calendar.getInstance();
     int currentHour = calendar.get(Calendar.HOUR_OF_DAY);
@@ -161,6 +174,10 @@ public class StudySpotDataSource {
     return Math.abs(2 * (mylon - lon + (mylat - lat)));
   }
 
+  /**
+   * Getter method for parsed
+   * @return
+   */
   public List<StudySpot> getParsed() {
     return this.parsed;
   }

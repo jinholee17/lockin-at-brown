@@ -17,6 +17,9 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/**
+ * Class which handles the endpoint for returning top 3 study spots
+ */
 public class SearchStudyHandler implements Route {
   private final StudySpotDataSource studySpotDataSource;
 
@@ -24,6 +27,14 @@ public class SearchStudyHandler implements Route {
     this.studySpotDataSource = studySpotDataSource;
   }
 
+  /**
+   * Given parameters: volume, traffic, capacity, accessible, whiteboard,aesthetics,lon,lat
+   * Returns 3 study spots
+   * @param request
+   * @param response
+   * @return
+   * @throws IOException
+   */
   @Override
   public Object handle(Request request, Response response) throws IOException {
     Map<String, Object> responseMap = new HashMap<>();

@@ -16,6 +16,11 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
     this.rows = new ArrayList<List<String>>();
   }
 
+  /**
+   * Creates a study spot, based off the parsing of a list of strings
+   * @param row
+   * @return
+   */
   @Override
   public StudySpot create(List<String> row) {
     int rowLength = row.size();

@@ -33,8 +33,6 @@ public class DeleteWordHandler implements Route {
       Map<String, Object> data = new HashMap<>();
       data.put("word", word);
 
-      System.out.println("deleting word: " + word + " for user: " + uid);
-
       // use the storage handler to add the document to the database
       this.storageHandler.deleteWord(uid, word);
 

@@ -30,8 +30,6 @@ public class ListWordsHandler implements Route {
     try {
       String uid = request.queryParams("uid");
 
-      System.out.println("listing words for user: " + uid);
-
       // get all the words for the user
       List<Map<String, Object>> vals = this.storageHandler.getCollection(uid, "words");
 

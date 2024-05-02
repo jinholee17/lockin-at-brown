@@ -6,6 +6,9 @@ import edu.brown.cs.student.main.server.enums.Traffic;
 import edu.brown.cs.student.main.server.enums.Volume;
 import java.util.List;
 
+/**
+ * Class that represents a study spot
+ */
 public class StudySpot {
   public String name;
   public Time time;

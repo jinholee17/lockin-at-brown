@@ -32,8 +32,6 @@ public class AddWordHandler implements Route {
       Map<String, Object> data = new HashMap<>();
       data.put("word", word);
 
-      System.out.println("adding word: " + word + " for user: " + uid);
-
       // use the storage handler to add the document to the database
       this.storageHandler.addDocument(uid, "words", word, data);
 

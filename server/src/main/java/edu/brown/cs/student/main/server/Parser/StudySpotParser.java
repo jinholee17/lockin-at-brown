@@ -9,6 +9,10 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 
+/**
+ * Class that parses a study spot
+ * @param <T>
+ */
 public class StudySpotParser<T> {
   BufferedReader reader;
   CreatorFromRow<T> toCreate;
@@ -20,6 +24,12 @@ public class StudySpotParser<T> {
     this.toCreate = toCreate;
   }
 
+  /**
+   * Given a file which is read into the buffered reader, this parses it into
+   * a list of a generic object
+   * @return
+   * @throws IOException
+   */
   public List<T> parse() throws IOException {
     List<T> createdList = new ArrayList<T>();
     String line = this.reader.readLine();
@@ -32,6 +42,11 @@ public class StudySpotParser<T> {
     return createdList;
   }
 
+  /**
+   * Removes whitespaces and quotes from a string
+   * @param arg
+   * @return
+   */
   public static String postprocess(String arg) {
     return arg
         // Remove extra spaces at beginning and end of the line

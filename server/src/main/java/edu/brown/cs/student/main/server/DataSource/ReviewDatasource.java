@@ -20,7 +20,6 @@ public class ReviewDatasource {
 
   /** Functiont that connects to the API and returns a double of the star rating */
   public double getReviews(String businessID) throws Exception {
-    System.out.print(businessID);
     URL url = new URL("https://api.yelp.com/v3/businesses/" + businessID); // Entery URL
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
@@ -50,8 +49,6 @@ public class ReviewDatasource {
       Map<String, Object> jsonMap = jsonAdapter.fromJson(responseContent.toString());
 
       if (jsonMap != null && jsonMap.containsKey("rating")) {
-        // Assuming the "rating" is a double value
-        System.out.print(jsonMap.get("rating"));
         return (double) jsonMap.get("rating");
       } else {
         throw new Exception("Rating not found in the response");

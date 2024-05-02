@@ -21,6 +21,10 @@ import java.util.concurrent.ExecutionException;
 
 public class FirebaseUtilities implements StorageInterface {
 
+  /**
+   * Class which interacts with firebase
+   * @throws IOException
+   */
   public FirebaseUtilities() throws IOException {
 
     String workingDirectory = System.getProperty("user.dir");
@@ -37,6 +41,15 @@ public class FirebaseUtilities implements StorageInterface {
     FirebaseApp.initializeApp(options);
   }
 
+  /**
+   * Retrieves data from firestore
+   * @param uid
+   * @param collection_id
+   * @return
+   * @throws InterruptedException
+   * @throws ExecutionException
+   * @throws IllegalArgumentException
+   */
   @Override
   public List<Map<String, Object>> getCollection(String uid, String collection_id)
       throws InterruptedException, ExecutionException, IllegalArgumentException {
@@ -62,6 +75,14 @@ public class FirebaseUtilities implements StorageInterface {
     return data;
   }
 
+  /**
+   * Adds document to firestore
+   * @param uid
+   * @param collection_id
+   * @param doc_id
+   * @param data
+   * @throws IllegalArgumentException
+   */
   @Override
   public void addDocument(String uid, String collection_id, String doc_id, Map<String, Object> data)
       throws IllegalArgumentException {
@@ -79,7 +100,10 @@ public class FirebaseUtilities implements StorageInterface {
     collectionRef.document(doc_id).set(data);
   }
 
-  // clears the collections inside of a specific user.
+  /**
+   *  clears the collections inside of a specific user.
+    */
+
   @Override
   public void clearUser(String uid) throws IllegalArgumentException {
     if (uid == null) {
@@ -98,6 +122,12 @@ public class FirebaseUtilities implements StorageInterface {
     }
   }
 
+  /**
+   * Deletes a word from firestore
+   * @param uid
+   * @param word
+   * @throws IllegalArgumentException
+   */
   @Override
   public void deleteWord(String uid, String word) throws IllegalArgumentException {
     if (uid == null) {
@@ -128,7 +158,10 @@ public class FirebaseUtilities implements StorageInterface {
     }
   }
 
-  // clears the collections inside of a specific user.
+  /**
+   * clears the collections inside of a specific user.
+    */
+
   @Override
   public void clearPins(String uid) throws IllegalArgumentException {
     if (uid == null) {
@@ -147,6 +180,10 @@ public class FirebaseUtilities implements StorageInterface {
     }
   }
 
+  /**
+   * Deletes a document from firestore
+   * @param doc
+   */
   private void deleteDocument(DocumentReference doc) {
     // for each subcollection, run deleteCollection()
     Iterable<CollectionReference> collections = doc.listCollections();
