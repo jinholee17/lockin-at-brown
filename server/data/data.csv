@@ -4,6 +4,12 @@ biomed basement,12 am - 7 am,Total Silence,Barely any traffic,8+ people,"Has an 
 blue room,7 am - 12 pm,Loud,Heavy Traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,medium
 bolt coffee,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,First floor,No,good
 bolt coffee,7 am - 12 pm,Loud,Moderate traffic,2-4 people,First floor,No,good
+brown center for students of color,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,medium
+brown center for students of color,4 pm - 8 pm,Conversational,Light traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,medium
+campus center ground floor piano room,4 pm - 8 pm,Conversational,Light traffic,4-8 people,Has an elevator,No,bad
+campus center lower level art gallery,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,Has an elevator,No,medium
+campus center overlook lounge,7 am - 12 pm,Quiet,Moderate traffic,1 person (Studying alone),Has an elevator,No,medium
+campus center young arcade,4 pm - 8 pm,Loud,Moderate traffic,1 person (Studying alone),Has an elevator,No,bad
 ceremony,7 am - 12 pm,Conversational,Heavy Traffic,2-4 people,First floor,No,good
 ceremony,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,First floor,No,good
 churchill house,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
@@ -56,7 +62,7 @@ sunlab cit,8 pm - 12 am,Conversational,Barely any traffic,4-8 people,First floor
 sydney cafe,7 am - 12 pm,Loud,Moderate traffic,2-4 people,First floor,No,good
 the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,good
 the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,good
-the hay,12 pm - 4 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby, Has an automatic door opener",No,good
+the hay ,12 pm - 4 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby, Has an automatic door opener",No,good
 underground cafe,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,medium
 underground cafe,4 pm - 8 pm,Conversational,Moderate traffic,1 person (Studying alone),Has an elevator,No,medium
 vartan gregorian quad A first floor conference rooms,12 pm - 4 pm,Conversational,Light traffic,8+ people,"First floor, Handicapped bathroom nearby",Yes,medium

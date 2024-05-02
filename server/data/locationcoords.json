@@ -183,6 +183,26 @@
       "longitude": -71.40313295083396,
       "yelpID": ""
     },{
+      "name": "campus center ground floor piano room",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396,
+      "yelpID": ""
+    },{
+      "name": "campus center lower level art gallery",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396,
+      "yelpID": ""
+    },{
+      "name": "campus center young arcade",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396,
+      "yelpID": ""
+    },{
+      "name": "campus center overlook lounge",
+      "latitude": 41.82691476258216,
+      "longitude": -71.40313295083396,
+      "yelpID": ""
+    },{
       "name": "blue room",
       "latitude": 41.82691476258216,
       "longitude": -71.40313295083396,
@@ -342,6 +362,12 @@
       "latitude": 41.8269827753792,
       "longitude": -71.40757588594575,
       "yelpID": "bolt-coffee-providence-3"
+    },
+    {
+      "name": "brown center for students of color",
+      "latitude": 41.82808834848988,
+      "longitude": -71.40356352275344,
+      "yelpID": ""
     }
   ]
 }
