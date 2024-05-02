@@ -14,10 +14,10 @@ interface searchProps {
   options: string[];
 }
 /**
- * Interface page that allows us to navigate and move between 
+ * Interface page that allows us to navigate and move between
  * various pages with good design
- * @param props 
- * @returns 
+ * @param props
+ * @returns
  */
 export default function Search(props: searchProps) {
   const [currPage, setCurrPage] = useState<String>(Page.FILTER);
@@ -30,6 +30,7 @@ export default function Search(props: searchProps) {
     useState<Map<string, number[]>>(initialCoords);
   const [locationTopDescriptions, setDescriptions] =
     useState<Map<string, string[]>>(initialDesc);
+  const [averageCoords, setAverageCoords] = useState<number[]>([]);
 
   return (
     <div>
@@ -50,6 +51,8 @@ export default function Search(props: searchProps) {
           setDescriptions={setDescriptions}
           setLocationCoords={setLocationCoords}
           userLoc={userLoc}
+          averageCoords={averageCoords}
+          setAverageCoords={setAverageCoords}
         />
       )}
       {currPage == Page.RESULT && (
@@ -57,6 +60,7 @@ export default function Search(props: searchProps) {
           locationTopDescriptions={locationTopDescriptions}
           locationCoords={locationCoords}
           setCurrPage={setCurrPage}
+          averageCoords={averageCoords}
         />
       )}
     </div>

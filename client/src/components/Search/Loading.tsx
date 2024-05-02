@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import "../../styles/loading.css";
 import Page from "../Search/Search";
 import img from "../../images/loading_bear.gif";
+import { locationCoords } from "../data/mock";
 /**
  * This focuses on the the loading page which is a temporary
  * buffer before we return the possible study spaces
@@ -14,6 +15,8 @@ interface pageProps {
   >;
   setDescriptions: React.Dispatch<React.SetStateAction<Map<string, string[]>>>;
   userLoc: Number[];
+  averageCoords: number[];
+  setAverageCoords: React.Dispatch<React.SetStateAction<number[]>>;
 }
 /**
  * Function that shows a little loading animation
@@ -99,6 +102,27 @@ export default function Loading(props: pageProps) {
       });
     props.setLocationCoords(coords);
     props.setDescriptions(descriptions);
+
+    function findCenterLatLon() {
+      let average_lat = 0;
+      let average_lon = 0;
+      const keys = Array.from(locationCoords.keys());
+      keys.forEach((key) => {
+        const numbers = locationCoords.get(key) ?? [];
+
+        average_lat += numbers[0];
+        average_lon += numbers[1];
+      });
+      average_lat = average_lat / keys.length;
+      average_lon = average_lon / keys.length;
+      console.log("mm" + average_lat);
+      console.log(average_lon);
+      let avg_coord_list: number[] = [];
+      avg_coord_list.push(average_lat);
+      avg_coord_list.push(average_lon);
+      props.setAverageCoords(avg_coord_list);
+    }
+    findCenterLatLon();
   }, []);
   // Return the JSX representing the filter UI and its interactions
   return (
