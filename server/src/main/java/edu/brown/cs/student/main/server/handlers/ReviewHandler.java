@@ -13,6 +13,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/** Handler that is responsible for dealing with review calls */
 public class ReviewHandler implements Route {
 
   private final ReviewDatasource reviewDatasource;
@@ -21,6 +22,13 @@ public class ReviewHandler implements Route {
     this.reviewDatasource = reviewDatasource;
   }
 
+  /**
+   * Invoked when a request is made on this route's corresponding path e.g. '/hello'
+   *
+   * @param request The request object providing information about the HTTP request
+   * @param response The response object providing functionality for modifying the response
+   * @return The content to be set in the response
+   */
   @Override
   public Object handle(Request request, Response response) {
 
@@ -42,11 +50,7 @@ public class ReviewHandler implements Route {
 
     try {
       if (request.queryParams("name") != null) {
-        // System.out.print(request.queryParams("locationId"));
-        // System.out.print(request.queryParams("accoundId"));
-        // TODO: call API
         String businessID = getID(request.queryParams("name"));
-        System.out.println("hi :" + businessID);
         double starRating = reviewDatasource.getReviews(businessID);
 
         // Serialize the output
@@ -63,6 +67,10 @@ public class ReviewHandler implements Route {
     }
   }
 
+  /**
+   * Helper method that deals with getting the yelp ID from out data source that is passed into the
+   * get review helper method implemented in datasource
+   */
   public String getID(String locationName) {
     String workingDirectory = System.getProperty("user.dir");
     String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
@@ -80,7 +88,6 @@ public class ReviewHandler implements Route {
     } catch (Exception e) {
       e.printStackTrace();
     }
-    System.err.println("Location name " + locationName + " not found in ID data");
     return null;
   }
 }

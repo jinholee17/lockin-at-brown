@@ -13,10 +13,14 @@ export enum Page {
 interface searchProps {
   options: string[];
 }
-
+/**
+ * Interface page that allows us to navigate and move between 
+ * various pages with good design
+ * @param props 
+ * @returns 
+ */
 export default function Search(props: searchProps) {
   const [currPage, setCurrPage] = useState<String>(Page.FILTER);
-  // const [query, setQuery] = useState<string>("");
   const [filters, setFilters] = useState<Set<string>>(new Set());
   const [userLoc, setUserLocation] = useState<Number[]>([]);
 

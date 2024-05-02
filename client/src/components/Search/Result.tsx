@@ -60,7 +60,7 @@ export default function Result(props: pageProps) {
   function setToFilterPage() {
     props.setCurrPage("filter");
   }
-
+  // Add hover functionality
   const [hoveredLocation, setHoveredLocation] = useState<string | null>(null);
   const [hoveredLocationRating, setLocationRating] = useState<number>(0);
 
@@ -131,17 +131,11 @@ export default function Result(props: pageProps) {
           ></img>
         );
       }
-      // } else {
-      //   // Display a blank star
-      //   starComponents.push(
-      //     <img src={nostar} className="star" aria-label="no-star" key={i}></img>
-      //   );
-      // }
     }
 
     return starComponents;
   };
-
+  // Return the JSX representing the filter UI and its interactions
   return (
     <div className="map">
       <h1 className="result" tabIndex={0}>
@@ -217,17 +211,3 @@ export default function Result(props: pageProps) {
   );
 }
 
-// {
-//   pins.map((pin, index) => {
-//     // Split the pin string into latitude and longitude
-//     const [lat, long] = pin.split(" ");
-//     const latitude = parseFloat(lat.split(":")[1]);
-//     const longitude = parseFloat(long.split(":")[1]);
-//     return (
-//       <Marker key={index} latitude={latitude} longitude={longitude}>
-//         {/* Marker content */}
-//         <div style={{ fontSize: 20 }}>📍</div>
-//       </Marker>
-//     );
-//   });
-// }

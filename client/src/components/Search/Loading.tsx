@@ -2,7 +2,10 @@ import { useState, useEffect } from "react";
 import "../../styles/loading.css";
 import Page from "../Search/Search";
 import img from "../../images/loading_bear.gif";
-
+/**
+ * This focuses on the the loading page which is a temporary
+ * buffer before we return the possible study spaces
+ */
 interface pageProps {
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
   filters: Set<string>;
@@ -12,7 +15,11 @@ interface pageProps {
   setDescriptions: React.Dispatch<React.SetStateAction<Map<string, string[]>>>;
   userLoc: Number[];
 }
-
+/**
+ * Function that shows a little loading animation
+ * @param props
+ * @returns
+ */
 export default function Loading(props: pageProps) {
   setTimeout(function () {
     props.setCurrPage("result");
@@ -24,10 +31,6 @@ export default function Loading(props: pageProps) {
 
     const url = new URL("http://localhost:3232/search-study");
     if (props.filters.size == 0) {
-      // console.log("over here");
-      // url.searchParams.append("volume", "Conversational");
-      // url.searchParams.append("traffic", "Moderate traffic");
-      // url.searchParams.append("capacity", "4-8 people");
     }
     props.filters.forEach((filter) => {
       console.log(filter);
@@ -69,7 +72,6 @@ export default function Loading(props: pageProps) {
         url.searchParams.append("lon", props.userLoc[1].toString());
       }
     });
-    console.log(url.pathname);
 
     const data_json = async () => {
       const response = await fetch(url);
@@ -99,7 +101,7 @@ export default function Loading(props: pageProps) {
     props.setLocationCoords(coords);
     props.setDescriptions(descriptions);
   }, []);
-
+  // Return the JSX representing the filter UI and its interactions
   return (
     <div className="load">
       <h1 tabIndex={0}> Searching ... </h1>

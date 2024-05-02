@@ -9,11 +9,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 
+/**
+ * Main class that retrieves data for the reviews Utilizes the yelp fusion API to retrieve star
+ * ratings of various study spots given the study spots yelp ID
+ */
 public class ReviewDatasource {
 
   private static final String API_KEY =
       "Gh5GhOIvNTND-kLWc3QsFMJXLcTBdbaJwZ2mofgThV7Rufb_T5ygzW9lywLzlxtDLrUXggOmYXF1C9wrUYurDrfUw3eZ2dgC0-LLLL01_mNBDVvHbZtADHFrtQQxZnYx";
 
+  /** Functiont that connects to the API and returns a double of the star rating */
   public double getReviews(String businessID) throws Exception {
     System.out.print(businessID);
     URL url = new URL("https://api.yelp.com/v3/businesses/" + businessID); // Entery URL
