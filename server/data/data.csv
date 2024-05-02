@@ -1,19 +1,64 @@
-new watson,8 pm - 12 am,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
-the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,Good
-the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,Good
-new watson,8 pm - 12 am,Quiet,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
-new watson,8 pm - 12 am,Quiet,Moderate traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Good
-rockefeller first floor cafe,7 am - 12 pm,Quiet,Light traffic,4-8 people,"First floor, Has an elevator, Has an automatic door opener",Yes,Medium
-sunlab cit,8 pm - 12 am,Conversational,Barely any traffic,4-8 people,First floor,Yes,Bad
-barus and holley 5th floor library,12 am - 7 am,Quiet,Barely any traffic,8+ people,"First floor, Has an elevator",Yes,Medium
-friedman 1st floor standing desks,7 am - 12 pm,Conversational,Light traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,Medium
-erc,12 pm - 4 pm,Conversational,Heavy Traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,Medium
-sci li,8 pm - 12 am,Conversational,Moderate traffic,8+ people,"First floor, Has an elevator, Has an automatic door opener",Yes,Bad
-sci li basement,8 pm - 12 am,Quiet,Heavy Traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",No,Bad
-orwig music library,8 pm - 12 am,Quiet,Barely any traffic,4-8 people,"First floor, Handicapped bathroom nearby",No,Medium
-sci li stacks,8 pm - 12 am,Quiet,Light traffic,8+ people,Has an elevator,No,Bad
-biomed basement,12 am - 7 am,Total Silence,Barely any traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",Yes,Bad
-rockefeller stacks,8 pm - 12 am,Total Silence,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,Bad
-rockefeller stacks,4 pm - 8 pm,Quiet,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,Bad
-underground,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,Medium
-erc lobby,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",No,Good
+american studies department,4 pm - 8 pm,Conversational,Light traffic,4-8 people,"First floor, Handicapped bathroom nearby",No,good
+barus and holley 5th floor library,12 am - 7 am,Quiet,Barely any traffic,8+ people,"First floor, Has an elevator",Yes,medium
+biomed basement,12 am - 7 am,Total Silence,Barely any traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",Yes,bad
+blue room,7 am - 12 pm,Loud,Heavy Traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,medium
+bolt coffee,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,First floor,No,good
+bolt coffee,7 am - 12 pm,Loud,Moderate traffic,2-4 people,First floor,No,good
+ceremony,7 am - 12 pm,Conversational,Heavy Traffic,2-4 people,First floor,No,good
+ceremony,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,First floor,No,good
+churchill house,12 pm - 4 pm,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+cit 3rd floor atrium,4 pm - 8 pm,Conversational,Moderate traffic,4-8 people,Has an elevator,Yes,medium
+cit 4th floor atrium,12 pm - 4 pm,Conversational,Light traffic,1 person (Studying alone),Has an elevator,Yes,medium
+cit conference rooms (4th and 5th floor),8 pm - 12 am,Total Silence,Light traffic,2-4 people,Has an elevator,Yes,bad
+cit library (4th floor),12 am - 7 am,Total Silence,Light traffic,8+ people,Has an elevator,Yes,bad
+cit lobby,12 am - 7 am,Conversational,Barely any traffic,4-8 people,"First floor, Has an elevator, Has an automatic door opener",Yes,bad
+coffee exchange,7 am - 12 pm,Loud,Moderate traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,good
+coffee exchange,12 pm - 4 pm,Loud,Heavy Traffic,1 person (Studying alone),First floor,No,good
+erc,12 pm - 4 pm,Conversational,Heavy Traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,good
+erc,12 pm - 4 pm,Loud,Heavy Traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",No,good
+erc,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"First floor, Has an automatic door opener",No,good
+fleet library,12 pm - 4 pm,Quiet,Moderate traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",No,good
+fleet library,12 pm - 4 pm,Quiet,Moderate traffic,2-4 people,"First floor, Handicapped bathroom nearby, Has an automatic door opener",No,good
+fleet library,4 pm - 8 pm,Quiet,Moderate traffic,1 person (Studying alone),"First floor, Handicapped bathroom nearby, Has an automatic door opener",No,good
+friedman 1st floor standing desks,7 am - 12 pm,Conversational,Light traffic,2-4 people,"First floor, Handicapped bathroom nearby",No,medium
+granoff,12 pm - 4 pm,Quiet,Light traffic,2-4 people,"Has an elevator, Handicapped bathroom nearby",No,good
+kim koo library in watson institute,4 pm - 8 pm,Total Silence,Barely any traffic,2-4 people,"Has an elevator, Handicapped bathroom nearby",No,good
+leung gallery,8 pm - 12 am,Quiet,Moderate traffic,2-4 people,"Has an elevator, Handicapped bathroom nearby",No,good
+leung gallery,12 am - 7 am,Total Silence,Barely any traffic,2-4 people,"Has an elevator, Handicapped bathroom nearby",No,good
+leung gallery,7 am - 12 pm,Quiet,Moderate traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,good
+metcalf research basement,4 pm - 8 pm,Quiet,Light traffic,2-4 people,Has an elevator,No,medium
+metcalf research conference rooms,4 pm - 8 pm,Total Silence,Light traffic,8+ people,"First floor, Has an elevator",Yes,bad
+nelson fitness center,4 pm - 8 pm,Conversational,Moderate traffic,2-4 people,"First floor, Has an automatic door opener",No,medium
+nelson fitness center,7 am - 12 pm,Conversational,Light traffic,1 person (Studying alone),"First floor, Has an automatic door opener",No,medium
+new watson,8 pm - 12 am,Conversational,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+new watson,8 pm - 12 am,Quiet,Moderate traffic,2-4 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+new watson,8 pm - 12 am,Quiet,Moderate traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+new watson,12 am - 7 am,Quiet,Light traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+nicholson house,4 pm - 8 pm,Conversational,Light traffic,4-8 people,"First floor, Handicapped bathroom nearby",No,good
+orwig music library,4 pm - 8 pm,Quiet,Barely any traffic,4-8 people,"First floor, Handicapped bathroom nearby",No,medium
+page robinson classrooms,8 pm - 12 am,Conversational,Barely any traffic,8+ people,Has an elevator,Yes,medium
+page robinson classrooms,12 am - 7 am,Conversational,Barely any traffic,8+ people,Has an elevator,Yes,medium
+page robinson first floor,7 am - 12 pm,Loud,Heavy Traffic,2-4 people,"First floor, Has an elevator, Has an automatic door opener",No,medium
+providence athenaeum,12 pm - 4 pm,Total Silence,Light traffic,1 person (Studying alone),Has an automatic door opener,No,good
+rhode island hall,12 pm - 4 pm,Total Silence,Light traffic,1 person (Studying alone),Handicapped bathroom nearby,No,good
+rockefeller absolute quiet room,4 pm - 8 pm,Total Silence,Light traffic,2-4 people,"Has an elevator, Handicapped bathroom nearby",No,medium
+rockefeller first floor cafe,7 am - 12 pm,Quiet,Light traffic,4-8 people,"First floor, Has an elevator, Has an automatic door opener",Yes,bad
+rockefeller stacks,8 pm - 12 am,Total Silence,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,bad
+rockefeller stacks,4 pm - 8 pm,Quiet,Barely any traffic,1 person (Studying alone),"Has an elevator, Handicapped bathroom nearby",No,bad
+sarah doyle center,8 pm - 12 am,Conversational,Light traffic,8+ people,First floor,No,medium
+sci li,8 pm - 12 am,Conversational,Moderate traffic,8+ people,"First floor, Has an elevator, Has an automatic door opener",Yes,bad
+sci li basement,8 pm - 12 am,Quiet,Heavy Traffic,8+ people,"Has an elevator, Handicapped bathroom nearby",No,bad
+sci li stacks,8 pm - 12 am,Quiet,Light traffic,8+ people,Has an elevator,No,bad
+smith buonanno,8 pm - 12 am,Quiet,Barely any traffic,2-4 people,Handicapped bathroom nearby,Yes,bad
+smith buonanno,12 am - 7 am,Conversational,Barely any traffic,4-8 people,Handicapped bathroom nearby,Yes,bad
+stonewall house,12 pm - 4 pm,Conversational,Light traffic,4-8 people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium
+sunlab cit,8 pm - 12 am,Conversational,Barely any traffic,4-8 people,First floor,Yes,bad
+sydney cafe,7 am - 12 pm,Loud,Moderate traffic,2-4 people,First floor,No,good
+the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,good
+the hay,4 pm - 8 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",No,good
+the hay ,12 pm - 4 pm,Total Silence,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby, Has an automatic door opener",No,good
+underground cafe,7 am - 12 pm,Conversational,Moderate traffic,2-4 people,"Has an elevator, Has an automatic door opener",No,medium
+underground cafe,4 pm - 8 pm,Conversational,Moderate traffic,1 person (Studying alone),Has an elevator,No,medium
+vartan gregorian quad A first floor conference rooms,12 pm - 4 pm,Conversational,Light traffic,8+ people,"First floor, Handicapped bathroom nearby",Yes,medium
+vartan gregorian quad A first floor conference rooms,4 pm - 8 pm,Conversational,Moderate traffic,8+ people,"First floor, Handicapped bathroom nearby",Yes,medium
+watson institute first floor classrooms,8 pm - 12 am,Conversational,Light traffic,8+ people,"First floor, Has an elevator, Handicapped bathroom nearby, Has an automatic door opener",Yes,medium

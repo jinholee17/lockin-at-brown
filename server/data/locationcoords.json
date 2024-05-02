@@ -22,6 +22,11 @@
       "latitude": 41.82574588988792,
       "longitude": -71.40505025952011,
       "yelpID": "john-d-rockefeller-jr-library-providence"
+    },{
+      "name": "rockefeller absolute quiet room",
+      "latitude": 41.82574588988792,
+      "longitude": -71.40505025952011,
+      "yelpID": "john-d-rockefeller-jr-library-providence"
     },
     {
       "name": "rockefeller library",
@@ -321,7 +326,22 @@
       "name": "sarah doyle center",
       "latitude": 41.82483370119673,
       "longitude": -71.40249962373206,
-      "yelpID": "sydney-providence-providence"
+      "yelpID": ""
+    },{
+      "name": "rhode island hall",
+      "latitude": 41.825510594586966,
+      "longitude": -71.40364962410351,
+      "yelpID": ""
+    },{
+      "name": "ceremony",
+      "latitude": 41.828943008912255,
+      "longitude": -71.39893366785117,
+      "yelpID": "ceremony-providence-3"
+    },{
+      "name": "bolt coffee",
+      "latitude": 41.8269827753792,
+      "longitude": -71.40757588594575,
+      "yelpID": "bolt-coffee-providence-3"
     }
   ]
 }
