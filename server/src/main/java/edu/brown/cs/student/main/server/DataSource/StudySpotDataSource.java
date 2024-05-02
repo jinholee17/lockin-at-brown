@@ -65,7 +65,7 @@ public class StudySpotDataSource {
       StudySpot s = this.parsed.get(i);
       double score = 0;
       if (volume != null && volume.equals(s.volume)) {
-        score += 1;
+        score += 1.5;
       }
       if (traffic != null && traffic.equals(s.traffic)) {
         score += 1;
@@ -104,7 +104,7 @@ public class StudySpotDataSource {
         score -= getClose(lon, lat, s.longitude, s.latitude);
       }
       if (s.time.equals(this.getTime())) {
-        score += 1;
+        score += 0.75;
       }
       //      if (score > maxScore) {
       //        maxScore = score;
@@ -118,7 +118,6 @@ public class StudySpotDataSource {
     for (Integer index : topThreeIndices) {
       topThreeSpots.add(this.parsed.get(index));
     }
-    //    System.out.println(maxScore);
     return topThreeSpots;
   }
 
@@ -150,7 +149,7 @@ public class StudySpotDataSource {
    * @return
    */
   public double getClose(Double mylon, Double mylat, Double lon, Double lat) {
-    return Math.abs(3 * (mylon - lon + (mylat - lat)));
+    return Math.abs(2 * (mylon - lon + (mylat - lat)));
   }
 
   public List<StudySpot> getParsed() {

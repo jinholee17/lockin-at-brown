@@ -97,7 +97,6 @@ export default function Loading(props: pageProps) {
       .catch((error) => {
         console.error("Error fetching or processing data:", error);
       });
-    console.log(coords);
     props.setLocationCoords(coords);
     props.setDescriptions(descriptions);
   }, []);

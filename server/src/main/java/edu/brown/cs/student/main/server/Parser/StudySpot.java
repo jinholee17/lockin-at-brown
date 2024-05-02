@@ -9,9 +9,9 @@ import java.util.List;
 public class StudySpot {
   public String name;
   public Time time;
-  public Volume volume;
-  public Traffic traffic;
-  public Capacity capacity;
+  public String volume;
+  public String traffic;
+  public String capacity;
   public boolean whiteboard;
   public int accessibility;
   public double longitude;
@@ -31,10 +31,13 @@ public class StudySpot {
       String aesthetic) {
     this.name = name;
     this.time = Time.convertTime(time);
-    this.volume = Volume.convertVolume(volume);
-    this.traffic = Traffic.convertTraffic(traffic);
+    this.volume = volume;
+//    this.volume = Volume.convertVolume(volume);
+    this.traffic = traffic;
+//    this.traffic = Traffic.convertTraffic(traffic);
     this.whiteboard = whiteboard.equals("Yes");
-    this.capacity = Capacity.convertCapacity(capacity);
+    this.capacity = capacity;
+//    this.capacity = Capacity.convertCapacity(capacity);
     this.accessibility = accessibility.size();
     this.longitude = longitude;
     this.latitude = latitude;

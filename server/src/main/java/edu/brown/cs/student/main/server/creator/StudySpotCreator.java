@@ -21,8 +21,6 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
     int rowLength = row.size();
     StudySpot studySpot;
     ArrayList<String> accessibility;
-    System.out.println(row);
-    System.out.println(row.size());
     switch (rowLength) {
       case 11:
         accessibility = new ArrayList<String>();
@@ -81,7 +79,7 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
       default:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
-        System.out.println(row);
+
         studySpot =
             new StudySpot(
                 row.get(0),
