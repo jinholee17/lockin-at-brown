@@ -14,7 +14,7 @@ interface searchProps {
 
 export default function Filter(props: searchProps) {
   let options: string[] = props.options;
-  const [filters, setFilters] = useState<Set<string>>(new Set());
+  // const [filters, setFilters] = useState<Set<string>>(new Set());
   const [filtersNA, setFiltersNA] = useState<string>("");
 
   function addFilter() {
@@ -22,9 +22,9 @@ export default function Filter(props: searchProps) {
     let input = document.getElementById("input-filter") as HTMLInputElement;
     let text = input.value;
     if (options.includes(text)) {
-      const newFilters = new Set(filters);
+      const newFilters = new Set(props.filters);
       newFilters.add(text);
-      setFilters(newFilters);
+      props.setFilters(newFilters);
       addWord(text);
     } else {
       setFiltersNA("Filter " + text + " Not Found!");
@@ -33,12 +33,12 @@ export default function Filter(props: searchProps) {
   }
 
   function deleteFilter(filter: string) {
-    if (filters.has(filter)) {
-      filters.delete(filter);
+    if (props.filters.has(filter)) {
+      props.filters.delete(filter);
 
-      const newFilters = new Set(filters);
+      const newFilters = new Set(props.filters);
       deleteWord(filter);
-      setFilters(newFilters);
+      props.setFilters(newFilters);
     }
   }
 
@@ -55,7 +55,7 @@ export default function Filter(props: searchProps) {
         i++;
       }
 
-      setFilters(newFilters);
+      props.setFilters(newFilters);
     });
   }, []);
 
@@ -111,7 +111,7 @@ export default function Filter(props: searchProps) {
       </div>
 
       <div className="added-filters">
-        {Array.from(filters).map((filter, index) => (
+        {Array.from(props.filters).map((filter, index) => (
           <button onClick={() => deleteFilter(filter)} key={index}>
             {filter} ❌
           </button>

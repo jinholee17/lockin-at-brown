@@ -30,6 +30,7 @@ export default function Loading(props: pageProps) {
       // url.searchParams.append("capacity", "4-8 people");
     }
     props.filters.forEach((filter) => {
+      console.log(filter);
       if (
         filter == "Total Silence" ||
         filter == "Quiet" ||
@@ -68,7 +69,7 @@ export default function Loading(props: pageProps) {
         url.searchParams.append("lon", props.userLoc[1].toString());
       }
     });
-    console.log(url);
+    console.log(url.pathname);
 
     const data_json = async () => {
       const response = await fetch(url);

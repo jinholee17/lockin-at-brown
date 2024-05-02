@@ -43,7 +43,7 @@ public class SearchStudyHandler implements Route {
 
       String checklon = request.queryParams("lon");
       String checkLat = request.queryParams("lat");
-
+      System.out.println(vol + tra + cap + acc + whi + aes + checklon + checkLat);
       Volume volume = null;
       Traffic traffic = null;
       Capacity capacity = null;
@@ -94,7 +94,6 @@ public class SearchStudyHandler implements Route {
 
         allSpots.put(studySpots.get(i).name, result);
       }
-      System.out.println(allSpots);
 
       responseMap.put("Result", allSpots);
     } catch (Exception e) {

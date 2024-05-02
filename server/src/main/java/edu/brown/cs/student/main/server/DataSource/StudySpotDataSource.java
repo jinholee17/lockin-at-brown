@@ -107,7 +107,7 @@ public class StudySpotDataSource {
       indices.add(i);
     }
     indices.sort(Comparator.comparingDouble(scores::get));
-    List<Integer> topThreeIndices = indices.subList(0, 3);
+    List<Integer> topThreeIndices = indices.subList(Math.max(0, indices.size() - 3), indices.size());
     for (Integer index : topThreeIndices) {
       topThreeSpots.add(this.parsed.get(index));
     }
