@@ -49,17 +49,17 @@ public class SearchStudyHandler implements Route {
       Double lon = null;
       Double lat = null;
 
-      if (vol != null) {
-        volume = Volume.convertVolume(vol);
-      }
+//      if (vol != null) {
+//        volume = Volume.convertVolume(vol);
+//      }
 
-      if (tra != null) {
-        traffic = Traffic.convertTraffic(tra);
-      }
+//      if (tra != null) {
+//        traffic = Traffic.convertTraffic(tra);
+//      }
 
-      if (cap != null) {
-        capacity = Capacity.convertCapacity(cap);
-      }
+//      if (cap != null) {
+//        capacity = Capacity.convertCapacity(cap);
+//      }
 
       if (checklon != null) {
         lon = Double.parseDouble(request.queryParams("lon"));
@@ -69,7 +69,7 @@ public class SearchStudyHandler implements Route {
       }
 
       List<StudySpot> studySpots =
-          this.studySpotDataSource.match(volume, traffic, capacity, lon, lat, acc, whi, aes);
+          this.studySpotDataSource.match(vol, tra, cap, lon, lat, acc, whi, aes);
 
       Map<String, List<String>> allSpots = new HashMap<>();
 

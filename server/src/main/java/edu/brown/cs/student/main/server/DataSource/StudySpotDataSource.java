@@ -46,9 +46,9 @@ public class StudySpotDataSource {
    * @return
    */
   public List<StudySpot> match(
-      Volume volume,
-      Traffic traffic,
-      Capacity capacity,
+      String volume,
+      String traffic,
+      String capacity,
       Double lon,
       Double lat,
       String accessible,
@@ -65,7 +65,16 @@ public class StudySpotDataSource {
       StudySpot s = this.parsed.get(i);
       double score = 0;
       if (volume != null && volume.equals(s.volume)) {
-        score += 1.5;
+        if (volume.equals(s.volume)){
+          score += 1.5;
+        }
+        if ((volume.equals("Quiet") || volume.equals("Total Silence") &&
+            (s.volume.equals("Conversational") || s.volume.equals("Loud"))) ||
+            (volume.equals("Conversational") || volume.equals("Loud") &&
+                (s.volume.equals("Quiet") || s.volume.equals("Total Silence")))){
+            score -= 1;
+        }
+
       }
       if (traffic != null && traffic.equals(s.traffic)) {
         score += 1;
