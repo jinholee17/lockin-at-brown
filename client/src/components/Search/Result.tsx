@@ -33,13 +33,14 @@ interface pageProps {
   setCurrPage: React.Dispatch<React.SetStateAction<String>>;
   locationTopDescriptions: Map<string, string[]>;
   locationCoords: Map<string, number[]>;
+  averageCoords: number[];
 }
 
 const ProvidenceLatLong: LatLong = {
   lat: 41.8268,
   long: -71.4025,
 };
-const initialZoom = 16;
+const initialZoom = 15;
 
 /**
  * Main function that handles all the map box logic
@@ -49,9 +50,10 @@ const initialZoom = 16;
  */
 export default function Result(props: pageProps) {
   // zoom and move around for map
+  console.log("hi " + props.averageCoords[0]);
   const [viewState, setViewState] = useState({
-    latitude: ProvidenceLatLong.lat,
-    longitude: ProvidenceLatLong.long,
+    latitude: props.averageCoords[0],
+    longitude: props.averageCoords[1],
     pitch: 50,
     bearing: 0,
     zoom: initialZoom,
@@ -210,4 +212,3 @@ export default function Result(props: pageProps) {
     </div>
   );
 }
-
