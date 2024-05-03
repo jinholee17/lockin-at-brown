@@ -40,7 +40,7 @@ const ProvidenceLatLong: LatLong = {
   lat: 41.8268,
   long: -71.4025,
 };
-const initialZoom = 16;
+const initialZoom = 15;
 
 /**
  * Main function that handles all the map box logic

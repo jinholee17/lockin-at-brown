@@ -32,6 +32,7 @@ export default function Loading(props: pageProps) {
     const coords = new Map<string, number[]>();
     const descriptions = new Map<string, string[]>();
 
+    //creates the fetch for matching study spots based on user filters
     const url = new URL("http://localhost:3232/search-study");
     if (props.filters.size == 0) {
     }
@@ -76,6 +77,7 @@ export default function Loading(props: pageProps) {
       }
     });
 
+    // calls the backend to get the top 3 rooms
     const data_json = async () => {
       const response = await fetch(url);
       return response.json();
@@ -103,6 +105,7 @@ export default function Loading(props: pageProps) {
     props.setLocationCoords(coords);
     props.setDescriptions(descriptions);
 
+    // sets the average of the 3 coordinates, to readjust the map window
     function findCenterLatLon() {
       let average_lat = 0;
       let average_lon = 0;
@@ -116,7 +119,7 @@ export default function Loading(props: pageProps) {
       average_lat = average_lat / keys.length;
       average_lon = average_lon / keys.length;
       console.log("mm" + average_lat);
-      console.log(average_lon);
+      console.log("nn" + average_lon);
       let avg_coord_list: number[] = [];
       avg_coord_list.push(average_lat);
       avg_coord_list.push(average_lon);
