@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import edu.brown.cs.student.main.server.DataSource.Location;
 import edu.brown.cs.student.main.server.DataSource.LocationData;
 import edu.brown.cs.student.main.server.Parser.StudySpot;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -11,8 +12,16 @@ import java.util.List;
 
 public class StudySpotCreator implements CreatorFromRow<StudySpot> {
   List<List<String>> rows;
+  LocationData locationData;
 
-  public StudySpotCreator() {
+
+  public StudySpotCreator() throws FileNotFoundException {
+    String workingDirectory = System.getProperty("user.dir");
+    String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
+    FileReader reader = new FileReader(path);
+    // Parse JSON data into a custom class or map
+    Gson gson = new Gson();
+    this.locationData = gson.fromJson(reader, LocationData.class);
     this.rows = new ArrayList<List<String>>();
   }
 
@@ -108,23 +117,17 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
    * @return
    */
   public Location getCoords(String locationName) {
-    String workingDirectory = System.getProperty("user.dir");
-    String path = Paths.get(workingDirectory, "data", "locationcoords.json").toString();
-    try (FileReader reader = new FileReader(path)) {
-      // Parse JSON data into a custom class or map
-      Gson gson = new Gson();
-      LocationData locationData = gson.fromJson(reader, LocationData.class);
 
       // Search for a location by name
-      for (Location location : locationData.getLocations()) {
+      for (Location location : this.locationData.getLocations()) {
         if (location.getName().equals(locationName)) {
           return location;
         }
       }
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
     System.err.println("Location name " + locationName + " not found in coordinates data");
     return null;
+  }
+  public LocationData getLocationData(){
+    return this.locationData;
   }
 }

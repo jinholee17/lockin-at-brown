@@ -50,7 +50,7 @@ export default function Loading(props: pageProps) {
         filter == "Barely any traffic" ||
         filter == "Light traffic" ||
         filter == "Moderate traffic" ||
-        filter == "Heavy traffic"
+        filter == "Heavy Traffic"
       ) {
         url.searchParams.append("traffic", filter);
       }

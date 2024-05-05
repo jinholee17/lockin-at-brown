@@ -42,7 +42,7 @@ function App() {
     "Barely any traffic",
     "Light traffic",
     "Moderate traffic",
-    "Heavy traffic",
+    "Heavy Traffic",
     "Aesthetic",
     "Not Aesthetic",
     "Accessible",
