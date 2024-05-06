@@ -19,6 +19,11 @@ public class StudySpotParser<T> {
   static final Pattern regexSplitCSVRow =
       Pattern.compile(",(?=([^\\\"]*\\\"[^\\\"]*\\\")*(?![^\\\"]*\\\"))");
 
+  /**
+   * Constructor for the StudySpotParser
+   * @param reader BufferedReader for reading the CSV file
+   * @param toCreate Creator object for StudySpot
+   */
   public StudySpotParser(Reader reader, CreatorFromRow<T> toCreate) {
     this.reader = new BufferedReader(reader);
     this.toCreate = toCreate;

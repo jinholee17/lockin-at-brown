@@ -64,8 +64,6 @@ public class StudySpotDataSource {
       String whiteboard,
       String aes) {
 
-    int maxIndex = 0;
-    double maxScore = 0;
     List<Double> scores = new ArrayList<>();
     List<Integer> indices = new ArrayList<>();
     List<StudySpot> topThreeSpots = new ArrayList<>();
@@ -124,10 +122,6 @@ public class StudySpotDataSource {
       if (s.time.equals(this.getTime())) {
         score += 0.75;
       }
-      //      if (score > maxScore) {
-      //        maxScore = score;
-      //        maxIndex = i;
-      //      }
       scores.add(score);
       indices.add(i);
     }
@@ -176,7 +170,7 @@ public class StudySpotDataSource {
 
   /**
    * Getter method for parsed
-   * @return
+   * @return List of StudySpots
    */
   public List<StudySpot> getParsed() {
     return this.parsed;

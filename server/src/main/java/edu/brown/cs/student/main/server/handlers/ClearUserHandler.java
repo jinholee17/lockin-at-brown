@@ -7,9 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/**
- * clear words for user
- */
+/** Handler that is responsible for clearing the user's words (preferences) and information */
 public class ClearUserHandler implements Route {
 
   public StorageInterface storageHandler;

@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
-/** Provided in gear up */
+/** Provided in gear up, for storing information */
 public interface StorageInterface {
 
   void addDocument(String uid, String collection_id, String doc_id, Map<String, Object> data);

@@ -8,6 +8,10 @@ import java.util.List;
 public class LocationData {
   private List<Location> locations;
 
+  /**
+   * Returns the list of locations
+   * @return the list of location data
+   */
   public List<Location> getLocations() {
     return this.locations;
   }

@@ -39,15 +39,11 @@ public class ReviewHandler implements Route {
     JsonAdapter<Map<String, String>> adapterError =
         moshiError.adapter(Types.newParameterizedType(Map.class, String.class, String.class));
 
-    // Serialize successfull output
+    // Serializes successful output
     JsonAdapter<Map<String, Object>> adapterResponse =
         moshi.adapter(Types.newParameterizedType(Map.class, String.class, Object.class));
 
     Map<String, Object> responseMap = new HashMap<>();
-
-    // return false;
-    // return Utils.toMoshiJson(responseMap);
-
     try {
       if (request.queryParams("name") != null) {
         String businessID = getID(request.queryParams("name"));

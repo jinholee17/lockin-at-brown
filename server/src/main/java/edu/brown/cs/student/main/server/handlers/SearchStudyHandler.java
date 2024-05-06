@@ -18,7 +18,7 @@ import spark.Response;
 import spark.Route;
 
 /**
- * Class which handles the endpoint for returning top 3 study spots
+ *  Handler that is responsible for returning top 3 study spots based on the user's inquiry
  */
 public class SearchStudyHandler implements Route {
   private final StudySpotDataSource studySpotDataSource;
@@ -51,26 +51,12 @@ public class SearchStudyHandler implements Route {
       String acc = request.queryParams("accessible");
       String whi = request.queryParams("whiteboard");
       String aes = request.queryParams("aesthetics");
-
+      // user's location longitude and latitude
       String checklon = request.queryParams("lon");
       String checkLat = request.queryParams("lat");
-      Volume volume = null;
-      Traffic traffic = null;
-      Capacity capacity = null;
+
       Double lon = null;
       Double lat = null;
-
-//      if (vol != null) {
-//        volume = Volume.convertVolume(vol);
-//      }
-
-//      if (tra != null) {
-//        traffic = Traffic.convertTraffic(tra);
-//      }
-
-//      if (cap != null) {
-//        capacity = Capacity.convertCapacity(cap);
-//      }
 
       if (checklon != null) {
         lon = Double.parseDouble(request.queryParams("lon"));
@@ -79,13 +65,13 @@ public class SearchStudyHandler implements Route {
         lat = Double.parseDouble(request.queryParams("lat"));
       }
 
+      // Stores returned top 3 study spots
       List<StudySpot> studySpots =
           this.studySpotDataSource.match(vol, tra, cap, lon, lat, acc, whi, aes);
 
       Map<String, List<String>> allSpots = new HashMap<>();
 
       for (int i = 0; i < studySpots.size(); i++) {
-
         List<String> descriptions = new ArrayList<>();
         descriptions.add(studySpots.get(i).volume.toString().toLowerCase());
         descriptions.add(studySpots.get(i).capacity.toString().toLowerCase());
@@ -105,16 +91,13 @@ public class SearchStudyHandler implements Route {
 
         allSpots.put(studySpots.get(i).name, result);
       }
-
       responseMap.put("Result", allSpots);
     } catch (Exception e) {
-      // error likely occurred in the storage handler
       e.printStackTrace();
       responseMap.put("Response Type", "Failure");
       responseMap.put("error", e.getMessage());
     }
     // Returns filtered data
-    //    responseMap.put("Response Type", "Success");
     return Utils.toMoshiJson(responseMap);
   }
 }

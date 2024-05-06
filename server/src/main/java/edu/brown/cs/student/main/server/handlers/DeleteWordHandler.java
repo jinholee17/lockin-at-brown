@@ -7,6 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/** Handler that is responsible for deleting the user's words (preferences) */
 public class DeleteWordHandler implements Route {
 
   public StorageInterface storageHandler;

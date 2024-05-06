@@ -21,21 +21,33 @@ public class Location {
   }
 
   /**
-   * getter methods for all the location fields
-   * @return
+   * Returns name of the location
+   * @return name of the location
    */
   public String getName() {
     return this.name;
   }
 
+  /**
+   * Returns the longitude of the location
+   * @return Longitude of the location
+   */
   public double getLongitude() {
     return this.longitude;
   }
 
+  /**
+   * Returns the latitude of the location
+   * @return Latitude of the location
+   */
   public double getLatitude() {
     return this.latitude;
   }
 
+  /**
+   * Returns the YelpID of the location
+   * @return YelpID for the location
+   */
   public String getYelpID() {
     return this.yelpID;
   }

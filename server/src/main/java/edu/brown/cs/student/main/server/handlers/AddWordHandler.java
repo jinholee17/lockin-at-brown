@@ -7,6 +7,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
+/** Handler that is responsible for storing the user's words */
 public class AddWordHandler implements Route {
   public StorageInterface storageHandler;
 

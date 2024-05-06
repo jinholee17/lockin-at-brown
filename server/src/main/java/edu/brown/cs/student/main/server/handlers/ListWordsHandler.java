@@ -8,7 +8,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/** list words for user */
+/** Handler that is responsible for storing list of words from users (preferences) */
 public class ListWordsHandler implements Route {
 
   public StorageInterface storageHandler;

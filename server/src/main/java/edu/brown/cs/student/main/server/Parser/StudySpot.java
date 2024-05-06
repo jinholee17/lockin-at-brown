@@ -7,7 +7,7 @@ import edu.brown.cs.student.main.server.enums.Volume;
 import java.util.List;
 
 /**
- * Class that represents a study spot
+ * Class that represents a study spot.
  */
 public class StudySpot {
   public String name;
@@ -21,6 +21,19 @@ public class StudySpot {
   public double latitude;
   public String aesthetic;
 
+  /**
+   * Constructor for StudySpot
+   * @param name name of the StudySpot
+   * @param time time the StudySpot information was recorded
+   * @param volume volume at the StudySpot
+   * @param traffic traffic at the StudySpot
+   * @param capacity group capacity for the StudySpot
+   * @param accessibility accessibility features at the StudySpot
+   * @param whiteboard whiteboard presence at the StudySpot
+   * @param longitude longitude of the StudySpot
+   * @param latitude latitude of the StudySpot
+   * @param aesthetic aesthetic value at the StudySpot
+   */
   public StudySpot(
       String name,
       String time,
@@ -35,12 +48,9 @@ public class StudySpot {
     this.name = name;
     this.time = Time.convertTime(time);
     this.volume = volume;
-//    this.volume = Volume.convertVolume(volume);
     this.traffic = traffic;
-//    this.traffic = Traffic.convertTraffic(traffic);
     this.whiteboard = whiteboard.equals("Yes");
     this.capacity = capacity;
-//    this.capacity = Capacity.convertCapacity(capacity);
     this.accessibility = accessibility.size();
     this.longitude = longitude;
     this.latitude = latitude;
