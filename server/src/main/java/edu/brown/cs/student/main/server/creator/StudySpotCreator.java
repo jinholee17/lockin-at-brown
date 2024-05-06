@@ -10,16 +10,15 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Creator class for StudySpots that implements the CreatorFromRow interface
- */
+/** Creator class for StudySpots that implements the CreatorFromRow interface */
 public class StudySpotCreator implements CreatorFromRow<StudySpot> {
   List<List<String>> rows;
   LocationData locationData;
 
   /**
-   * This is the constructor of the StudySpotCreator, which initializes the locationData
-   * and initializes the List of List of String representing the rows
+   * This is the constructor of the StudySpotCreator, which initializes the locationData and
+   * initializes the List of List of String representing the rows
+   *
    * @throws FileNotFoundException
    */
   public StudySpotCreator() throws FileNotFoundException {
@@ -34,6 +33,7 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
 
   /**
    * Creates a study spot, based off the parsing of a list of strings
+   *
    * @param row
    * @return
    */
@@ -43,7 +43,7 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
     StudySpot studySpot;
     ArrayList<String> accessibility;
     switch (rowLength) {
-      // Case differs for how many accessibility features a StudySpot has
+        // Case differs for how many accessibility features a StudySpot has
       case 11:
         accessibility = new ArrayList<String>();
         accessibility.add(row.get(5));
@@ -119,26 +119,28 @@ public class StudySpotCreator implements CreatorFromRow<StudySpot> {
 
   /**
    * Returns a Location object with coordinates of that location stored
+   *
    * @param locationName Name of the location
    * @return Returns the location object
    */
   public Location getCoords(String locationName) {
 
-      // Search for a location by name
-      for (Location location : this.locationData.getLocations()) {
-        if (location.getName().equals(locationName)) {
-          return location;
-        }
+    // Search for a location by name
+    for (Location location : this.locationData.getLocations()) {
+      if (location.getName().equals(locationName)) {
+        return location;
       }
+    }
     System.err.println("Location name " + locationName + " not found in coordinates data");
     return null;
   }
 
   /**
    * Returns the entire locationData
+   *
    * @return locationData
    */
-  public LocationData getLocationData(){
+  public LocationData getLocationData() {
     return this.locationData;
   }
 }

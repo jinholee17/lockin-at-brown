@@ -1,8 +1,6 @@
 package edu.brown.cs.student.main.server.enums;
 
-/**
- * Enum class responsible for representing time that data is applicable for a study spot
- */
+/** Enum class responsible for representing time that data is applicable for a study spot */
 public enum Time {
   MORNING,
   EARLY_AFTERNOON,
@@ -13,6 +11,7 @@ public enum Time {
 
   /**
    * Method that converts a string value from CSV file to the ENUM
+   *
    * @param time
    * @return
    */

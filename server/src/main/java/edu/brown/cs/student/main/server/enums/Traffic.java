@@ -1,8 +1,6 @@
 package edu.brown.cs.student.main.server.enums;
 
-/**
- * Enum class responsible for representing traffic at a study spot
- */
+/** Enum class responsible for representing traffic at a study spot */
 public enum Traffic {
   BARELY,
   LIGHT,
@@ -11,6 +9,7 @@ public enum Traffic {
 
   /**
    * Method that converts a string value from CSV file to the ENUM
+   *
    * @param traffic
    * @return
    */

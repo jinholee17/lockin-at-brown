@@ -5,9 +5,6 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 import edu.brown.cs.student.main.server.DataSource.StudySpotDataSource;
 import edu.brown.cs.student.main.server.Parser.StudySpot;
-import edu.brown.cs.student.main.server.enums.Capacity;
-import edu.brown.cs.student.main.server.enums.Traffic;
-import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,9 +14,7 @@ import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/**
- *  Handler that is responsible for returning top 3 study spots based on the user's inquiry
- */
+/** Handler that is responsible for returning top 3 study spots based on the user's inquiry */
 public class SearchStudyHandler implements Route {
   private final StudySpotDataSource studySpotDataSource;
 
@@ -28,8 +23,9 @@ public class SearchStudyHandler implements Route {
   }
 
   /**
-   * Given parameters: volume, traffic, capacity, accessible, whiteboard,aesthetics,lon,lat
-   * Returns 3 study spots
+   * Given parameters: volume, traffic, capacity, accessible, whiteboard,aesthetics,lon,lat Returns
+   * 3 study spots
+   *
    * @param request
    * @param response
    * @return

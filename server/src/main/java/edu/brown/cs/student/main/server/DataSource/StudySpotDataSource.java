@@ -4,10 +4,7 @@ import edu.brown.cs.student.main.server.Parser.StudySpot;
 import edu.brown.cs.student.main.server.Parser.StudySpotParser;
 import edu.brown.cs.student.main.server.creator.CreatorFromRow;
 import edu.brown.cs.student.main.server.creator.StudySpotCreator;
-import edu.brown.cs.student.main.server.enums.Capacity;
 import edu.brown.cs.student.main.server.enums.Time;
-import edu.brown.cs.student.main.server.enums.Traffic;
-import edu.brown.cs.student.main.server.enums.Volume;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -22,6 +19,7 @@ public class StudySpotDataSource {
 
   /**
    * Class which creates the top 3 study spots based off of desired fields
+   *
    * @throws IOException
    */
   public StudySpotDataSource() throws IOException {
@@ -32,6 +30,7 @@ public class StudySpotDataSource {
 
   /**
    * Parses a csv file into a list of study spots
+   *
    * @param path
    * @throws IOException
    */
@@ -72,16 +71,17 @@ public class StudySpotDataSource {
       StudySpot s = this.parsed.get(i);
       double score = 0;
       if (volume != null && volume.equals(s.volume)) {
-        if (volume.equals(s.volume)){
+        if (volume.equals(s.volume)) {
           score += 1.5;
         }
-        if ((volume.equals("Quiet") || volume.equals("Total Silence") &&
-            (s.volume.equals("Conversational") || s.volume.equals("Loud"))) ||
-            (volume.equals("Conversational") || volume.equals("Loud") &&
-                (s.volume.equals("Quiet") || s.volume.equals("Total Silence")))){
-            score -= 1;
+        if ((volume.equals("Quiet")
+                || volume.equals("Total Silence")
+                    && (s.volume.equals("Conversational") || s.volume.equals("Loud")))
+            || (volume.equals("Conversational")
+                || volume.equals("Loud")
+                    && (s.volume.equals("Quiet") || s.volume.equals("Total Silence")))) {
+          score -= 1;
         }
-
       }
       if (traffic != null && traffic.equals(s.traffic)) {
         score += 1;
@@ -90,15 +90,14 @@ public class StudySpotDataSource {
         score += 1;
       }
       if (aes != null) {
-        if(aes.equals("yes"))
-        {
-          if(s.aesthetic.equals("good")){
+        if (aes.equals("yes")) {
+          if (s.aesthetic.equals("good")) {
             score += 1;
           }
-          if(s.aesthetic.equals("medium")){
+          if (s.aesthetic.equals("medium")) {
             score += 0.5;
           }
-          if(s.aesthetic.equals("bad")){
+          if (s.aesthetic.equals("bad")) {
             score -= 1;
           }
         }
@@ -126,7 +125,8 @@ public class StudySpotDataSource {
       indices.add(i);
     }
     indices.sort(Comparator.comparingDouble(scores::get));
-    List<Integer> topThreeIndices = indices.subList(Math.max(0, indices.size() - 3), indices.size());
+    List<Integer> topThreeIndices =
+        indices.subList(Math.max(0, indices.size() - 3), indices.size());
     for (Integer index : topThreeIndices) {
       topThreeSpots.add(this.parsed.get(index));
     }
@@ -135,6 +135,7 @@ public class StudySpotDataSource {
 
   /**
    * Returns the current time, in the form of a time enum
+   *
    * @return
    */
   public Time getTime() {
@@ -170,6 +171,7 @@ public class StudySpotDataSource {
 
   /**
    * Getter method for parsed
+   *
    * @return List of StudySpots
    */
   public List<StudySpot> getParsed() {

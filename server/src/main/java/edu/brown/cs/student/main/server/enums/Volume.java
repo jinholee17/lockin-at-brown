@@ -1,8 +1,6 @@
 package edu.brown.cs.student.main.server.enums;
 
-/**
- * Enum class responsible for representing volume at a study spot
- */
+/** Enum class responsible for representing volume at a study spot */
 public enum Volume {
   TOTAL_SILENCE,
   QUIET,
@@ -11,6 +9,7 @@ public enum Volume {
 
   /**
    * Method that converts a string value from CSV file to the ENUM
+   *
    * @param volume
    * @return
    */

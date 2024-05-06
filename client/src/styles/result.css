@@ -35,17 +35,23 @@
   border-radius: 4px;
   border-color: #502a13;
   background-color: #ffe8c7;
+  /* max-height: 150px;
+  max-width: 200px; */
   padding: 2em 2em;
 }
 
 .Popup > h3 {
   color: #502a13;
   text-align: center;
+  /* max-height: 150px;
+  max-width: 200px; */
   font-size: 20px;
 }
 
 .Popup > ul {
   font-size: 14px;
+  /* max-height: 150px;
+  max-width: 200px; */
 }
 
 .star {
