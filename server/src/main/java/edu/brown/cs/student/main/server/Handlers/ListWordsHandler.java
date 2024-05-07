@@ -1,16 +1,19 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class AddWordHandler implements Route {
+/** Handler that is responsible for storing list of words from users (preferences) */
+public class ListWordsHandler implements Route {
+
   public StorageInterface storageHandler;
 
-  public AddWordHandler(StorageInterface storageHandler) {
+  public ListWordsHandler(StorageInterface storageHandler) {
     this.storageHandler = storageHandler;
   }
 
@@ -25,18 +28,15 @@ public class AddWordHandler implements Route {
   public Object handle(Request request, Response response) {
     Map<String, Object> responseMap = new HashMap<>();
     try {
-      // collect parameters from the request
       String uid = request.queryParams("uid");
-      String word = request.queryParams("word");
 
-      Map<String, Object> data = new HashMap<>();
-      data.put("word", word);
+      // get all the words for the user
+      List<Map<String, Object>> vals = this.storageHandler.getCollection(uid, "words");
 
-      // use the storage handler to add the document to the database
-      this.storageHandler.addDocument(uid, "words", word, data);
-
+      // convert the key,value map to just a list of the words.
+      List<String> words = vals.stream().map(word -> word.get("word").toString()).toList();
       responseMap.put("response_type", "success");
-      responseMap.put("word", word);
+      responseMap.put("words", words);
     } catch (Exception e) {
       // error likely occurred in the storage handler
       e.printStackTrace();

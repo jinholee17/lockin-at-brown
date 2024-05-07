@@ -1,17 +1,17 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
-public class DeleteWordHandler implements Route {
-
+/** Handler that is responsible for storing the user's words */
+public class AddWordHandler implements Route {
   public StorageInterface storageHandler;
 
-  public DeleteWordHandler(StorageInterface storageHandler) {
+  public AddWordHandler(StorageInterface storageHandler) {
     this.storageHandler = storageHandler;
   }
 
@@ -34,7 +34,7 @@ public class DeleteWordHandler implements Route {
       data.put("word", word);
 
       // use the storage handler to add the document to the database
-      this.storageHandler.deleteWord(uid, word);
+      this.storageHandler.addDocument(uid, "words", word, data);
 
       responseMap.put("response_type", "success");
       responseMap.put("word", word);

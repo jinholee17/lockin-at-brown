@@ -1,6 +1,6 @@
 package edu.brown.cs.student.main.server.Parser;
 
-import edu.brown.cs.student.main.server.creator.CreatorFromRow;
+import edu.brown.cs.student.main.server.Creator.CreatorFromRow;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 
 /**
  * Class that parses a study spot
+ *
  * @param <T>
  */
 public class StudySpotParser<T> {
@@ -19,14 +20,21 @@ public class StudySpotParser<T> {
   static final Pattern regexSplitCSVRow =
       Pattern.compile(",(?=([^\\\"]*\\\"[^\\\"]*\\\")*(?![^\\\"]*\\\"))");
 
+  /**
+   * Constructor for the StudySpotParser
+   *
+   * @param reader BufferedReader for reading the CSV file
+   * @param toCreate Creator object for StudySpot
+   */
   public StudySpotParser(Reader reader, CreatorFromRow<T> toCreate) {
     this.reader = new BufferedReader(reader);
     this.toCreate = toCreate;
   }
 
   /**
-   * Given a file which is read into the buffered reader, this parses it into
-   * a list of a generic object
+   * Given a file which is read into the buffered reader, this parses it into a list of a generic
+   * object
+   *
    * @return
    * @throws IOException
    */
@@ -44,6 +52,7 @@ public class StudySpotParser<T> {
 
   /**
    * Removes whitespaces and quotes from a string
+   *
    * @param arg
    * @return
    */

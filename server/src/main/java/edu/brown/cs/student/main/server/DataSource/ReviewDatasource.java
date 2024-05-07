@@ -14,11 +14,10 @@ import java.util.Map;
  * ratings of various study spots given the study spots yelp ID
  */
 public class ReviewDatasource {
-
   private static final String API_KEY =
       "Gh5GhOIvNTND-kLWc3QsFMJXLcTBdbaJwZ2mofgThV7Rufb_T5ygzW9lywLzlxtDLrUXggOmYXF1C9wrUYurDrfUw3eZ2dgC0-LLLL01_mNBDVvHbZtADHFrtQQxZnYx";
 
-  /** Functiont that connects to the API and returns a double of the star rating */
+  /** Function that connects to the API and returns a double of the star rating */
   public double getReviews(String businessID) throws Exception {
     URL url = new URL("https://api.yelp.com/v3/businesses/" + businessID); // Entery URL
     HttpURLConnection connection = (HttpURLConnection) url.openConnection();

@@ -83,7 +83,6 @@ export default function Result(props: pageProps) {
         console.error("Error fetching data:", error);
       }
     };
-
     fetchData();
   };
 

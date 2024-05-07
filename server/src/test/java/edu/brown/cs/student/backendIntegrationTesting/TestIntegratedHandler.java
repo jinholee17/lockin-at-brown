@@ -8,14 +8,14 @@ import com.squareup.moshi.Moshi;
 import com.squareup.moshi.Types;
 import edu.brown.cs.student.main.server.DataSource.ReviewDatasource;
 import edu.brown.cs.student.main.server.DataSource.StudySpotDataSource;
-import edu.brown.cs.student.main.server.handlers.AddWordHandler;
-import edu.brown.cs.student.main.server.handlers.ClearUserHandler;
-import edu.brown.cs.student.main.server.handlers.DeleteWordHandler;
-import edu.brown.cs.student.main.server.handlers.ListWordsHandler;
-import edu.brown.cs.student.main.server.handlers.ReviewHandler;
-import edu.brown.cs.student.main.server.handlers.SearchStudyHandler;
-import edu.brown.cs.student.main.server.storage.FirebaseUtilities;
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Handlers.AddWordHandler;
+import edu.brown.cs.student.main.server.Handlers.ClearUserHandler;
+import edu.brown.cs.student.main.server.Handlers.DeleteWordHandler;
+import edu.brown.cs.student.main.server.Handlers.ListWordsHandler;
+import edu.brown.cs.student.main.server.Handlers.ReviewHandler;
+import edu.brown.cs.student.main.server.Handlers.SearchStudyHandler;
+import edu.brown.cs.student.main.server.Storage.FirebaseUtilities;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
@@ -36,8 +36,7 @@ public class TestIntegratedHandler {
   /** Set up all variables and servers before running integration test */
   static StorageInterface firebaseUtils;
 
-  public TestIntegratedHandler() throws IOException {
-  }
+  public TestIntegratedHandler() throws IOException {}
 
   @BeforeAll
   public static void setup_before_everything() throws IOException {
@@ -61,8 +60,7 @@ public class TestIntegratedHandler {
     this.mapAdapter =
         moshi.adapter(Types.newParameterizedType(Map.class, String.class, String.class));
     Type type = Types.newParameterizedType(Map.class, String.class, Object.class);
-    this.mapListAdapter =
-        moshi.adapter(type);
+    this.mapListAdapter = moshi.adapter(type);
     this.stringAdapter = moshi.adapter(Types.newParameterizedType(List.class, String.class));
 
     Moshi moshi2 = new Moshi.Builder().build();
@@ -166,8 +164,7 @@ public class TestIntegratedHandler {
   }
 
   /**
-   * Testing clear user server handler functions correctly. Simultaneously tests list of words as
-   we
+   * Testing clear user server handler functions correctly. Simultaneously tests list of words as we
    * use that to test the clear functionality is correct
    *
    * @throws IOException
@@ -215,7 +212,9 @@ public class TestIntegratedHandler {
     clientConnection1.disconnect();
 
     // A search with all parameters is valid
-    HttpURLConnection clientConnection2 = tryRequest("search-study?volume=Quiet&traffic=Barely%20any%20traffic&capacity=4-8+%20people&lon=41.830254266330954&lat=-71.40281532445142");
+    HttpURLConnection clientConnection2 =
+        tryRequest(
+            "search-study?volume=Quiet&traffic=Barely%20any%20traffic&capacity=4-8+%20people&lon=41.830254266330954&lat=-71.40281532445142");
     assertEquals(200, clientConnection2.getResponseCode());
     // Expected response
     Map<String, Object> response2 =
