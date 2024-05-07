@@ -34,30 +34,32 @@ test.beforeEach(
  * you put before parts of your test that might take time to run,
  * like any interaction with the page.
  */
-test("on page load, I see the gearup screen and skip auth.", async ({
+test("on page load, I see the filter screen and skip auth.", async ({
   page,
 }) => {
   // Notice: http, not https! Our front-end is not set up for HTTPs.
   await page.goto("http://localhost:8000/");
-  await expect(page.getByLabel("Gearup Title")).toBeVisible();
+  await expect(page.getByLabel("lockin @ brown title")).toBeVisible();
   // <i> with aria-label favorite-words-header should include the SPOOF_UID
-  await expect(page.getByLabel("user-header")).toContainText(SPOOF_UID);
+  await expect(page.getByLabel("Lock in search button")).toContainText(
+    "Enter filters in the input space below and use the add button to add the filter:"
+  );
 });
 
-test("I can add a word to my favorites list", async ({ page }) => {
-  await page.goto("http://localhost:8000/");
-  // - get the <p> elements inside the <ul> with aria-label="favorite-words"
-  const favoriteWords = await page.getByLabel("favorite-words");
-  await expect(favoriteWords).not.toContainText("hello");
+// test("I can add a word to my favorites list", async ({ page }) => {
+//   await page.goto("http://localhost:8000/");
+//   // - get the <p> elements inside the <ul> with aria-label="favorite-words"
+//   const favoriteWords = await page.getByLabel("favorite-words");
+//   await expect(favoriteWords).not.toContainText("hello");
 
-  await page.getByLabel("word-input").fill("hello");
-  await page.getByLabel("add-word-button").click();
+//   await page.getByLabel("word-input").fill("hello");
+//   await page.getByLabel("add-word-button").click();
 
-  const favoriteWordsAfter = await page.getByLabel("favorite-words");
-  await expect(favoriteWordsAfter).toContainText("hello");
+//   const favoriteWordsAfter = await page.getByLabel("favorite-words");
+//   await expect(favoriteWordsAfter).toContainText("hello");
 
-  // .. and this works on refresh
-  await page.reload();
-  const favoriteWordsAfterReload = await page.getByLabel("favorite-words");
-  await expect(favoriteWordsAfterReload).toContainText("hello");
-});
+//   // .. and this works on refresh
+//   await page.reload();
+//   const favoriteWordsAfterReload = await page.getByLabel("favorite-words");
+//   await expect(favoriteWordsAfterReload).toContainText("hello");
+// });
