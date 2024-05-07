@@ -1,6 +1,6 @@
 package edu.brown.cs.student.main.server.Parser;
 
-import edu.brown.cs.student.main.server.creator.CreatorFromRow;
+import edu.brown.cs.student.main.server.Creator.CreatorFromRow;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.Reader;

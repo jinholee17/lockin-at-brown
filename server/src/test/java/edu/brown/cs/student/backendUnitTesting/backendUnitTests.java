@@ -3,11 +3,11 @@ package edu.brown.cs.student.backendUnitTesting;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import edu.brown.cs.student.main.server.Creator.StudySpotCreator;
 import edu.brown.cs.student.main.server.DataSource.Location;
 import edu.brown.cs.student.main.server.DataSource.StudySpotDataSource;
+import edu.brown.cs.student.main.server.Enums.Time;
 import edu.brown.cs.student.main.server.Parser.StudySpot;
-import edu.brown.cs.student.main.server.creator.StudySpotCreator;
-import edu.brown.cs.student.main.server.enums.Time;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Paths;

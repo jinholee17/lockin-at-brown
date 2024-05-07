@@ -1,10 +1,10 @@
 package edu.brown.cs.student.main.server.DataSource;
 
+import edu.brown.cs.student.main.server.Creator.CreatorFromRow;
+import edu.brown.cs.student.main.server.Creator.StudySpotCreator;
+import edu.brown.cs.student.main.server.Enums.Time;
 import edu.brown.cs.student.main.server.Parser.StudySpot;
 import edu.brown.cs.student.main.server.Parser.StudySpotParser;
-import edu.brown.cs.student.main.server.creator.CreatorFromRow;
-import edu.brown.cs.student.main.server.creator.StudySpotCreator;
-import edu.brown.cs.student.main.server.enums.Time;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Paths;

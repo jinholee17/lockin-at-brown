@@ -1,19 +1,18 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/** Handler that is responsible for storing list of words from users (preferences) */
-public class ListWordsHandler implements Route {
+/** Handler that is responsible for deleting the user's words (preferences) */
+public class DeleteWordHandler implements Route {
 
   public StorageInterface storageHandler;
 
-  public ListWordsHandler(StorageInterface storageHandler) {
+  public DeleteWordHandler(StorageInterface storageHandler) {
     this.storageHandler = storageHandler;
   }
 
@@ -28,15 +27,18 @@ public class ListWordsHandler implements Route {
   public Object handle(Request request, Response response) {
     Map<String, Object> responseMap = new HashMap<>();
     try {
+      // collect parameters from the request
       String uid = request.queryParams("uid");
+      String word = request.queryParams("word");
 
-      // get all the words for the user
-      List<Map<String, Object>> vals = this.storageHandler.getCollection(uid, "words");
+      Map<String, Object> data = new HashMap<>();
+      data.put("word", word);
 
-      // convert the key,value map to just a list of the words.
-      List<String> words = vals.stream().map(word -> word.get("word").toString()).toList();
+      // use the storage handler to add the document to the database
+      this.storageHandler.deleteWord(uid, word);
+
       responseMap.put("response_type", "success");
-      responseMap.put("words", words);
+      responseMap.put("word", word);
     } catch (Exception e) {
       // error likely occurred in the storage handler
       e.printStackTrace();

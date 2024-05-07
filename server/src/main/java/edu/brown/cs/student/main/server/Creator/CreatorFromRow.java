@@ -1,4 +1,4 @@
-package edu.brown.cs.student.main.server.creator;
+package edu.brown.cs.student.main.server.Creator;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package edu.brown.cs.student.main.server.enums;
+package edu.brown.cs.student.main.server.Enums;
 
 /** Enum class responsible for representing the group capacity for a study spot */
 public enum Capacity {

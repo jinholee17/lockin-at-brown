@@ -3,9 +3,9 @@ package edu.brown.cs.student.main.server;
 import static spark.Spark.after;
 
 import edu.brown.cs.student.main.server.DataSource.*;
-import edu.brown.cs.student.main.server.handlers.*;
-import edu.brown.cs.student.main.server.storage.FirebaseUtilities;
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Handlers.*;
+import edu.brown.cs.student.main.server.Storage.FirebaseUtilities;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.io.IOException;
 import spark.Filter;
 import spark.Spark;

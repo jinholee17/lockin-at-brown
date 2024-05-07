@@ -1,4 +1,4 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
 import com.squareup.moshi.JsonAdapter;
 import com.squareup.moshi.Moshi;
@@ -67,26 +67,8 @@ public class SearchStudyHandler implements Route {
 
       Map<String, List<String>> allSpots = new HashMap<>();
 
-      for (int i = 0; i < studySpots.size(); i++) {
-        List<String> descriptions = new ArrayList<>();
-        descriptions.add(studySpots.get(i).volume.toString().toLowerCase());
-        descriptions.add(studySpots.get(i).capacity.toString().toLowerCase());
-        descriptions.add(studySpots.get(i).traffic.toString().toLowerCase());
+      this.matchDescription(studySpots, allSpots);
 
-        String descriptString = descriptions.toString();
-
-        List<Double> coordinates = new ArrayList<>();
-        coordinates.add(studySpots.get(i).longitude);
-        coordinates.add(studySpots.get(i).latitude);
-        String coordsString = coordinates.toString();
-
-        List<String> result = new ArrayList<>();
-
-        result.add(descriptString);
-        result.add(coordsString);
-
-        allSpots.put(studySpots.get(i).name, result);
-      }
       responseMap.put("Result", allSpots);
     } catch (Exception e) {
       e.printStackTrace();
@@ -95,5 +77,28 @@ public class SearchStudyHandler implements Route {
     }
     // Returns filtered data
     return Utils.toMoshiJson(responseMap);
+  }
+
+  private void matchDescription(List<StudySpot> studySpots, Map<String, List<String>> allSpots) {
+    for (int i = 0; i < studySpots.size(); i++) {
+      List<String> descriptions = new ArrayList<>();
+      descriptions.add(studySpots.get(i).volume.toString().toLowerCase());
+      descriptions.add(studySpots.get(i).capacity.toString().toLowerCase());
+      descriptions.add(studySpots.get(i).traffic.toString().toLowerCase());
+
+      String descriptString = descriptions.toString();
+
+      List<Double> coordinates = new ArrayList<>();
+      coordinates.add(studySpots.get(i).longitude);
+      coordinates.add(studySpots.get(i).latitude);
+      String coordsString = coordinates.toString();
+
+      List<String> result = new ArrayList<>();
+
+      result.add(descriptString);
+      result.add(coordsString);
+
+      allSpots.put(studySpots.get(i).name, result);
+    }
   }
 }

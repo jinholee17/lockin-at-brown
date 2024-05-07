@@ -1,18 +1,18 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
-import edu.brown.cs.student.main.server.storage.StorageInterface;
+import edu.brown.cs.student.main.server.Storage.StorageInterface;
 import java.util.HashMap;
 import java.util.Map;
 import spark.Request;
 import spark.Response;
 import spark.Route;
 
-/** Handler that is responsible for deleting the user's words (preferences) */
-public class DeleteWordHandler implements Route {
+/** Handler that is responsible for clearing the user's words (preferences) and information */
+public class ClearUserHandler implements Route {
 
   public StorageInterface storageHandler;
 
-  public DeleteWordHandler(StorageInterface storageHandler) {
+  public ClearUserHandler(StorageInterface storageHandler) {
     this.storageHandler = storageHandler;
   }
 
@@ -27,18 +27,12 @@ public class DeleteWordHandler implements Route {
   public Object handle(Request request, Response response) {
     Map<String, Object> responseMap = new HashMap<>();
     try {
-      // collect parameters from the request
       String uid = request.queryParams("uid");
-      String word = request.queryParams("word");
 
-      Map<String, Object> data = new HashMap<>();
-      data.put("word", word);
-
-      // use the storage handler to add the document to the database
-      this.storageHandler.deleteWord(uid, word);
+      // Remove the user from the database
+      this.storageHandler.clearUser(uid);
 
       responseMap.put("response_type", "success");
-      responseMap.put("word", word);
     } catch (Exception e) {
       // error likely occurred in the storage handler
       e.printStackTrace();

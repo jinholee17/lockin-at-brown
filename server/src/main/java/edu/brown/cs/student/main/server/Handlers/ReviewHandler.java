@@ -1,4 +1,4 @@
-package edu.brown.cs.student.main.server.handlers;
+package edu.brown.cs.student.main.server.Handlers;
 
 import com.google.gson.Gson;
 import com.squareup.moshi.JsonAdapter;

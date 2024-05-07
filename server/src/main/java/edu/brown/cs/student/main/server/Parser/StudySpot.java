@@ -1,6 +1,6 @@
 package edu.brown.cs.student.main.server.Parser;
 
-import edu.brown.cs.student.main.server.enums.Time;
+import edu.brown.cs.student.main.server.Enums.Time;
 import java.util.List;
 
 /** Class that represents a study spot. */
