@@ -81,6 +81,7 @@ public class SearchStudyHandler implements Route {
 
   /**
    * Helper method that gets the descriptions of the matched studySpots
+   *
    * @param studySpots List that stores the best three matches
    * @param allSpots List of descriptions for each match
    */

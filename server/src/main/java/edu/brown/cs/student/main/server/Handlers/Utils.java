@@ -10,6 +10,7 @@ import java.util.Map;
 public class Utils {
   /**
    * Serializes Map through Moshi Library
+   *
    * @param map Map that stores the response
    * @return Serialized JSON
    */
