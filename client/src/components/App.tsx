@@ -46,7 +46,7 @@ function App() {
     "Aesthetic",
     "Not Aesthetic",
     "Accessible",
-    "Has Whiteboard/TV",
+    "Has Whiteboard or TV",
     "1 person (Studying alone)",
     "2-4 people",
     "4-8 people",

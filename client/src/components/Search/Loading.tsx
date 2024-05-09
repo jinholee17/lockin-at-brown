@@ -65,7 +65,7 @@ export default function Loading(props: pageProps) {
       if (filter == "Accessible") {
         url.searchParams.append("accessible", "yes");
       }
-      if (filter == "Has Whiteboard/TV") {
+      if (filter == "Has Whiteboard or TV") {
         url.searchParams.append("whiteboard", "yes");
       }
       if (filter == "Aesthetic") {
