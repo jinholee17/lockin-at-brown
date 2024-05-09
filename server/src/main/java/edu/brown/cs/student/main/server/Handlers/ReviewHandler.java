@@ -31,7 +31,6 @@ public class ReviewHandler implements Route {
    */
   @Override
   public Object handle(Request request, Response response) {
-
     // Serialize the error message to a JSON string
     Moshi moshi = new Moshi.Builder().build();
     Map<String, String> errorJson = new HashMap<>();

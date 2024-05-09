@@ -8,12 +8,16 @@ import java.util.Map;
 
 /** Utility class providing methods for JSON serialization using Moshi library. */
 public class Utils {
-
+  /**
+   * Serializes Map through Moshi Library
+   *
+   * @param map Map that stores the response
+   * @return Serialized JSON
+   */
   public static String toMoshiJson(Map<String, Object> map) {
     Moshi moshi = new Moshi.Builder().build();
     Type mapStringObject = Types.newParameterizedType(Map.class, String.class, Object.class);
     JsonAdapter<Map<String, Object>> adapter = moshi.adapter(mapStringObject);
-
     return adapter.toJson(map);
   }
 }

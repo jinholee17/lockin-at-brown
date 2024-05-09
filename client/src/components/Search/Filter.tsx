@@ -69,7 +69,6 @@ export default function Filter(props: searchProps) {
   function setToLoadPage() {
     props.setCurrPage("load");
   }
-
   if ("geolocation" in navigator) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
