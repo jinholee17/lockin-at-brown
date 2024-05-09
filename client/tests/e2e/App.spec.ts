@@ -11,22 +11,11 @@ import { clearUser } from "../../src/utils/api";
 
 const SPOOF_UID = "mock-user-id";
 
-test.beforeEach(
-  "add spoof uid cookie to browser",
-  async ({ context, page }) => {
-    // - Add "uid" cookie to the browser context
-    await context.addCookies([
-      {
-        name: "uid",
-        value: SPOOF_UID,
-        url: "http://localhost:8000",
-      },
-    ]);
 
-    // wipe everything for this spoofed UID in the database.
-    await clearUser(SPOOF_UID);
-  }
-);
+test.beforeEach(async ({ page }) => {
+  await page.goto("http://localhost:8000/");
+
+});
 
 /**
  * Don't worry about the "async" yet. We'll cover it in more detail
@@ -38,12 +27,16 @@ test("on page load, I see the filter screen and skip auth.", async ({
   page,
 }) => {
   // Notice: http, not https! Our front-end is not set up for HTTPs.
-  await page.goto("http://localhost:8000/");
-  await expect(page.getByLabel("lockin @ brown title")).toBeVisible();
-  // <i> with aria-label favorite-words-header should include the SPOOF_UID
-  await expect(page.getByLabel("Lock in search button")).toContainText(
-    "Enter filters in the input space below and use the add button to add the filter:"
-  );
+  // await page.goto("http://localhost:8000/");
+  
+  await page.getByLabel("input-field").click();
+  await page.getByLabel("input field").fill("Quiet");
+  await page.keyboard.press("Enter");
+  await page.getByLabel("input field").click();
+  await page.getByLabel("input field").fill("Aesthetic");
+  await page.keyboard.press("Enter");
+  await page.getByLabel("Lock in search button").click();
+  await expect(page.getByLabel("map with search results")).toBeVisible();
 });
 
 // test("I can add a word to my favorites list", async ({ page }) => {
