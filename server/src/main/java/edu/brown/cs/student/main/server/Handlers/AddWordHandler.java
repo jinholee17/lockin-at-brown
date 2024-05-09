@@ -29,7 +29,6 @@ public class AddWordHandler implements Route {
       // collect parameters from the request
       String uid = request.queryParams("uid");
       String word = request.queryParams("word");
-
       Map<String, Object> data = new HashMap<>();
       data.put("word", word);
 
@@ -44,7 +43,6 @@ public class AddWordHandler implements Route {
       responseMap.put("response_type", "failure");
       responseMap.put("error", e.getMessage());
     }
-
     return Utils.toMoshiJson(responseMap);
   }
 }

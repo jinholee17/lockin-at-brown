@@ -43,7 +43,6 @@ public class ListWordsHandler implements Route {
       responseMap.put("response_type", "failure");
       responseMap.put("error", e.getMessage());
     }
-
     return Utils.toMoshiJson(responseMap);
   }
 }

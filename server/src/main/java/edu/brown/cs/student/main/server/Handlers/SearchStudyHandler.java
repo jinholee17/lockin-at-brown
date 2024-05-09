@@ -79,6 +79,11 @@ public class SearchStudyHandler implements Route {
     return Utils.toMoshiJson(responseMap);
   }
 
+  /**
+   * Helper method that gets the descriptions of the matched studySpots
+   * @param studySpots List that stores the best three matches
+   * @param allSpots List of descriptions for each match
+   */
   private void matchDescription(List<StudySpot> studySpots, Map<String, List<String>> allSpots) {
     for (int i = 0; i < studySpots.size(); i++) {
       List<String> descriptions = new ArrayList<>();
