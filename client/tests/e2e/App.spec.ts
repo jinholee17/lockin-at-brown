@@ -25,6 +25,7 @@ test.beforeEach(
 
     // wipe everything for this spoofed UID in the database.
     await clearUser(SPOOF_UID);
+    await page.goto("http://localhost:8000/");
   }
 );
 
@@ -34,17 +35,16 @@ test.beforeEach(
  * you put before parts of your test that might take time to run,
  * like any interaction with the page.
  */
-// test("on page load, I see the filter screen and skip auth.", async ({
-//   page,
-// }) => {
-//   // Notice: http, not https! Our front-end is not set up for HTTPs.
-//   await page.goto("http://localhost:8000/");
-//   await expect(page.getByLabel("lockin @ brown title")).toBeVisible();
-//   // <i> with aria-label favorite-words-header should include the SPOOF_UID
-//   await expect(page.getByLabel("Lock in search button")).toContainText(
-//     "Enter filters in the input space below and use the add button to add the filter:"
-//   );
-// });
+test("on page load, I see the filter screen and skip auth.", async ({
+  page,
+}) => {
+  // Notice: http, not https! Our front-end is not set up for HTTPs
+  await expect(page.getByLabel("lockin @ brown title")).toBeVisible();
+  // <i> with aria-label favorite-words-header should include the SPOOF_UID
+  await expect(page.getByLabel("Lock in search button")).toContainText(
+    "Enter filters in the input space below and use the add button to add the filter:"
+  );
+});
 
 test("Click around & delete filters on frontend test", async ({ page }) => {
   await page.getByPlaceholder("Quiet").click();
