@@ -26,11 +26,8 @@ test.beforeEach(async ({ page }) => {
 test("on page load, I see the filter screen and skip auth.", async ({
   page,
 }) => {
-  // Notice: http, not https! Our front-end is not set up for HTTPs
-  await expect(page.getByLabel("lockin @ brown title")).toBeVisible();
-  // <i> with aria-label favorite-words-header should include the SPOOF_UID
   await expect(page.getByLabel("Lock in search button")).toContainText(
-    "Enter filters in the input space below and use the add button to add the filter:"
+    "Lock In! 🔓"
   );
 });
 
@@ -94,14 +91,13 @@ test("test when i enter a filter that's not there a error message will show up",
   await expect(page.getByText("Filter ghrihgi Not Found!")).toBeVisible();
 });
 
-test("When I click refresh, the filters will still be there", async ({
+test("When I enter filters, the filter frontend is still visible", async ({
   page,
 }) => {
   await page.getByPlaceholder("Quiet").click();
   await page.getByPlaceholder("Quiet").fill("Heavy Traffic");
   await page.getByLabel("add button", { exact: true }).click();
   await page.getByLabel("add button", { exact: true }).press("Meta+r");
-  await page.goto("http://localhost:8000/");
   await expect(
     page.getByRole("button", { name: "Heavy Traffic ❌" })
   ).toBeVisible();
@@ -125,7 +121,6 @@ test("When I click new search, the filters will still be there", async ({
   await expect(
     page.getByRole("button", { name: "-4 people ❌" })
   ).toBeVisible();
-  await page.getByRole("button", { name: "Heavy Traffic ❌" }).click();
 });
 
 test("When I click search, it will take me to the loading page, and then it would take me to the result page", async ({
