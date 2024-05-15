@@ -159,11 +159,11 @@ public class StudySpotDataSource {
    * be a weight in the algorithm. If a place is close by, it will return < 0.01. If a place is far,
    * it will return > 0.4
    *
-   * @param mylon
-   * @param mylat
-   * @param lon
-   * @param lat
-   * @return
+   * @param mylon User's longitude
+   * @param mylat User's latitude
+   * @param lon Spot's longitude
+   * @param lat Spot's latitude
+   * @return double representing score
    */
   public double getClose(Double mylon, Double mylat, Double lon, Double lat) {
     return Math.abs(2 * (mylon - lon + (mylat - lat)));
