@@ -166,7 +166,7 @@ export default function Result(props: pageProps) {
                   onMouseEnter={() => handleMouseEnter(key)}
                   onMouseLeave={handleMouseLeave}
                   style={{ fontSize: 24 }}
-                  aria-lable="a pin"
+                  aria-label="a pin"
                   aria-description="hover over the pin for the pop up on the description of this location"
                 >
                   📍
